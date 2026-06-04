@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YACUSOL – Termas Solares | Huaraz, Ancash, Perú</title>
+<meta name="description" content="YACUSOL: Termas solares de alta eficiencia en Huaraz, Ancash. Acero Inoxidable 316, garantía 5 años, 6 modelos desde 120 hasta 400 litros. ENERGÉTICOS – Servicios del Sector Eléctrico.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --naranja:#E8620A;--naranja-oscuro:#b84d08;--azul:#1A4D8F;--azul-oscuro:#0d2f5c;
+  --dorado:#F5A623;--blanco:#FFFFFF;--crema:#FBF8F3;--gris-suave:#F0EDE8;
+  --texto:#1a1a1a;--texto-suave:#5a5a5a;--rojo-patria:#D52B1E;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;font-weight:300;color:var(--texto);background:var(--crema);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* ── BANNER FIESTAS PATRIAS ── */
+.fp-banner{
+  background:linear-gradient(90deg,#8B0000 0%,#D52B1E 25%,#FFFFFF 45%,#FFFFFF 55%,#D52B1E 75%,#8B0000 100%);
+  padding:0;position:relative;overflow:hidden;
+  border-bottom:3px solid var(--dorado);
+}
+.fp-inner{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  padding:18px 5%;
+  background:rgba(13,47,92,0.88);
+}
+.fp-flag{font-size:22px;flex-shrink:0}
+.fp-text{flex:1;text-align:center}
+.fp-title{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,3vw,26px);
+  color:#fff;letter-spacing:2px;line-height:1;
+}
+.fp-title span{color:var(--dorado)}
+.fp-sub{font-size:12px;color:rgba(255,255,255,0.85);margin-top:4px;letter-spacing:0.5px}
+.fp-sub strong{color:var(--dorado)}
+.fp-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--dorado);color:#0d2f5c;
+  font-weight:700;font-size:12px;padding:10px 20px;border-radius:4px;
+  white-space:nowrap;transition:all 0.2s;letter-spacing:0.5px;
+  flex-shrink:0;
+}
+.fp-cta:hover{background:#fff;color:var(--azul-oscuro)}
+.fp-countdown{
+  display:flex;gap:12px;align-items:center;flex-shrink:0;
+}
+.fp-count-item{text-align:center}
+.fp-count-num{
+  font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--dorado);line-height:1;
+}
+.fp-count-label{font-size:9px;color:rgba(255,255,255,0.6);letter-spacing:1px;text-transform:uppercase}
+.fp-sep{font-family:'Bebas Neue',sans-serif;font-size:24px;color:rgba(255,255,255,0.3)}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;height:60px;
+  background:rgba(10,25,55,0.97);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(232,98,10,0.3);
+}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-mark{
+  width:34px;height:34px;background:var(--naranja);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:17px;color:#fff;flex-shrink:0;
+}
+.nav-logo-text{font-family:'Bebas Neue',sans-serif;font-size:21px;color:#fff;letter-spacing:2px}
+.nav-logo-sub{font-size:9px;color:var(--dorado);letter-spacing:2px;text-transform:uppercase;line-height:1;margin-top:1px}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:11px;font-weight:400;color:rgba(255,255,255,0.75);letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--naranja)}
+.nav-cta{background:var(--naranja);color:#fff!important;padding:7px 18px;border-radius:4px;font-weight:600!important;transition:background 0.2s!important}
+.nav-cta:hover{background:var(--naranja-oscuro)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:24px;height:2px;background:#fff;border-radius:2px}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(160deg,var(--azul-oscuro) 0%,#0a1932 50%,#1a1500 100%);
+  position:relative;display:flex;align-items:center;overflow:hidden;
+  padding-top:60px;
+}
+.hero-bg-sun{
+  position:absolute;top:-120px;right:-120px;width:600px;height:600px;
+  background:radial-gradient(circle,rgba(245,166,35,0.25) 0%,rgba(232,98,10,0.12) 40%,transparent 70%);
+  border-radius:50%;animation:pulse-sun 4s ease-in-out infinite;
+}
+@keyframes pulse-sun{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.08);opacity:0.8}}
+.hero-stripe-left{position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--rojo-patria)}
+.hero-stripe-right{position:absolute;right:0;top:0;bottom:0;width:6px;background:var(--rojo-patria)}
+.hero-content{position:relative;z-index:2;padding:80px 5% 100px;max-width:680px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(232,98,10,0.2);border:1px solid rgba(232,98,10,0.5);
+  border-radius:20px;padding:6px 16px;
+  font-size:11px;font-weight:600;color:var(--dorado);
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:28px;
+  animation:fade-up 0.6s ease both;
+}
+.hero-badge-dot{width:6px;height:6px;background:var(--naranja);border-radius:50%;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(72px,11vw,120px);line-height:0.9;
+  color:#fff;letter-spacing:0.02em;margin-bottom:8px;
+  animation:fade-up 0.6s 0.1s ease both;
+}
+.hero-title span{color:var(--naranja)}
+.hero-subtitle-serif{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(17px,2.5vw,24px);color:rgba(255,255,255,0.6);
+  font-style:italic;margin-bottom:24px;
+  animation:fade-up 0.6s 0.2s ease both;
+}
+.hero-desc{
+  font-size:15px;font-weight:300;color:rgba(255,255,255,0.72);
+  line-height:1.85;max-width:520px;margin-bottom:40px;
+  animation:fade-up 0.6s 0.3s ease both;
+}
+.hero-desc strong{color:var(--dorado);font-weight:600}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;animation:fade-up 0.6s 0.4s ease both}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--naranja);color:#fff;font-weight:600;font-size:14px;
+  padding:14px 28px;border-radius:4px;letter-spacing:0.5px;
+  transition:all 0.25s;border:2px solid var(--naranja);
+}
+.btn-primary:hover{background:var(--naranja-oscuro);border-color:var(--naranja-oscuro);transform:translateY(-2px)}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:transparent;color:#fff;font-weight:400;font-size:14px;
+  padding:14px 28px;border-radius:4px;
+  border:1.5px solid rgba(255,255,255,0.35);letter-spacing:0.5px;transition:all 0.25s;
+}
+.btn-secondary:hover{border-color:#fff;background:rgba(255,255,255,0.08)}
+.hero-stats{
+  position:absolute;bottom:36px;left:5%;
+  display:flex;gap:40px;animation:fade-up 0.6s 0.5s ease both;
+}
+.hero-stat-num{font-family:'Bebas Neue',sans-serif;font-size:36px;line-height:1;color:var(--naranja)}
+.hero-stat-label{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+.hero-image-side{
+  position:absolute;right:0;bottom:0;top:60px;width:44%;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.solar-diagram{width:300px;height:300px;opacity:0.9;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* ── MARCA PROPIA ── */
+.marca-section{
+  background:#fff;padding:80px 5%;
+  border-top:4px solid var(--naranja);
+}
+.marca-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:center}
+.marca-timeline{position:relative;padding-left:36px}
+.marca-timeline::before{
+  content:'';position:absolute;left:10px;top:0;bottom:0;
+  width:2px;background:linear-gradient(180deg,var(--naranja),var(--azul));
+}
+.marca-step{position:relative;margin-bottom:40px}
+.marca-step:last-child{margin-bottom:0}
+.marca-dot{
+  position:absolute;left:-32px;top:4px;
+  width:14px;height:14px;border-radius:50%;
+  background:var(--naranja);border:2px solid #fff;
+  box-shadow:0 0 0 3px rgba(232,98,10,0.25);
+}
+.marca-dot.azul{background:var(--azul);box-shadow:0 0 0 3px rgba(26,77,143,0.25)}
+.marca-step-tag{font-size:10px;font-weight:600;color:var(--naranja);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.marca-step-tag.azul{color:var(--azul)}
+.marca-step-title{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--texto);letter-spacing:0.04em;margin-bottom:6px}
+.marca-step-desc{font-size:13px;color:var(--texto-suave);line-height:1.7;font-weight:300}
+.marca-content .section-tag{margin-bottom:10px}
+.marca-content h2{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,5vw,60px);
+  color:var(--texto);line-height:1;letter-spacing:0.02em;margin-bottom:20px;
+}
+.marca-content h2 span{color:var(--naranja)}
+.marca-content p{font-size:15px;font-weight:300;color:var(--texto-suave);line-height:1.85;margin-bottom:16px}
+.marca-content p strong{color:var(--azul);font-weight:600}
+.marca-highlight{
+  background:linear-gradient(135deg,var(--azul-oscuro),var(--azul));
+  border-radius:8px;padding:24px 28px;margin-top:24px;
+}
+.marca-highlight p{color:rgba(255,255,255,0.9);font-size:14px;margin:0;line-height:1.7}
+.marca-highlight strong{color:var(--dorado);font-weight:600}
+
+/* ── ANIMACIONES ── */
+@keyframes fade-up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── SECCIONES ── */
+section{padding:96px 5%}
+.section-tag{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--naranja);margin-bottom:12px}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,68px);line-height:1;letter-spacing:0.02em;color:var(--texto);margin-bottom:16px}
+.section-title span{color:var(--naranja)}
+.section-desc{font-size:15px;font-weight:300;color:var(--texto-suave);line-height:1.8;max-width:560px}
+
+/* ── SELECTOR DE MODELO ── */
+.selector-section{background:var(--azul-oscuro);padding:80px 5%}
+.selector-section .section-title{color:#fff}
+.selector-section .section-desc{color:rgba(255,255,255,0.6)}
+.selector-box{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px;padding:40px;margin-top:48px;
+}
+.selector-row{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px}
+.selector-group label{
+  display:block;font-size:11px;font-weight:600;
+  color:var(--dorado);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;
+}
+.selector-options{display:flex;flex-wrap:wrap;gap:10px}
+.sel-btn{
+  padding:9px 18px;border-radius:4px;
+  border:1.5px solid rgba(255,255,255,0.2);
+  background:transparent;color:rgba(255,255,255,0.75);
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:400;
+  cursor:pointer;transition:all 0.2s;
+}
+.sel-btn:hover{border-color:var(--naranja);color:#fff}
+.sel-btn.active{background:var(--naranja);border-color:var(--naranja);color:#fff;font-weight:600}
+.selector-result{
+  background:rgba(232,98,10,0.12);border:1.5px solid var(--naranja);
+  border-radius:8px;padding:28px 32px;
+  display:none;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:20px;
+}
+.selector-result.show{display:flex}
+.result-modelo{font-family:'Bebas Neue',sans-serif;font-size:52px;color:#fff;letter-spacing:0.02em;line-height:1}
+.result-modelo span{font-size:24px;color:var(--dorado)}
+.result-info{flex:1}
+.result-tag{font-size:10px;font-weight:600;color:var(--naranja);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.result-title{font-size:18px;font-weight:600;color:#fff;margin-bottom:8px}
+.result-desc{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6;font-weight:300}
+.result-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#25D366;color:#fff;
+  font-weight:600;font-size:14px;padding:14px 24px;
+  border-radius:4px;white-space:nowrap;transition:all 0.25s;
+}
+.result-cta:hover{background:#1da851;transform:translateY(-2px)}
+
+/* ── BENEFICIOS ── */
+.beneficios{background:var(--azul-oscuro)}
+.beneficios .section-title{color:#fff}
+.beneficios .section-desc{color:rgba(255,255,255,0.6)}
+.beneficios-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:2px;margin-top:56px;border:2px solid rgba(232,98,10,0.2);
+}
+.beneficio-card{
+  background:rgba(255,255,255,0.03);padding:36px 28px;
+  border:1px solid rgba(255,255,255,0.06);transition:background 0.3s;
+  position:relative;overflow:hidden;
+}
+.beneficio-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--naranja);transform:scaleX(0);transform-origin:left;transition:transform 0.3s;
+}
+.beneficio-card:hover{background:rgba(232,98,10,0.08)}
+.beneficio-card:hover::before{transform:scaleX(1)}
+.beneficio-icon{width:48px;height:48px;margin-bottom:20px;background:rgba(232,98,10,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px}
+.beneficio-title{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:0.05em;margin-bottom:10px}
+.beneficio-desc{font-size:13px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.7}
+
+/* ── PRODUCTOS ── */
+.productos{background:var(--crema)}
+.modelos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:56px}
+.modelo-card{background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:8px;overflow:hidden;transition:all 0.3s;position:relative}
+.modelo-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(26,77,143,0.12);border-color:var(--naranja)}
+.modelo-card.popular{border:2px solid var(--naranja)}
+.modelo-popular-badge{position:absolute;top:16px;right:16px;background:var(--naranja);color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;padding:4px 10px;border-radius:3px;text-transform:uppercase}
+.modelo-header{background:linear-gradient(135deg,var(--azul-oscuro),var(--azul));padding:32px 28px 24px;position:relative;overflow:hidden}
+.modelo-header::after{content:'';position:absolute;bottom:-30px;right:-30px;width:100px;height:100px;background:rgba(232,98,10,0.15);border-radius:50%}
+.modelo-litros{font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:#fff;letter-spacing:0.02em}
+.modelo-litros span{font-size:24px;color:var(--dorado)}
+.modelo-ideal{font-size:12px;color:rgba(255,255,255,0.6);margin-top:6px;font-weight:300}
+.modelo-body{padding:24px 28px}
+.modelo-feature{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--texto-suave);margin-bottom:10px;line-height:1.5}
+.modelo-check{color:var(--naranja);font-weight:700;flex-shrink:0;margin-top:1px}
+.modelo-precio-label{font-size:11px;color:var(--texto-suave);margin-top:20px;letter-spacing:1px;text-transform:uppercase}
+.modelo-precio{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--azul)}
+.modelo-cta{display:block;text-align:center;margin:20px 28px 28px;padding:12px;border:1.5px solid var(--naranja);border-radius:4px;font-size:13px;font-weight:600;color:var(--naranja);transition:all 0.25s}
+.modelo-cta:hover{background:var(--naranja);color:#fff}
+
+/* ── ESPECIFICACIONES ── */
+.especificaciones{background:var(--gris-suave);position:relative;overflow:hidden}
+.specs-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.specs-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.specs-circle{width:320px;height:320px;border:2px solid rgba(232,98,10,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative}
+.specs-circle-inner{width:220px;height:220px;background:linear-gradient(135deg,var(--azul-oscuro),var(--azul));border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.specs-circle-main{font-family:'Bebas Neue',sans-serif;font-size:48px;color:#fff;letter-spacing:0.02em;line-height:1}
+.specs-circle-sub{font-size:11px;color:var(--dorado);letter-spacing:2px;text-transform:uppercase}
+.spec-orbit{position:absolute;width:80px;height:80px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;box-shadow:0 4px 16px rgba(0,0,0,0.12);font-size:9px;font-weight:600;color:var(--azul);text-align:center;letter-spacing:0.5px;text-transform:uppercase;line-height:1.3}
+.spec-orbit span{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--naranja);display:block}
+.orbit-top{top:-20px;left:50%;transform:translateX(-50%)}
+.orbit-right{right:-20px;top:50%;transform:translateY(-50%)}
+.orbit-bottom{bottom:-20px;left:50%;transform:translateX(-50%)}
+.orbit-left{left:-20px;top:50%;transform:translateY(-50%)}
+.specs-list{list-style:none}
+.spec-item{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid rgba(0,0,0,0.07)}
+.spec-item:last-child{border-bottom:none}
+.spec-label{font-size:12px;font-weight:600;color:var(--texto-suave);letter-spacing:0.5px;text-transform:uppercase;min-width:160px}
+.spec-value{font-size:14px;font-weight:400;color:var(--texto)}
+.spec-value strong{color:var(--naranja);font-weight:600}
+
+/* ── GARANTIA BANNER ── */
+.garantia-banner{
+  background:linear-gradient(135deg,var(--naranja) 0%,#c4510a 100%);
+  padding:60px 5%;display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:32px;
+}
+.garantia-text h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,64px);color:#fff;letter-spacing:0.02em;line-height:1}
+.garantia-text p{font-size:15px;color:rgba(255,255,255,0.85);margin-top:8px;font-weight:300}
+.garantia-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(80px,14vw,140px);color:rgba(255,255,255,0.2);line-height:1;letter-spacing:0.02em;white-space:nowrap}
+
+/* ── NOSOTROS ── */
+.nosotros{background:#fff}
+.nosotros-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
+.nosotros-visual{background:linear-gradient(135deg,var(--azul-oscuro),var(--azul));border-radius:8px;padding:48px 40px;position:relative;overflow:hidden}
+.nosotros-visual::before{content:'YACUSOL';position:absolute;bottom:-10px;right:-10px;font-family:'Bebas Neue',sans-serif;font-size:80px;color:rgba(255,255,255,0.05);letter-spacing:4px;white-space:nowrap}
+.nosotros-logo-display{font-family:'Bebas Neue',sans-serif;font-size:52px;color:#fff;letter-spacing:0.04em;line-height:1}
+.nosotros-logo-display span{color:var(--naranja)}
+.nosotros-tagline{font-size:13px;color:rgba(255,255,255,0.6);letter-spacing:2px;text-transform:uppercase;margin-top:6px}
+.nosotros-divider{width:40px;height:3px;background:var(--naranja);margin:28px 0}
+.nosotros-fact{margin-bottom:20px}
+.nosotros-fact-num{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--dorado)}
+.nosotros-fact-label{font-size:12px;color:rgba(255,255,255,0.55);letter-spacing:1px;text-transform:uppercase}
+.nosotros-content .section-tag{margin-bottom:8px}
+.nosotros-content p{font-size:15px;font-weight:300;color:var(--texto-suave);line-height:1.9;margin-bottom:18px}
+.contacto-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.contacto-item{background:var(--crema);border:1px solid rgba(0,0,0,0.07);border-radius:6px;padding:16px 18px;transition:border-color 0.2s}
+.contacto-item:hover{border-color:var(--naranja)}
+.contacto-item-label{font-size:10px;font-weight:600;color:var(--naranja);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.contacto-item-value{font-size:15px;font-weight:600;color:var(--texto)}
+.contacto-item-sub{font-size:11px;color:var(--texto-suave);margin-top:2px}
+
+/* ── CONTACTO FINAL ── */
+.contacto-section{background:var(--azul-oscuro);padding:96px 5%;text-align:center;position:relative;overflow:hidden}
+.contacto-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(232,98,10,0.1) 0%,transparent 70%);border-radius:50%}
+.contacto-section .section-title{color:#fff}
+.contacto-section .section-desc{color:rgba(255,255,255,0.6);margin:0 auto 48px;text-align:center}
+.wa-cards{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.wa-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:24px 32px;transition:all 0.3s;min-width:200px}
+.wa-card:hover{background:rgba(37,211,102,0.15);border-color:rgba(37,211,102,0.4);transform:translateY(-4px)}
+.wa-num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;letter-spacing:1px}
+.wa-label{font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+.wa-btn-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.wa-main-btn{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-weight:600;font-size:15px;padding:16px 32px;border-radius:4px;transition:all 0.25s}
+.wa-main-btn:hover{background:#1da851;transform:translateY(-2px)}
+.direccion-bar{margin-top:48px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.1);font-size:14px;color:rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center;gap:8px}
+
+/* ── FOOTER ── */
+footer{background:#050e1f;padding:32px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-brand{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--naranja);letter-spacing:2px}
+.footer-legal{font-size:12px;color:rgba(255,255,255,0.3)}
+.footer-social{display:flex;gap:16px}
+.footer-social a{width:36px;height:36px;border:1px solid rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,0.5);transition:all 0.25s}
+.footer-social a:hover{border-color:var(--naranja);color:var(--naranja)}
+
+/* ── WA FLOTANTE ── */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:all 0.3s;animation:wa-pulse 2.5s infinite}
+.wa-float:hover{transform:scale(1.1)}
+@keyframes wa-pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4)}50%{box-shadow:0 4px 32px rgba(37,211,102,0.7)}}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+
+/* ── MOBILE ── */
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;z-index:99;background:rgba(10,25,55,0.98);padding:24px 5%;flex-direction:column;gap:20px;border-bottom:1px solid rgba(232,98,10,0.3)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:16px;color:rgba(255,255,255,0.8);letter-spacing:1px;font-weight:400}
+@media(max-width:900px){
+  .specs-layout,.nosotros-layout,.marca-layout{grid-template-columns:1fr}
+  .specs-visual{display:none}
+  .hero-stats{position:relative;bottom:auto;left:auto;margin-top:40px;flex-wrap:wrap;gap:24px}
+  .hero-image-side{display:none}
+  .hero-content{padding:60px 5% 40px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .contacto-grid{grid-template-columns:1fr}
+  .garantia-banner{flex-direction:column;text-align:center}
+  .selector-row{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  section{padding:64px 5%}
+  .modelos-grid{grid-template-columns:1fr}
+  .wa-cards{flex-direction:column;align-items:center}
+  footer{flex-direction:column;text-align:center}
+  .fp-inner{flex-direction:column;text-align:center}
+  .fp-countdown{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ BANNER FIESTAS PATRIAS ══ -->
+<div class="fp-banner" id="fp-banner">
+  <div class="fp-inner">
+    <div class="fp-flag">🇵🇪</div>
+    <div class="fp-text">
+      <div class="fp-title">PREVENTA <span>FIESTAS PATRIAS</span> YACUSOL 2026</div>
+      <div class="fp-sub">Reserva tu terma solar · <strong>Stock limitado · Instalación programada</strong> · Llega justo para el 28 de julio</div>
+    </div>
+    <div class="fp-countdown">
+      <div class="fp-count-item"><div class="fp-count-num" id="cd-dias">--</div><div class="fp-count-label">Días</div></div>
+      <div class="fp-sep">:</div>
+      <div class="fp-count-item"><div class="fp-count-num" id="cd-hrs">--</div><div class="fp-count-label">Horas</div></div>
+      <div class="fp-sep">:</div>
+      <div class="fp-count-item"><div class="fp-count-num" id="cd-min">--</div><div class="fp-count-label">Min</div></div>
+    </div>
+    <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20quiero%20reservar%20mi%20terma%20solar%20para%20Fiestas%20Patrias" class="fp-cta" target="_blank">Reservar ahora →</a>
+  </div>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <div class="nav-logo-mark">Y</div>
+    <div>
+      <div class="nav-logo-text">YACUSOL</div>
+      <div class="nav-logo-sub">Termas Solares</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#nuestra-marca">Nuestra Marca</a>
+    <a href="#productos">Productos</a>
+    <a href="#selector">Elige tu modelo</a>
+    <a href="#especificaciones">Especificaciones</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto" class="nav-cta">Cotizar ahora</a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#nuestra-marca" onclick="toggleMenu()">Nuestra Marca</a>
+  <a href="#productos" onclick="toggleMenu()">Productos</a>
+  <a href="#selector" onclick="toggleMenu()">Elige tu modelo</a>
+  <a href="#especificaciones" onclick="toggleMenu()">Especificaciones</a>
+  <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
+  <a href="#contacto" onclick="toggleMenu()" style="color:var(--naranja);font-weight:600">Cotizar ahora</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="inicio">
+  <div class="hero-bg-sun"></div>
+  <div class="hero-stripe-left"></div>
+  <div class="hero-stripe-right"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      Stock disponible en Huaraz · Ancash
+    </div>
+    <h1 class="hero-title">YACUSOL</h1>
+    <p class="hero-subtitle-serif">El agua caliente que el sol te regala</p>
+    <p class="hero-desc">
+      Termas solares de alta eficiencia para la sierra peruana.
+      Tanque interior de <strong>Acero Inoxidable 316</strong>,
+      <strong>garantía de 5 años</strong> y 6 modelos desde 120 hasta 400 litros.
+      Nuestra propia marca, respaldada por años de experiencia técnica en el sector eléctrico.
+    </p>
+    <div class="hero-actions">
+      <a href="#contacto" class="btn-primary">📲 Cotizar por WhatsApp</a>
+      <a href="#selector" class="btn-secondary">Elige tu modelo →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">6</div>
+        <div class="hero-stat-label">Modelos disponibles</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">5</div>
+        <div class="hero-stat-label">Años de garantía</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">316</div>
+        <div class="hero-stat-label">Acero inox grado médico</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image-side">
+    <svg class="solar-diagram" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="160" cy="100" rx="80" ry="30" fill="#1A4D8F" opacity="0.9"/>
+      <rect x="80" y="100" width="160" height="100" fill="#1A4D8F" opacity="0.9"/>
+      <ellipse cx="160" cy="200" rx="80" ry="30" fill="#0d2f5c"/>
+      <ellipse cx="160" cy="100" rx="80" ry="30" fill="#2a6abf" opacity="0.6"/>
+      <text x="160" y="155" font-family="Bebas Neue, sans-serif" font-size="20" fill="white" text-anchor="middle" opacity="0.9">YACUSOL</text>
+      <text x="160" y="171" font-family="sans-serif" font-size="9" fill="rgba(245,166,35,0.9)" text-anchor="middle">TERMAS SOLARES</text>
+      <line x1="100" y1="230" x2="80" y2="300" stroke="#888" stroke-width="6" stroke-linecap="round"/>
+      <line x1="220" y1="230" x2="240" y2="300" stroke="#888" stroke-width="6" stroke-linecap="round"/>
+      <line x1="80" y1="300" x2="240" y2="300" stroke="#888" stroke-width="4" stroke-linecap="round"/>
+      <rect x="90" y="215" width="18" height="60" rx="9" fill="#2a6abf" opacity="0.8"/>
+      <rect x="114" y="215" width="18" height="60" rx="9" fill="#2a6abf" opacity="0.8"/>
+      <rect x="138" y="215" width="18" height="60" rx="9" fill="#2a6abf" opacity="0.8"/>
+      <rect x="162" y="215" width="18" height="60" rx="9" fill="#2a6abf" opacity="0.8"/>
+      <rect x="186" y="215" width="18" height="60" rx="9" fill="#2a6abf" opacity="0.8"/>
+      <rect x="210" y="215" width="18" height="60" rx="9" fill="#2a6abf" opacity="0.8"/>
+      <rect x="94" y="220" width="5" height="48" rx="2" fill="white" opacity="0.25"/>
+      <rect x="118" y="220" width="5" height="48" rx="2" fill="white" opacity="0.25"/>
+      <rect x="142" y="220" width="5" height="48" rx="2" fill="white" opacity="0.25"/>
+      <rect x="166" y="220" width="5" height="48" rx="2" fill="white" opacity="0.25"/>
+      <rect x="190" y="220" width="5" height="48" rx="2" fill="white" opacity="0.25"/>
+      <rect x="214" y="220" width="5" height="48" rx="2" fill="white" opacity="0.25"/>
+      <circle cx="248" cy="52" r="28" fill="#F5A623" opacity="0.9"/>
+      <line x1="248" y1="14" x2="248" y2="4" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+      <line x1="248" y1="90" x2="248" y2="100" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+      <line x1="210" y1="52" x2="200" y2="52" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+      <line x1="286" y1="52" x2="296" y2="52" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+      <line x1="221" y1="25" x2="214" y2="18" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+      <line x1="275" y1="79" x2="282" y2="86" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+      <line x1="275" y1="25" x2="282" y2="18" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+      <line x1="221" y1="79" x2="214" y2="86" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+      <line x1="230" y1="68" x2="200" y2="130" stroke="#F5A623" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.5"/>
+      <line x1="224" y1="72" x2="180" y2="140" stroke="#F5A623" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.4"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ══ NUESTRA MARCA ══ -->
+<section class="marca-section" id="nuestra-marca">
+  <div class="marca-layout">
+    <div class="marca-timeline reveal">
+      <div class="marca-step">
+        <div class="marca-dot"></div>
+        <div class="marca-step-tag">El origen</div>
+        <div class="marca-step-title">Años instalando termas solares en Ancash</div>
+        <div class="marca-step-desc">ENERGÉTICOS comenzó instalando y comercializando termas solares de diversas marcas del mercado para familias, hostales y negocios de la región. Esa experiencia directa nos enseñó qué funciona y qué falla en el campo.</div>
+      </div>
+      <div class="marca-step">
+        <div class="marca-dot"></div>
+        <div class="marca-step-tag">El aprendizaje</div>
+        <div class="marca-step-title">Conocimos los equipos por dentro</div>
+        <div class="marca-step-desc">Con cada instalación en la sierra peruana — a 3,000 metros o más — aprendimos las exigencias reales del clima andino: frío extremo, agua dura, techos de todo tipo. Eso nos llevó a definir exactamente qué especificaciones técnicas necesita una terma solar para este mercado.</div>
+      </div>
+      <div class="marca-step">
+        <div class="marca-dot azul"></div>
+        <div class="marca-step-tag azul">Hoy — 2026</div>
+        <div class="marca-step-title">Nace YACUSOL: nuestra propia marca</div>
+        <div class="marca-step-desc">Con todo ese conocimiento técnico, lanzamos YACUSOL — una línea propia de termas solares importadas directamente, especificadas por nosotros, con los materiales y accesorios que elegimos tras años de experiencia en campo.</div>
+      </div>
+    </div>
+    <div class="marca-content reveal">
+      <div class="section-tag">De la experiencia nace la marca</div>
+      <h2>ENERGÉTICOS<br>LANZA <span>YACUSOL</span></h2>
+      <p>No somos distribuidores de paso. Somos técnicos eléctricos que llevamos años trabajando con termas solares en Huaraz y Ancash. <strong>YACUSOL es el resultado de esa experiencia convertida en una marca propia.</strong></p>
+      <p>Seleccionamos cada componente con criterio técnico: el acero 316 en el tanque interior porque es el más resistente a la corrosión; el aislamiento de 50mm porque en la sierra el agua debe mantenerse caliente toda la noche; los tubos de vacío triple capa porque funcionan incluso en días nublados a gran altitud.</p>
+      <p>Además, respaldamos cada equipo con nuestra propia garantía de <strong>5 años en tanque y soporte</strong> y con asesoría técnica personalizada en cada venta.</p>
+      <div class="marca-highlight">
+        <p>YACUSOL nació en Huaraz, para la sierra peruana. Conocemos el frío andino, conocemos los techos de la región, conocemos a nuestros clientes. <strong>Por eso nuestros equipos funcionan.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BENEFICIOS ══ -->
+<section class="beneficios" id="beneficios">
+  <div class="reveal">
+    <div class="section-tag">¿Por qué YACUSOL?</div>
+    <h2 class="section-title">VENTAJAS QUE<br><span>CAMBIAN TODO</span></h2>
+    <p class="section-desc">Diseñadas para el clima y la altitud de la sierra peruana. Desde el nivel del mar hasta más de 4,000 m.s.n.m.</p>
+  </div>
+  <div class="beneficios-grid reveal">
+    <div class="beneficio-card">
+      <div class="beneficio-icon">☀️</div>
+      <div class="beneficio-title">Ahorro significativo en luz</div>
+      <p class="beneficio-desc">El sol calienta tu agua de forma gratuita. Reduce considerablemente el consumo eléctrico destinado al calentamiento de agua desde el primer mes de instalación.</p>
+    </div>
+    <div class="beneficio-card">
+      <div class="beneficio-icon">🛡️</div>
+      <div class="beneficio-title">Acero Inox 316</div>
+      <p class="beneficio-desc">Tanque interior en acero inoxidable 316, el mismo grado usado en la industria médica y alimentaria. Sin corrosión, sin sabores, agua pura.</p>
+    </div>
+    <div class="beneficio-card">
+      <div class="beneficio-icon">❄️</div>
+      <div class="beneficio-title">Funciona en el frío andino</div>
+      <p class="beneficio-desc">Los tubos de vacío triple capa captan energía solar incluso en días nublados o con heladas. Ideal para Huaraz y la sierra peruana a cualquier altitud.</p>
+    </div>
+    <div class="beneficio-card">
+      <div class="beneficio-icon">⚡</div>
+      <div class="beneficio-title">Backup eléctrico incluido</div>
+      <p class="beneficio-desc">Resistencia eléctrica de respaldo y controlador digital inteligente. Agua caliente garantizada todos los días del año, incluso en semanas sin sol.</p>
+    </div>
+    <div class="beneficio-card">
+      <div class="beneficio-icon">🏆</div>
+      <div class="beneficio-title">Garantía 5 años</div>
+      <p class="beneficio-desc">5 años de garantía en tanque y soporte estructural. La garantía más sólida del mercado. Tu inversión protegida por quienes instalaron el equipo.</p>
+    </div>
+    <div class="beneficio-card">
+      <div class="beneficio-icon">🔧</div>
+      <div class="beneficio-title">Marca propia, respaldo técnico</div>
+      <p class="beneficio-desc">YACUSOL es nuestra marca. Somos los técnicos que especificamos, importamos e instalamos. Si algo falla, respondemos directamente. Sin intermediarios, sin excusas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRODUCTOS ══ -->
+<section class="productos" id="productos">
+  <div class="reveal">
+    <div class="section-tag">Catálogo</div>
+    <h2 class="section-title">ELIGE TU<br><span>MODELO</span></h2>
+    <p class="section-desc">6 modelos para cada necesidad. Desde parejas hasta hostales y empresas. Contáctanos para asesoría personalizada gratuita.</p>
+  </div>
+  <div class="modelos-grid reveal">
+    <div class="modelo-card">
+      <div class="modelo-header">
+        <div class="modelo-litros">120 <span>L</span></div>
+        <div class="modelo-ideal">Ideal para: pareja o familia de 2 personas</div>
+      </div>
+      <div class="modelo-body">
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Perfecto para espacios pequeños</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Tubos de vacío 58×1800mm</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Controlador + resistencia de backup</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Garantía 5 años</div>
+        <div class="modelo-precio-label">Precio de venta</div>
+        <div class="modelo-precio">Consultar</div>
+      </div>
+      <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20me%20interesa%20el%20modelo%20120L" class="modelo-cta" target="_blank">Cotizar por WhatsApp</a>
+    </div>
+    <div class="modelo-card">
+      <div class="modelo-header">
+        <div class="modelo-litros">150 <span>L</span></div>
+        <div class="modelo-ideal">Ideal para: familia de 3 personas</div>
+      </div>
+      <div class="modelo-body">
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Mayor capacidad de reserva</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Acero Inoxidable 316 interior</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Aislamiento poliuretano 50mm</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Garantía 5 años</div>
+        <div class="modelo-precio-label">Precio de venta</div>
+        <div class="modelo-precio">Consultar</div>
+      </div>
+      <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20me%20interesa%20el%20modelo%20150L" class="modelo-cta" target="_blank">Cotizar por WhatsApp</a>
+    </div>
+    <div class="modelo-card popular">
+      <div class="modelo-popular-badge">MÁS VENDIDO</div>
+      <div class="modelo-header">
+        <div class="modelo-litros">200 <span>L</span></div>
+        <div class="modelo-ideal">Ideal para: familia de 4-5 personas</div>
+      </div>
+      <div class="modelo-body">
+        <div class="modelo-feature"><span class="modelo-check">✓</span> El más solicitado en Huaraz</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Agua caliente para todo el día</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Válvula termostática incluida</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Garantía 5 años</div>
+        <div class="modelo-precio-label">Precio de venta</div>
+        <div class="modelo-precio">Consultar</div>
+      </div>
+      <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20me%20interesa%20el%20modelo%20200L" class="modelo-cta" target="_blank">Cotizar por WhatsApp</a>
+    </div>
+    <div class="modelo-card">
+      <div class="modelo-header">
+        <div class="modelo-litros">250 <span>L</span></div>
+        <div class="modelo-ideal">Ideal para: familia grande, 6-8 personas</div>
+      </div>
+      <div class="modelo-body">
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Alta capacidad para familias numerosas</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Soporte acero inox 304, 1.2mm</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Ángulo de 15° para todo tipo de techo</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Garantía 5 años</div>
+        <div class="modelo-precio-label">Precio de venta</div>
+        <div class="modelo-precio">Consultar</div>
+      </div>
+      <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20me%20interesa%20el%20modelo%20250L" class="modelo-cta" target="_blank">Cotizar por WhatsApp</a>
+    </div>
+    <div class="modelo-card">
+      <div class="modelo-header">
+        <div class="modelo-litros">300 <span>L</span></div>
+        <div class="modelo-ideal">Ideal para: hostales pequeños, negocios</div>
+      </div>
+      <div class="modelo-body">
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Uso intensivo diario</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Ideal para turismo en Ancash</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Máxima eficiencia energética</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Garantía 5 años</div>
+        <div class="modelo-precio-label">Precio de venta</div>
+        <div class="modelo-precio">Consultar</div>
+      </div>
+      <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20me%20interesa%20el%20modelo%20300L" class="modelo-cta" target="_blank">Cotizar por WhatsApp</a>
+    </div>
+    <div class="modelo-card">
+      <div class="modelo-header">
+        <div class="modelo-litros">400 <span>L</span></div>
+        <div class="modelo-ideal">Ideal para: hostales, clínicas, empresas</div>
+      </div>
+      <div class="modelo-body">
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Máxima capacidad disponible</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Para demanda continua alta</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Asesoría técnica de instalación</div>
+        <div class="modelo-feature"><span class="modelo-check">✓</span> Garantía 5 años</div>
+        <div class="modelo-precio-label">Precio de venta</div>
+        <div class="modelo-precio">Consultar</div>
+      </div>
+      <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20me%20interesa%20el%20modelo%20400L" class="modelo-cta" target="_blank">Cotizar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SELECTOR INTELIGENTE ══ -->
+<section class="selector-section" id="selector">
+  <div class="reveal">
+    <div class="section-tag" style="color:var(--dorado)">Herramienta de ayuda</div>
+    <h2 class="section-title">¿QUÉ MODELO<br><span style="color:var(--dorado)">ES EL TUYO?</span></h2>
+    <p class="section-desc">Responde dos preguntas y te recomendamos el modelo ideal para tu caso.</p>
+  </div>
+  <div class="selector-box reveal">
+    <div class="selector-row">
+      <div class="selector-group">
+        <label>¿Cuántas personas usarán la terma?</label>
+        <div class="selector-options" id="opt-personas">
+          <button class="sel-btn" data-personas="1-2" onclick="selectOpt('personas',this)">1 – 2 personas</button>
+          <button class="sel-btn" data-personas="3" onclick="selectOpt('personas',this)">3 personas</button>
+          <button class="sel-btn" data-personas="4-5" onclick="selectOpt('personas',this)">4 – 5 personas</button>
+          <button class="sel-btn" data-personas="6-8" onclick="selectOpt('personas',this)">6 – 8 personas</button>
+          <button class="sel-btn" data-personas="negocio" onclick="selectOpt('personas',this)">Negocio / hostal</button>
+          <button class="sel-btn" data-personas="empresa" onclick="selectOpt('personas',this)">Empresa / clínica</button>
+        </div>
+      </div>
+      <div class="selector-group">
+        <label>¿Cuál es el tipo de uso?</label>
+        <div class="selector-options" id="opt-uso">
+          <button class="sel-btn" data-uso="hogar" onclick="selectOpt('uso',this)">Hogar familiar</button>
+          <button class="sel-btn" data-uso="hostal" onclick="selectOpt('uso',this)">Hostal / hospedaje</button>
+          <button class="sel-btn" data-uso="negocio" onclick="selectOpt('uso',this)">Negocio / restaurante</button>
+          <button class="sel-btn" data-uso="institucion" onclick="selectOpt('uso',this)">Clínica / institución</button>
+        </div>
+      </div>
+    </div>
+    <div class="selector-result" id="selector-result">
+      <div class="result-modelo" id="result-modelo">200 <span>L</span></div>
+      <div class="result-info">
+        <div class="result-tag">Modelo recomendado YACUSOL</div>
+        <div class="result-title" id="result-title">Terma Solar 200 Litros</div>
+        <div class="result-desc" id="result-desc">Ideal para familias de 4-5 personas. El modelo más solicitado en Huaraz.</div>
+      </div>
+      <a href="#" class="result-cta" id="result-cta" target="_blank">
+        📲 Cotizar este modelo
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ESPECIFICACIONES ══ -->
+<section class="especificaciones" id="especificaciones">
+  <div class="specs-layout">
+    <div>
+      <div class="reveal">
+        <div class="section-tag">Ficha técnica</div>
+        <h2 class="section-title">CALIDAD QUE<br><span>SE MIDE</span></h2>
+      </div>
+      <ul class="specs-list reveal">
+        <li class="spec-item"><span class="spec-label">Tanque interior</span><span class="spec-value"><strong>Acero Inoxidable 316</strong> — grado médico/alimentario</span></li>
+        <li class="spec-item"><span class="spec-label">Tanque exterior</span><span class="spec-value">Acero Inoxidable 304</span></li>
+        <li class="spec-item"><span class="spec-label">Aislamiento</span><span class="spec-value">Poliuretano alta densidad — <strong>50 mm</strong> de espesor</span></li>
+        <li class="spec-item"><span class="spec-label">Tubos de vacío</span><span class="spec-value">58 × 1800 mm, <strong>triple capa</strong>, alta resistencia</span></li>
+        <li class="spec-item"><span class="spec-label">Soporte / base</span><span class="spec-value">Acero Inox 304, espesor 1.2 mm — ángulo 15°</span></li>
+        <li class="spec-item"><span class="spec-label">Conexiones</span><span class="spec-value">Entrada/salida 3/4 pulgada (20 mm)</span></li>
+        <li class="spec-item"><span class="spec-label">Accesorios</span><span class="spec-value">Controlador digital, resistencia eléctrica, tanque auxiliar, varilla magnesio, válvula termostática</span></li>
+        <li class="spec-item"><span class="spec-label">Compatibilidad</span><span class="spec-value">Techos planos e inclinados. Nivel del mar a +4,000 m.s.n.m.</span></li>
+        <li class="spec-item"><span class="spec-label">Garantía</span><span class="spec-value"><strong>5 años</strong> en tanque y soporte estructural</span></li>
+      </ul>
+    </div>
+    <div class="specs-visual reveal">
+      <div class="specs-circle">
+        <div class="specs-circle-inner">
+          <div class="specs-circle-main">316</div>
+          <div class="specs-circle-sub">Acero inox</div>
+        </div>
+        <div class="spec-orbit orbit-top"><span>50mm</span>Aislam.</div>
+        <div class="spec-orbit orbit-right"><span>5</span>Años<br>garantía</div>
+        <div class="spec-orbit orbit-bottom"><span>6</span>Modelos</div>
+        <div class="spec-orbit orbit-left"><span>316</span>Acero<br>médico</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GARANTIA BANNER ══ -->
+<div class="garantia-banner reveal">
+  <div class="garantia-text">
+    <h2>GARANTÍA DE<br>5 AÑOS</h2>
+    <p>En tanque y soporte estructural. La tranquilidad<br>que tu inversión merece. Respaldada por ENERGÉTICOS.</p>
+  </div>
+  <div class="garantia-num">5</div>
+  <a href="#contacto" class="btn-primary" style="font-size:15px;padding:16px 32px">Solicitar instalación →</a>
+</div>
+
+<!-- ══ NOSOTROS ══ -->
+<section class="nosotros" id="nosotros">
+  <div class="nosotros-layout">
+    <div class="nosotros-visual reveal">
+      <div class="nosotros-logo-display">ENERGÉ<span>TICOS</span></div>
+      <div class="nosotros-tagline">Servicios del Sector Eléctrico</div>
+      <div class="nosotros-divider"></div>
+      <div class="nosotros-fact">
+        <div class="nosotros-fact-num">YACUSOL</div>
+        <div class="nosotros-fact-label">Nuestra marca propia de termas solares</div>
+      </div>
+      <div class="nosotros-fact">
+        <div class="nosotros-fact-num">Huaraz</div>
+        <div class="nosotros-fact-label">Ancash, Perú — nuestra base de operaciones</div>
+      </div>
+      <div class="nosotros-fact">
+        <div class="nosotros-fact-num">Ancash</div>
+        <div class="nosotros-fact-label">Experiencia técnica en soluciones eléctricas y solares</div>
+      </div>
+    </div>
+    <div class="nosotros-content reveal">
+      <div class="section-tag">Quiénes somos</div>
+      <h2 class="section-title">ENERGÉTICOS<br><span>EN HUARAZ</span></h2>
+      <p>Somos una empresa ancashina especializada en servicios del sector eléctrico con amplia trayectoria en la región. Llevamos años instalando y asesorando en soluciones eléctricas y de energía solar en Huaraz y Ancash.</p>
+      <p>De esa experiencia directa con clientes y equipos en campo nació <strong>YACUSOL</strong>: nuestra propia línea de termas solares, seleccionada con criterio técnico, respaldada con garantía real y vendida sin intermediarios.</p>
+      <p>Creemos que cada familia y negocio peruano merece agua caliente sin depender de la tarifa eléctrica ni del gas. Por eso ofrecemos asesoría técnica personalizada y acompañamiento en cada instalación.</p>
+      <div class="contacto-grid">
+        <div class="contacto-item">
+          <div class="contacto-item-label">📍 Dirección</div>
+          <div class="contacto-item-value">Jr. Augusto B. Leguía 563</div>
+          <div class="contacto-item-sub">Independencia, Huaraz, Ancash</div>
+        </div>
+        <div class="contacto-item">
+          <div class="contacto-item-label">📘 Facebook</div>
+          <div class="contacto-item-value">YACUSOL</div>
+          <div class="contacto-item-sub">ENERGÉTICOS Servicios</div>
+        </div>
+        <div class="contacto-item">
+          <div class="contacto-item-label">📲 WhatsApp</div>
+          <div class="contacto-item-value">961 120 481</div>
+          <div class="contacto-item-sub">Consultas y cotizaciones</div>
+        </div>
+        <div class="contacto-item">
+          <div class="contacto-item-label">📲 WhatsApp</div>
+          <div class="contacto-item-value">983 926 721</div>
+          <div class="contacto-item-sub">Ventas y coordinación</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACTO ══ -->
+<section class="contacto-section" id="contacto">
+  <div class="reveal">
+    <div class="section-tag" style="color:var(--dorado)">Contáctanos ahora</div>
+    <h2 class="section-title" style="color:#fff">¿LISTO PARA<br><span>TU TERMA SOLAR?</span></h2>
+    <p class="section-desc">Escríbenos por WhatsApp. Te asesoramos gratis para elegir el modelo ideal según tu familia o negocio.</p>
+  </div>
+  <div class="wa-cards reveal">
+    <div class="wa-card">
+      <div class="wa-num">961 120 481</div>
+      <div class="wa-label">Consultas generales</div>
+    </div>
+    <div class="wa-card">
+      <div class="wa-num">983 926 721</div>
+      <div class="wa-label">Ventas y cotizaciones</div>
+    </div>
+    <div class="wa-card">
+      <div class="wa-num">942 899 919</div>
+      <div class="wa-label">Coordinación técnica</div>
+    </div>
+  </div>
+  <div class="wa-btn-group reveal">
+    <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20quiero%20una%20cotizaci%C3%B3n%20de%20terma%20solar" class="wa-main-btn" target="_blank">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Escribir por WhatsApp ahora
+    </a>
+  </div>
+  <div class="direccion-bar reveal">
+    📍 Jr. Augusto B. Leguía 563, Independencia, Huaraz, Ancash, Perú
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div>
+    <div class="footer-brand">YACUSOL</div>
+    <div class="footer-legal">ENERGÉTICOS – Servicios del Sector Eléctrico | Huaraz, Ancash, Perú</div>
+  </div>
+  <div class="footer-legal">© 2026 YACUSOL. Todos los derechos reservados.</div>
+  <div class="footer-social">
+    <a href="#" title="Facebook">f</a>
+    <a href="https://wa.me/51961120481" title="WhatsApp" target="_blank">w</a>
+  </div>
+</footer>
+
+<!-- ══ WhatsApp flotante ══ -->
+<a class="wa-float" href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20quiero%20informaci%C3%B3n" target="_blank" title="WhatsApp YACUSOL">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+/* ── MENU MÓVIL ── */
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+
+/* ── SCROLL REVEAL ── */
+const observer=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+/* ── COUNTDOWN FIESTAS PATRIAS 28 julio 2026 ── */
+function updateCountdown(){
+  const target=new Date('2026-07-28T00:00:00-05:00');
+  const now=new Date();
+  const diff=target-now;
+  if(diff<=0){document.getElementById('fp-banner').style.display='none';return}
+  const d=Math.floor(diff/86400000);
+  const h=Math.floor((diff%86400000)/3600000);
+  const m=Math.floor((diff%3600000)/60000);
+  document.getElementById('cd-dias').textContent=String(d).padStart(2,'0');
+  document.getElementById('cd-hrs').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-min').textContent=String(m).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown,60000);
+
+/* ── SELECTOR DE MODELO ── */
+const state={personas:null,uso:null};
+const modelos={
+  '1-2':  {l:'120',titulo:'Terma Solar 120 Litros',desc:'Compacta y eficiente para 1-2 personas. Perfecta para espacios pequeños en Huaraz.'},
+  '3':    {l:'150',titulo:'Terma Solar 150 Litros',desc:'Capacidad ideal para 3 personas. Agua caliente para todo el día con reserva para la noche.'},
+  '4-5':  {l:'200',titulo:'Terma Solar 200 Litros',desc:'Nuestro modelo estrella. El más solicitado en Huaraz para familias de 4-5 personas.'},
+  '6-8':  {l:'250',titulo:'Terma Solar 250 Litros',desc:'Alta capacidad para familias numerosas. Cubre ampliamente la demanda diaria de 6-8 personas.'},
+  'negocio':{l:'300',titulo:'Terma Solar 300 Litros',desc:'Diseñada para uso intensivo en hostales, negocios y restaurantes de Ancash.'},
+  'empresa':{l:'400',titulo:'Terma Solar 400 Litros',desc:'Máxima capacidad para clínicas, empresas e instituciones con alta demanda de agua caliente.'},
+};
+function selectOpt(tipo,btn){
+  document.querySelectorAll('#opt-'+tipo+' .sel-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  state[tipo]=btn.dataset[tipo];
+  if(state.personas){showResult()}
+}
+function showResult(){
+  const m=modelos[state.personas];
+  const r=document.getElementById('selector-result');
+  document.getElementById('result-modelo').innerHTML=m.l+' <span>L</span>';
+  document.getElementById('result-title').textContent=m.titulo;
+  document.getElementById('result-desc').textContent=m.desc;
+  const msg=encodeURIComponent('Hola YACUSOL, me interesa el modelo '+m.l+'L. '+
+    (state.uso?'Lo necesito para: '+state.uso+'.':''));
+  document.getElementById('result-cta').href='https://wa.me/51961120481?text='+msg;
+  r.classList.add('show');
+}
+</script>
+</body>
+</html>
