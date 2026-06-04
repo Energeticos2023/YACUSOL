@@ -68,11 +68,7 @@ nav{
   border-bottom:1px solid rgba(232,98,10,0.3);
 }
 .nav-logo{display:flex;align-items:center;gap:10px}
-.nav-logo-mark{
-  width:34px;height:34px;background:var(--naranja);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Bebas Neue',sans-serif;font-size:17px;color:#fff;flex-shrink:0;
-}
+
 .nav-logo-text{font-family:'Bebas Neue',sans-serif;font-size:21px;color:#fff;letter-spacing:2px}
 .nav-logo-sub{font-size:9px;color:var(--dorado);letter-spacing:2px;text-transform:uppercase;line-height:1;margin-top:1px}
 .nav-links{display:flex;gap:28px}
@@ -425,7 +421,30 @@ footer{background:#050e1f;padding:32px 5%;display:flex;align-items:center;justif
 <!-- ══ NAV ══ -->
 <nav id="navbar">
   <div class="nav-logo">
-    <div class="nav-logo-mark">Y</div>
+    <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+      <!-- Semicírculo naranja -->
+      <path d="M10 62 A40 40 0 0 1 90 62 Z" fill="#F5A623"/>
+      <!-- Rayos del sol (picos blancos sobre el semicírculo) -->
+      <polygon points="50,18 47,28 53,28" fill="white"/>
+      <polygon points="30,24 33,33 38,28" fill="white"/>
+      <polygon points="18,38 27,38 25,33" fill="white"/>
+      <polygon points="70,24 67,28 62,33" fill="white"/>
+      <polygon points="82,38 73,38 75,33" fill="white"/>
+      <polygon points="24,50 32,46 30,41" fill="white"/>
+      <polygon points="76,50 68,46 70,41" fill="white"/>
+      <!-- Círculo blanco central del sol -->
+      <circle cx="50" cy="38" r="10" fill="white"/>
+      <!-- Techo (líneas azules en V) -->
+      <polyline points="10,62 50,40 90,62" stroke="#3B8BD4" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+      <!-- Panel solar (rectángulo azul inclinado) -->
+      <g transform="rotate(-35,45,55)">
+        <rect x="22" y="48" width="34" height="22" rx="2" fill="#3B8BD4"/>
+        <line x1="22" y1="55" x2="56" y2="55" stroke="white" stroke-width="1.2"/>
+        <line x1="22" y1="62" x2="56" y2="62" stroke="white" stroke-width="1.2"/>
+        <line x1="33" y1="48" x2="33" y2="70" stroke="white" stroke-width="1.2"/>
+        <line x1="44" y1="48" x2="44" y2="70" stroke="white" stroke-width="1.2"/>
+      </g>
+    </svg>
     <div>
       <div class="nav-logo-text">YACUSOL</div>
       <div class="nav-logo-sub">Termas Solares</div>
@@ -799,8 +818,29 @@ footer{background:#050e1f;padding:32px 5%;display:flex;align-items:center;justif
 <section class="nosotros" id="nosotros">
   <div class="nosotros-layout">
     <div class="nosotros-visual reveal">
-      <div class="nosotros-logo-display">ENERGÉ<span>TICOS</span></div>
-      <div class="nosotros-tagline">Servicios del Sector Eléctrico</div>
+      <div style="display:flex;justify-content:center;margin-bottom:8px">
+        <svg width="180" height="160" viewBox="0 0 200 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 105 A90 90 0 0 1 190 105 Z" fill="#F5A623"/>
+          <polygon points="100,10 96,26 104,26" fill="white"/>
+          <polygon points="62,20 67,35 74,28" fill="white"/>
+          <polygon points="32,44 47,46 43,39" fill="white"/>
+          <polygon points="138,20 133,28 126,35" fill="white"/>
+          <polygon points="168,44 153,46 157,39" fill="white"/>
+          <polygon points="22,72 37,68 35,61" fill="white"/>
+          <polygon points="178,72 163,68 165,61" fill="white"/>
+          <circle cx="100" cy="58" r="22" fill="white"/>
+          <polyline points="10,105 100,58 190,105" stroke="#3B8BD4" stroke-width="9" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+          <g transform="rotate(-35,88,100)">
+            <rect x="36" y="82" width="70" height="46" rx="3" fill="#3B8BD4"/>
+            <line x1="36" y1="97"  x2="106" y2="97"  stroke="white" stroke-width="2"/>
+            <line x1="36" y1="112" x2="106" y2="112" stroke="white" stroke-width="2"/>
+            <line x1="59" y1="82"  x2="59"  y2="128" stroke="white" stroke-width="2"/>
+            <line x1="83" y1="82"  x2="83"  y2="128" stroke="white" stroke-width="2"/>
+          </g>
+          <text x="100" y="140" font-family="Arial Black,Arial,sans-serif" font-size="20" font-weight="900" fill="#F5A623" text-anchor="middle" letter-spacing="1">ENERGÉTICOS</text>
+          <text x="100" y="158" font-family="Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.7)" text-anchor="middle" letter-spacing="2">SERVICIOS DEL SECTOR ELÉCTRICO</text>
+        </svg>
+      </div>
       <div class="nosotros-divider"></div>
       <div class="nosotros-fact">
         <div class="nosotros-fact-num">YACUSOL</div>
@@ -883,7 +923,8 @@ footer{background:#050e1f;padding:32px 5%;display:flex;align-items:center;justif
 <footer>
   <div>
     <div class="footer-brand">YACUSOL</div>
-    <div class="footer-legal">ENERGÉTICOS – Servicios del Sector Eléctrico | Huaraz, Ancash, Perú</div>
+    <div class="footer-legal" style="color:rgba(255,255,255,0.5);margin-top:2px">por <span style="color:#F5A623;font-weight:600">ENERGÉTICOS</span> – Servicios del Sector Eléctrico</div>
+    <div class="footer-legal">Huaraz, Ancash, Perú</div>
   </div>
   <div class="footer-legal">© 2026 YACUSOL. Todos los derechos reservados.</div>
   <div class="footer-social">
