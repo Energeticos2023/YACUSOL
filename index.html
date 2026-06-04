@@ -413,6 +413,32 @@ select.form-input option{background:var(--azul-oscuro);color:#fff}
 .sug-tipo{padding:6px 14px;border-radius:20px;border:1.5px solid rgba(255,255,255,0.2);background:transparent;color:rgba(255,255,255,0.7);font-size:12px;font-weight:400;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif}
 .sug-tipo.active,.sug-tipo:hover{background:rgba(245,166,35,0.2);border-color:var(--dorado);color:var(--dorado)}
 
+/* ── SECCION INGENIERO ── */
+.ingeniero-section{background:var(--azul-oscuro);padding:96px 5%;position:relative;overflow:hidden}
+.ingeniero-section::before{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(232,98,10,0.05));pointer-events:none}
+.ingeniero-layout{display:grid;grid-template-columns:380px 1fr;gap:64px;align-items:start;max-width:1100px;margin:0 auto}
+.ingeniero-foto-principal{position:relative}
+.ingeniero-foto-principal img{width:100%;border-radius:12px;object-fit:cover;aspect-ratio:4/5;display:block;border:3px solid rgba(232,98,10,0.4)}
+.ingeniero-badge{position:absolute;bottom:-16px;left:20px;right:20px;background:var(--naranja);border-radius:8px;padding:14px 18px;text-align:center}
+.ingeniero-badge-nombre{font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;letter-spacing:0.05em;line-height:1.1}
+.ingeniero-badge-titulo{font-size:10px;color:rgba(255,255,255,0.85);letter-spacing:1.5px;text-transform:uppercase;margin-top:3px}
+.ingeniero-content{padding-top:8px}
+.ingeniero-content .section-tag{color:var(--dorado);margin-bottom:10px}
+.ingeniero-content h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,56px);color:#fff;line-height:1;letter-spacing:0.02em;margin-bottom:20px}
+.ingeniero-content h2 span{color:var(--naranja)}
+.ingeniero-credencial{display:flex;align-items:flex-start;gap:14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:16px 20px;margin-bottom:12px;transition:border-color 0.2s}
+.ingeniero-credencial:hover{border-color:var(--naranja)}
+.ingeniero-cred-icon{width:40px;height:40px;background:rgba(232,98,10,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.ingeniero-cred-titulo{font-size:13px;font-weight:600;color:#fff;margin-bottom:3px}
+.ingeniero-cred-desc{font-size:12px;color:rgba(255,255,255,0.55);font-weight:300;line-height:1.5}
+.ingeniero-galeria{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.ingeniero-galeria img{width:100%;border-radius:8px;object-fit:cover;aspect-ratio:4/3;transition:transform 0.3s,box-shadow 0.3s;cursor:pointer;border:2px solid transparent}
+.ingeniero-galeria img:hover{transform:scale(1.03);box-shadow:0 12px 32px rgba(0,0,0,0.4);border-color:var(--naranja)}
+@media(max-width:900px){
+  .ingeniero-layout{grid-template-columns:1fr}
+  .ingeniero-galeria{grid-template-columns:1fr 1fr}
+}
+
 /* ── FB FLOTANTE ── */
 .fb-float{position:fixed;bottom:100px;right:28px;z-index:999;width:50px;height:50px;background:#1877F2;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(24,119,242,0.4);transition:all 0.3s}
 .fb-float:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(24,119,242,0.5)}
@@ -472,30 +498,9 @@ select.form-input option{background:var(--azul-oscuro);color:#fff}
 <!-- ══ NAV ══ -->
 <nav id="navbar">
   <div class="nav-logo">
-    <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
-      <!-- Semicírculo naranja -->
-      <path d="M10 62 A40 40 0 0 1 90 62 Z" fill="#F5A623"/>
-      <!-- Rayos del sol (picos blancos sobre el semicírculo) -->
-      <polygon points="50,18 47,28 53,28" fill="white"/>
-      <polygon points="30,24 33,33 38,28" fill="white"/>
-      <polygon points="18,38 27,38 25,33" fill="white"/>
-      <polygon points="70,24 67,28 62,33" fill="white"/>
-      <polygon points="82,38 73,38 75,33" fill="white"/>
-      <polygon points="24,50 32,46 30,41" fill="white"/>
-      <polygon points="76,50 68,46 70,41" fill="white"/>
-      <!-- Círculo blanco central del sol -->
-      <circle cx="50" cy="38" r="10" fill="white"/>
-      <!-- Techo (líneas azules en V) -->
-      <polyline points="10,62 50,40 90,62" stroke="#3B8BD4" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-      <!-- Panel solar (rectángulo azul inclinado) -->
-      <g transform="rotate(-35,45,55)">
-        <rect x="22" y="48" width="34" height="22" rx="2" fill="#3B8BD4"/>
-        <line x1="22" y1="55" x2="56" y2="55" stroke="white" stroke-width="1.2"/>
-        <line x1="22" y1="62" x2="56" y2="62" stroke="white" stroke-width="1.2"/>
-        <line x1="33" y1="48" x2="33" y2="70" stroke="white" stroke-width="1.2"/>
-        <line x1="44" y1="48" x2="44" y2="70" stroke="white" stroke-width="1.2"/>
-      </g>
-    </svg>
+    <div style="background:#fff;border-radius:6px;padding:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;height:44px;width:44px">
+      <img src="LogoEnergeticos.jpeg" alt="ENERGÉTICOS YACUSOL" style="height:38px;width:38px;object-fit:contain">
+    </div>
     <div>
       <div class="nav-logo-text">YACUSOL</div>
       <div class="nav-logo-sub">Termas Solares</div>
@@ -507,6 +512,7 @@ select.form-input option{background:var(--azul-oscuro);color:#fff}
     <a href="#selector">Elige tu modelo</a>
     <a href="#especificaciones">Especificaciones</a>
     <a href="#nosotros">Nosotros</a>
+    <a href="#equipo">El Especialista</a>
     <a href="#contacto" class="nav-cta">Cotizar ahora</a>
   </div>
   <div class="hamburger" onclick="toggleMenu()">
@@ -519,6 +525,7 @@ select.form-input option{background:var(--azul-oscuro);color:#fff}
   <a href="#selector" onclick="toggleMenu()">Elige tu modelo</a>
   <a href="#especificaciones" onclick="toggleMenu()">Especificaciones</a>
   <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
+  <a href="#equipo" onclick="toggleMenu()">El Especialista</a>
   <a href="#contacto" onclick="toggleMenu()" style="color:var(--naranja);font-weight:600">Cotizar ahora</a>
 </div>
 
@@ -869,28 +876,8 @@ select.form-input option{background:var(--azul-oscuro);color:#fff}
 <section class="nosotros" id="nosotros">
   <div class="nosotros-layout">
     <div class="nosotros-visual reveal">
-      <div style="display:flex;justify-content:center;margin-bottom:8px">
-        <svg width="180" height="160" viewBox="0 0 200 175" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 105 A90 90 0 0 1 190 105 Z" fill="#F5A623"/>
-          <polygon points="100,10 96,26 104,26" fill="white"/>
-          <polygon points="62,20 67,35 74,28" fill="white"/>
-          <polygon points="32,44 47,46 43,39" fill="white"/>
-          <polygon points="138,20 133,28 126,35" fill="white"/>
-          <polygon points="168,44 153,46 157,39" fill="white"/>
-          <polygon points="22,72 37,68 35,61" fill="white"/>
-          <polygon points="178,72 163,68 165,61" fill="white"/>
-          <circle cx="100" cy="58" r="22" fill="white"/>
-          <polyline points="10,105 100,58 190,105" stroke="#3B8BD4" stroke-width="9" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-          <g transform="rotate(-35,88,100)">
-            <rect x="36" y="82" width="70" height="46" rx="3" fill="#3B8BD4"/>
-            <line x1="36" y1="97"  x2="106" y2="97"  stroke="white" stroke-width="2"/>
-            <line x1="36" y1="112" x2="106" y2="112" stroke="white" stroke-width="2"/>
-            <line x1="59" y1="82"  x2="59"  y2="128" stroke="white" stroke-width="2"/>
-            <line x1="83" y1="82"  x2="83"  y2="128" stroke="white" stroke-width="2"/>
-          </g>
-          <text x="100" y="140" font-family="Arial Black,Arial,sans-serif" font-size="20" font-weight="900" fill="#F5A623" text-anchor="middle" letter-spacing="1">ENERGÉTICOS</text>
-          <text x="100" y="158" font-family="Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.7)" text-anchor="middle" letter-spacing="2">SERVICIOS DEL SECTOR ELÉCTRICO</text>
-        </svg>
+      <div style="display:flex;justify-content:center;margin-bottom:20px;background:#fff;border-radius:10px;padding:16px">
+        <img src="LogoEnergeticos.jpeg" alt="ENERGÉTICOS – Servicios del Sector Eléctrico" style="width:180px;object-fit:contain">
       </div>
       <div class="nosotros-divider"></div>
       <div class="nosotros-fact">
@@ -933,6 +920,56 @@ select.form-input option{background:var(--azul-oscuro);color:#fff}
           <div class="contacto-item-value">983 926 721</div>
           <div class="contacto-item-sub">Ventas y coordinación</div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INGENIERO RAFAEL ══ -->
+<section class="ingeniero-section" id="equipo">
+  <div class="ingeniero-layout">
+    <div class="ingeniero-foto-principal reveal">
+      <img src="Ing_Rafael2.JPG" alt="Ing. José Rafael Zeña Peche — ENERGÉTICOS YACUSOL">
+      <div class="ingeniero-badge">
+        <div class="ingeniero-badge-nombre">Ing. José Rafael Zeña Peche</div>
+        <div class="ingeniero-badge-titulo">CIP 85540 · Fundador ENERGÉTICOS · YACUSOL</div>
+      </div>
+    </div>
+    <div class="ingeniero-content reveal">
+      <div class="section-tag">Quién lidera YACUSOL</div>
+      <h2>EXPERTO EN<br><span>SISTEMAS</span><br>TÉRMICOS Y SOLARES</h2>
+      <div class="ingeniero-credencial">
+        <div class="ingeniero-cred-icon">🎓</div>
+        <div>
+          <div class="ingeniero-cred-titulo">Ingeniero Mecánico Electricista</div>
+          <div class="ingeniero-cred-desc">Colegio de Ingenieros del Perú — CIP N° 85540. Especialista en sistemas de generación, distribución y uso eficiente de energía eléctrica.</div>
+        </div>
+      </div>
+      <div class="ingeniero-credencial">
+        <div class="ingeniero-cred-icon">☀️</div>
+        <div>
+          <div class="ingeniero-cred-titulo">Especialista en Sistemas Fotovoltaicos y Térmicos</div>
+          <div class="ingeniero-cred-desc">Diseño e instalación de sistemas solares fotovoltaicos y termas solares en la sierra peruana. Amplia experiencia en proyectos a más de 3,000 m.s.n.m.</div>
+        </div>
+      </div>
+      <div class="ingeniero-credencial">
+        <div class="ingeniero-cred-icon">⚡</div>
+        <div>
+          <div class="ingeniero-cred-titulo">Especialista en Instalaciones Eléctricas</div>
+          <div class="ingeniero-cred-desc">Revisión técnica de proyectos eléctricos de alta complejidad, incluyendo hospitales, infraestructura pública y proyectos de energía renovable en Perú.</div>
+        </div>
+      </div>
+      <div class="ingeniero-credencial">
+        <div class="ingeniero-cred-icon">🏗️</div>
+        <div>
+          <div class="ingeniero-cred-titulo">Fundador de ENERGÉTICOS y la marca YACUSOL</div>
+          <div class="ingeniero-cred-desc">Creó ENERGÉTICOS como empresa de servicios eléctricos en Huaraz, Ancash, y lanzó YACUSOL como la primera marca propia de termas solares de la región.</div>
+        </div>
+      </div>
+      <!-- Galería de fotos en campo -->
+      <div class="ingeniero-galeria">
+        <img src="Ing_Rafael.jpg" alt="Ing. Rafael instalando terma solar YACUSOL" title="Instalación de terma solar YACUSOL">
+        <img src="Ing_Rafael4.jpg" alt="Ing. Rafael instalando paneles solares" title="Instalación de sistema fotovoltaico">
       </div>
     </div>
   </div>
