@@ -365,6 +365,54 @@ footer{background:#050e1f;padding:32px 5%;display:flex;align-items:center;justif
 .footer-social a{width:36px;height:36px;border:1px solid rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,0.5);transition:all 0.25s}
 .footer-social a:hover{border-color:var(--naranja);color:var(--naranja)}
 
+/* ── MODAL ESPECIFICACIONES ── */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal-box{background:#fff;border-radius:12px;width:100%;max-width:700px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 60px rgba(0,0,0,0.3)}
+.modal-header{background:linear-gradient(135deg,var(--azul-oscuro),var(--azul));padding:28px 32px;display:flex;align-items:center;justify-content:space-between;border-radius:12px 12px 0 0}
+.modal-title{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;letter-spacing:0.04em}
+.modal-sub{font-size:12px;color:rgba(255,255,255,0.6);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+.modal-close{width:36px;height:36px;background:rgba(255,255,255,0.15);border:none;border-radius:50%;cursor:pointer;color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;transition:background 0.2s;flex-shrink:0}
+.modal-close:hover{background:rgba(255,255,255,0.3)}
+.modal-body{padding:28px 32px}
+.modal-model-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.modal-tab{padding:7px 16px;border-radius:4px;border:1.5px solid rgba(0,0,0,0.12);background:transparent;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;color:var(--texto-suave);transition:all 0.2s}
+.modal-tab.active{background:var(--naranja);border-color:var(--naranja);color:#fff}
+.modal-spec-table{width:100%;border-collapse:collapse}
+.modal-spec-table tr{border-bottom:1px solid rgba(0,0,0,0.06)}
+.modal-spec-table tr:last-child{border-bottom:none}
+.modal-spec-table td{padding:13px 8px;font-size:14px;vertical-align:top}
+.modal-spec-table td:first-child{font-weight:600;color:var(--azul);width:200px;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+.modal-spec-table td:last-child{color:var(--texto)}
+.modal-spec-table td strong{color:var(--naranja);font-weight:600}
+.modal-download{display:inline-flex;align-items:center;gap:8px;background:var(--naranja);color:#fff;font-weight:600;font-size:13px;padding:11px 22px;border-radius:4px;margin-top:20px;transition:all 0.25s;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+.modal-download:hover{background:var(--naranja-oscuro)}
+
+/* ── SPEC FLOTANTE (botón ícono) ── */
+.spec-float{position:fixed;bottom:170px;right:28px;z-index:999;width:50px;height:50px;background:var(--azul);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(26,77,143,0.5);transition:all 0.3s;cursor:pointer;border:none}
+.spec-float:hover{transform:scale(1.1)}
+.spec-float svg{width:24px;height:24px;fill:#fff}
+.spec-float-label{position:absolute;right:60px;background:var(--azul);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:4px;white-space:nowrap;opacity:0;transition:opacity 0.2s;pointer-events:none}
+.spec-float:hover .spec-float-label{opacity:1}
+
+/* ── FORMULARIO CONTACTO ── */
+.contacto-grid-nuevo{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:64px;align-items:start}
+.form-section-title{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--dorado);margin-bottom:20px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:1px;text-transform:uppercase;margin-bottom:7px}
+.form-input{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:12px 16px;color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:300;transition:border-color 0.2s;outline:none}
+.form-input:focus{border-color:var(--naranja)}
+.form-input::placeholder{color:rgba(255,255,255,0.3)}
+textarea.form-input{resize:vertical;min-height:100px}
+select.form-input option{background:var(--azul-oscuro);color:#fff}
+.form-submit{display:inline-flex;align-items:center;gap:10px;background:var(--naranja);color:#fff;font-weight:600;font-size:14px;padding:13px 28px;border-radius:4px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.25s;width:100%;justify-content:center;margin-top:8px}
+.form-submit:hover{background:var(--naranja-oscuro)}
+.form-success{display:none;background:rgba(37,211,102,0.15);border:1px solid rgba(37,211,102,0.4);border-radius:8px;padding:16px;text-align:center;color:#fff;font-size:14px;margin-top:12px}
+.form-success.show{display:block}
+.sugerencia-tipos{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.sug-tipo{padding:6px 14px;border-radius:20px;border:1.5px solid rgba(255,255,255,0.2);background:transparent;color:rgba(255,255,255,0.7);font-size:12px;font-weight:400;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif}
+.sug-tipo.active,.sug-tipo:hover{background:rgba(245,166,35,0.2);border-color:var(--dorado);color:var(--dorado)}
+
 /* ── FB FLOTANTE ── */
 .fb-float{position:fixed;bottom:100px;right:28px;z-index:999;width:50px;height:50px;background:#1877F2;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(24,119,242,0.4);transition:all 0.3s}
 .fb-float:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(24,119,242,0.5)}
@@ -892,12 +940,14 @@ footer{background:#050e1f;padding:32px 5%;display:flex;align-items:center;justif
 
 <!-- ══ CONTACTO ══ -->
 <section class="contacto-section" id="contacto">
-  <div class="reveal">
-    <div class="section-tag" style="color:var(--dorado)">Contáctanos ahora</div>
-    <h2 class="section-title" style="color:#fff">¿LISTO PARA<br><span>TU TERMA SOLAR?</span></h2>
-    <p class="section-desc">Escríbenos por WhatsApp. Te asesoramos gratis para elegir el modelo ideal según tu familia o negocio.</p>
+  <div class="reveal" style="position:relative;z-index:1">
+    <div class="section-tag" style="color:var(--dorado)">Contáctanos</div>
+    <h2 class="section-title" style="color:#fff">ESTAMOS AQUÍ<br><span>PARA AYUDARTE</span></h2>
+    <p class="section-desc">Escríbenos por WhatsApp, correo electrónico, o déjanos una sugerencia. Respondemos en menos de 24 horas.</p>
   </div>
-  <div class="wa-cards reveal">
+
+  <!-- Canales rápidos -->
+  <div class="wa-cards reveal" style="position:relative;z-index:1">
     <div class="wa-card">
       <div class="wa-num">961 120 481</div>
       <div class="wa-label">Consultas generales</div>
@@ -910,19 +960,115 @@ footer{background:#050e1f;padding:32px 5%;display:flex;align-items:center;justif
       <div class="wa-num">942 899 919</div>
       <div class="wa-label">Coordinación técnica</div>
     </div>
+    <a class="wa-card" href="mailto:energeticos.ryc@gmail.com" style="text-decoration:none;display:block">
+      <div class="wa-num" style="font-size:16px;font-family:'DM Sans',sans-serif;font-weight:600;letter-spacing:0">✉ Correo</div>
+      <div class="wa-label">energeticos.ryc@gmail.com</div>
+    </a>
   </div>
-  <div class="wa-btn-group reveal">
+
+  <!-- Formularios: Contacto + Sugerencias -->
+  <div class="contacto-grid-nuevo reveal" style="position:relative;z-index:1;max-width:1100px;margin-left:auto;margin-right:auto">
+
+    <!-- FORMULARIO CORREO -->
+    <div>
+      <div class="form-section-title">✉ Envíanos un correo</div>
+      <form id="form-contacto" onsubmit="enviarCorreo(event)">
+        <div class="form-group">
+          <label>Tu nombre</label>
+          <input type="text" class="form-input" id="c-nombre" placeholder="Nombre completo" required>
+        </div>
+        <div class="form-group">
+          <label>Tu correo o WhatsApp</label>
+          <input type="text" class="form-input" id="c-contacto" placeholder="correo@gmail.com o 9XX XXX XXX" required>
+        </div>
+        <div class="form-group">
+          <label>Modelo de interés</label>
+          <select class="form-input" id="c-modelo">
+            <option value="">Seleccionar modelo...</option>
+            <option>120 Litros — pareja / familia pequeña</option>
+            <option>150 Litros — familia de 3 personas</option>
+            <option>200 Litros — familia de 4-5 personas</option>
+            <option>250 Litros — familia grande 6-8 personas</option>
+            <option>300 Litros — hostal / negocio</option>
+            <option>400 Litros — empresa / clínica</option>
+            <option>No sé aún, necesito asesoría</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensaje</label>
+          <textarea class="form-input" id="c-mensaje" placeholder="Cuéntanos qué necesitas..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          Enviar por correo
+        </button>
+        <div class="form-success" id="success-correo">
+          ✅ ¡Gracias! Tu mensaje fue preparado. Se abrirá tu correo para enviarlo.
+        </div>
+      </form>
+    </div>
+
+    <!-- BUZÓN DE SUGERENCIAS -->
+    <div>
+      <div class="form-section-title">💡 Buzón de sugerencias</div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:20px;line-height:1.7">Tu opinión mejora nuestro servicio. Puedes escribir de forma anónima si lo prefieres.</p>
+      <div class="form-group">
+        <label>Tipo de sugerencia</label>
+        <div class="sugerencia-tipos" id="sug-tipos">
+          <button type="button" class="sug-tipo active" onclick="selTipo(this)">Producto</button>
+          <button type="button" class="sug-tipo" onclick="selTipo(this)">Instalación</button>
+          <button type="button" class="sug-tipo" onclick="selTipo(this)">Atención</button>
+          <button type="button" class="sug-tipo" onclick="selTipo(this)">Precios</button>
+          <button type="button" class="sug-tipo" onclick="selTipo(this)">Web / Redes</button>
+          <button type="button" class="sug-tipo" onclick="selTipo(this)">Otro</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Tu nombre (opcional)</label>
+        <input type="text" class="form-input" id="s-nombre" placeholder="Anónimo si prefieres">
+      </div>
+      <div class="form-group">
+        <label>Tu sugerencia</label>
+        <textarea class="form-input" id="s-mensaje" placeholder="¿Qué podemos mejorar? ¿Qué te gustó? ¿Qué te faltó?" style="min-height:120px" required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Calificación del servicio</label>
+        <div style="display:flex;gap:8px;margin-top:4px" id="stars-box">
+          <span class="star" onclick="setStars(1)" style="font-size:24px;cursor:pointer;opacity:0.4">★</span>
+          <span class="star" onclick="setStars(2)" style="font-size:24px;cursor:pointer;opacity:0.4">★</span>
+          <span class="star" onclick="setStars(3)" style="font-size:24px;cursor:pointer;opacity:0.4">★</span>
+          <span class="star" onclick="setStars(4)" style="font-size:24px;cursor:pointer;opacity:0.4">★</span>
+          <span class="star" onclick="setStars(5)" style="font-size:24px;cursor:pointer;opacity:0.4">★</span>
+        </div>
+      </div>
+      <button type="button" class="form-submit" onclick="enviarSugerencia()" style="background:rgba(245,166,35,0.85)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        Enviar sugerencia
+      </button>
+      <div class="form-success" id="success-sug">
+        ✅ ¡Gracias por tu sugerencia! La tomaremos muy en cuenta para mejorar YACUSOL.
+      </div>
+    </div>
+  </div>
+
+  <!-- Botones redes -->
+  <div class="wa-btn-group reveal" style="margin-top:48px;position:relative;z-index:1">
     <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20quiero%20una%20cotizaci%C3%B3n%20de%20terma%20solar" class="wa-main-btn" target="_blank">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Escribir por WhatsApp
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a href="mailto:energeticos.ryc@gmail.com" class="wa-main-btn" style="background:var(--naranja)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      Correo electrónico
     </a>
     <a href="https://www.facebook.com/share/197CpcYFca/" class="wa-main-btn" target="_blank" style="background:#1877F2">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      Seguir en Facebook
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Facebook
     </a>
   </div>
-  <div class="direccion-bar reveal">
-    📍 Jr. Augusto B. Leguía 563, Independencia, Huaraz, Ancash, Perú
+
+  <div class="direccion-bar reveal" style="position:relative;z-index:1">
+    📍 Jr. Augusto B. Leguía 563, Independencia, Huaraz, Ancash, Perú &nbsp;|&nbsp; ✉ energeticos.ryc@gmail.com
   </div>
 </section>
 
@@ -944,6 +1090,46 @@ footer{background:#050e1f;padding:32px 5%;display:flex;align-items:center;justif
   </div>
 </footer>
 
+<!-- ══ MODAL ESPECIFICACIONES TÉCNICAS ══ -->
+<div class="modal-overlay" id="modal-specs" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">FICHAS TÉCNICAS YACUSOL</div>
+        <div class="modal-sub">Especificaciones completas por modelo</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-model-tabs" id="modal-tabs">
+        <button class="modal-tab active" onclick="showModel('120',this)">120 L</button>
+        <button class="modal-tab" onclick="showModel('150',this)">150 L</button>
+        <button class="modal-tab" onclick="showModel('200',this)">200 L</button>
+        <button class="modal-tab" onclick="showModel('250',this)">250 L</button>
+        <button class="modal-tab" onclick="showModel('300',this)">300 L</button>
+        <button class="modal-tab" onclick="showModel('400',this)">400 L</button>
+      </div>
+      <div id="modal-spec-content"></div>
+      <button class="modal-download" onclick="downloadSpec()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Descargar ficha técnica PDF
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ Botón flotante ESPECIFICACIONES ══ -->
+<button class="spec-float" onclick="openModal()" title="Ver especificaciones técnicas" style="position:fixed;bottom:170px;right:28px;z-index:999">
+  <span class="spec-float-label">Fichas técnicas</span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="14 2 14 8 20 8" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="16" y1="13" x2="8" y2="13" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <line x1="16" y1="17" x2="8" y2="17" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <polyline points="10 9 9 9 8 9" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+</button>
+
 <!-- ══ Facebook flotante ══ -->
 <a class="fb-float" href="https://www.facebook.com/share/197CpcYFca/" target="_blank" title="Síguenos en Facebook">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -962,18 +1148,21 @@ function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('op
 const observer=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-/* ── COUNTDOWN FIESTAS PATRIAS 28 julio 2026 ── */
+/* ── COUNTDOWN FIESTAS PATRIAS ── */
 function updateCountdown(){
   const target=new Date('2026-07-28T00:00:00-05:00');
   const now=new Date();
   const diff=target-now;
-  if(diff<=0){document.getElementById('fp-banner').style.display='none';return}
+  if(diff<=0){const b=document.getElementById('fp-banner');if(b)b.style.display='none';return}
   const d=Math.floor(diff/86400000);
   const h=Math.floor((diff%86400000)/3600000);
   const m=Math.floor((diff%3600000)/60000);
-  document.getElementById('cd-dias').textContent=String(d).padStart(2,'0');
-  document.getElementById('cd-hrs').textContent=String(h).padStart(2,'0');
-  document.getElementById('cd-min').textContent=String(m).padStart(2,'0');
+  const el1=document.getElementById('cd-dias');
+  const el2=document.getElementById('cd-hrs');
+  const el3=document.getElementById('cd-min');
+  if(el1)el1.textContent=String(d).padStart(2,'0');
+  if(el2)el2.textContent=String(h).padStart(2,'0');
+  if(el3)el3.textContent=String(m).padStart(2,'0');
 }
 updateCountdown();
 setInterval(updateCountdown,60000);
@@ -981,10 +1170,10 @@ setInterval(updateCountdown,60000);
 /* ── SELECTOR DE MODELO ── */
 const state={personas:null,uso:null};
 const modelos={
-  '1-2':  {l:'120',titulo:'Terma Solar 120 Litros',desc:'Compacta y eficiente para 1-2 personas. Perfecta para espacios pequeños en Huaraz.'},
-  '3':    {l:'150',titulo:'Terma Solar 150 Litros',desc:'Capacidad ideal para 3 personas. Agua caliente para todo el día con reserva para la noche.'},
-  '4-5':  {l:'200',titulo:'Terma Solar 200 Litros',desc:'Nuestro modelo estrella. El más solicitado en Huaraz para familias de 4-5 personas.'},
-  '6-8':  {l:'250',titulo:'Terma Solar 250 Litros',desc:'Alta capacidad para familias numerosas. Cubre ampliamente la demanda diaria de 6-8 personas.'},
+  '1-2':{l:'120',titulo:'Terma Solar 120 Litros',desc:'Compacta y eficiente para 1-2 personas. Perfecta para espacios pequeños en Huaraz.'},
+  '3':{l:'150',titulo:'Terma Solar 150 Litros',desc:'Capacidad ideal para 3 personas. Agua caliente para todo el día con reserva para la noche.'},
+  '4-5':{l:'200',titulo:'Terma Solar 200 Litros',desc:'Nuestro modelo estrella. El más solicitado en Huaraz para familias de 4-5 personas.'},
+  '6-8':{l:'250',titulo:'Terma Solar 250 Litros',desc:'Alta capacidad para familias numerosas. Cubre ampliamente la demanda diaria de 6-8 personas.'},
   'negocio':{l:'300',titulo:'Terma Solar 300 Litros',desc:'Diseñada para uso intensivo en hostales, negocios y restaurantes de Ancash.'},
   'empresa':{l:'400',titulo:'Terma Solar 400 Litros',desc:'Máxima capacidad para clínicas, empresas e instituciones con alta demanda de agua caliente.'},
 };
@@ -992,7 +1181,7 @@ function selectOpt(tipo,btn){
   document.querySelectorAll('#opt-'+tipo+' .sel-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   state[tipo]=btn.dataset[tipo];
-  if(state.personas){showResult()}
+  if(state.personas)showResult();
 }
 function showResult(){
   const m=modelos[state.personas];
@@ -1000,10 +1189,151 @@ function showResult(){
   document.getElementById('result-modelo').innerHTML=m.l+' <span>L</span>';
   document.getElementById('result-title').textContent=m.titulo;
   document.getElementById('result-desc').textContent=m.desc;
-  const msg=encodeURIComponent('Hola YACUSOL, me interesa el modelo '+m.l+'L. '+
-    (state.uso?'Lo necesito para: '+state.uso+'.':''));
+  const msg=encodeURIComponent('Hola YACUSOL, me interesa el modelo '+m.l+'L.'+(state.uso?' Lo necesito para: '+state.uso+'.':''));
   document.getElementById('result-cta').href='https://wa.me/51961120481?text='+msg;
   r.classList.add('show');
+}
+
+/* ── DATOS FICHAS TÉCNICAS ── */
+const fichas={
+  '120':{cap:'120 litros',tubos:'10 tubos',personas:'1–2 personas',largo:'1.25 m',ancho:'0.61 m',alto:'0.99 m',peso:'26 kg',presion:'Sin presión (non-pressure)'},
+  '150':{cap:'150 litros',tubos:'12 tubos',personas:'2–3 personas',largo:'1.51 m',ancho:'0.61 m',alto:'0.99 m',peso:'31 kg',presion:'Sin presión (non-pressure)'},
+  '200':{cap:'200 litros',tubos:'16 tubos',personas:'4–5 personas',largo:'1.97 m',ancho:'0.61 m',alto:'0.99 m',peso:'40 kg',presion:'Sin presión (non-pressure)'},
+  '250':{cap:'250 litros',tubos:'20 tubos',personas:'6–8 personas',largo:'2.43 m',ancho:'0.61 m',alto:'0.99 m',peso:'50 kg',presion:'Sin presión (non-pressure)'},
+  '300':{cap:'300 litros',tubos:'24 tubos',personas:'Hostal / negocio',largo:'2.89 m',ancho:'0.61 m',alto:'0.99 m',peso:'60 kg',presion:'Sin presión (non-pressure)'},
+  '400':{cap:'400 litros',tubos:'30 tubos',personas:'Empresa / clínica',largo:'3.58 m',ancho:'0.61 m',alto:'1.10 m',peso:'78 kg',presion:'Sin presión (non-pressure)'},
+};
+let modeloActivo='120';
+
+function showModel(modelo,btn){
+  modeloActivo=modelo;
+  document.querySelectorAll('.modal-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const f=fichas[modelo];
+  document.getElementById('modal-spec-content').innerHTML=`
+    <table class="modal-spec-table">
+      <tr><td>Modelo</td><td><strong>YACUSOL ${modelo} Litros</strong></td></tr>
+      <tr><td>Capacidad del tanque</td><td>${f.cap}</td></tr>
+      <tr><td>Uso recomendado</td><td>${f.personas}</td></tr>
+      <tr><td>Número de tubos</td><td>${f.tubos} de vacío, 58 × 1800 mm, triple capa</td></tr>
+      <tr><td>Tipo de sistema</td><td>${f.presion}</td></tr>
+      <tr><td>Tanque interior</td><td><strong>Acero Inoxidable 316</strong> — grado médico/alimentario</td></tr>
+      <tr><td>Tanque exterior</td><td>Acero Inoxidable 304</td></tr>
+      <tr><td>Aislamiento térmico</td><td>Poliuretano alta densidad — <strong>50 mm</strong></td></tr>
+      <tr><td>Soporte / estructura</td><td>Acero Inox 304, espesor 1.2 mm — ángulo 15°</td></tr>
+      <tr><td>Conexiones</td><td>Entrada/salida 3/4 pulgada (20 mm)</td></tr>
+      <tr><td>Dimensiones aprox.</td><td>Largo ${f.largo} × Ancho ${f.ancho} × Alto ${f.alto}</td></tr>
+      <tr><td>Peso con agua aprox.</td><td>${f.peso} kg (vacío) + capacidad del tanque</td></tr>
+      <tr><td>Accesorios incluidos</td><td>Controlador digital, resistencia eléctrica backup, tanque auxiliar, varilla de magnesio, válvula termostática</td></tr>
+      <tr><td>Compatibilidad</td><td>Techos planos e inclinados. Nivel del mar a +4,000 m.s.n.m.</td></tr>
+      <tr><td>Garantía</td><td><strong>5 años</strong> en tanque y soporte estructural</td></tr>
+      <tr><td>Marca</td><td>YACUSOL — ENERGÉTICOS Servicios del Sector Eléctrico</td></tr>
+      <tr><td>Contacto</td><td>energeticos.ryc@gmail.com | 961 120 481</td></tr>
+    </table>`;
+}
+showModel('120',document.querySelector('.modal-tab'));
+
+function openModal(){
+  document.getElementById('modal-specs').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('modal-specs').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function downloadSpec(){
+  const f=fichas[modeloActivo];
+  const contenido=`YACUSOL - FICHA TÉCNICA
+TERMA SOLAR ${modeloActivo} LITROS
+ENERGÉTICOS – Servicios del Sector Eléctrico
+Jr. Augusto B. Leguía 563, Independencia, Huaraz, Ancash, Perú
+energeticos.ryc@gmail.com | 961 120 481 | 983 926 721 | 942 899 919
+https://energeticos2023.github.io/YACUSOL
+
+════════════════════════════════════════════════
+ESPECIFICACIONES TÉCNICAS
+════════════════════════════════════════════════
+
+Modelo              : YACUSOL ${modeloActivo} Litros
+Capacidad           : ${f.cap}
+Uso recomendado     : ${f.personas}
+Tubos de vacío      : ${f.tubos} — 58 × 1800 mm, triple capa
+Tipo de sistema     : ${f.presion}
+Tanque interior     : Acero Inoxidable 316 (grado médico/alimentario)
+Tanque exterior     : Acero Inoxidable 304
+Aislamiento         : Poliuretano alta densidad — 50 mm de espesor
+Soporte             : Acero Inox 304, espesor 1.2 mm — ángulo 15°
+Conexiones          : Entrada/salida 3/4 pulgada (20 mm)
+Dimensiones         : Largo ${f.largo} × Ancho ${f.ancho} × Alto ${f.alto}
+Peso vacío aprox.   : ${f.peso}
+Compatibilidad      : Techos planos e inclinados. 0 a +4,000 m.s.n.m.
+
+ACCESORIOS INCLUIDOS
+────────────────────
+• Controlador digital de temperatura
+• Resistencia eléctrica de respaldo (backup)
+• Tanque auxiliar de agua
+• Varilla de magnesio (protección anticorrosión)
+• Válvula termostática
+
+GARANTÍA            : 5 AÑOS en tanque y soporte estructural
+
+════════════════════════════════════════════════
+Documento generado desde yacusol.pe
+© 2026 YACUSOL — ENERGÉTICOS
+════════════════════════════════════════════════`;
+
+  const blob=new Blob([contenido],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download=`YACUSOL_FichaTecnica_${modeloActivo}L.txt`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ── FORMULARIO CORREO ── */
+function enviarCorreo(e){
+  e.preventDefault();
+  const nombre=document.getElementById('c-nombre').value;
+  const contacto=document.getElementById('c-contacto').value;
+  const modelo=document.getElementById('c-modelo').value;
+  const mensaje=document.getElementById('c-mensaje').value;
+  const cuerpo=`Hola YACUSOL,\n\nNombre: ${nombre}\nContacto: ${contacto}\nModelo de interés: ${modelo||'No especificado'}\n\nMensaje:\n${mensaje}\n\n---\nEnviado desde yacusol.pe`;
+  const mailto=`mailto:energeticos.ryc@gmail.com?subject=Consulta YACUSOL - ${nombre}&body=${encodeURIComponent(cuerpo)}`;
+  window.location.href=mailto;
+  document.getElementById('success-correo').classList.add('show');
+  document.getElementById('form-contacto').reset();
+}
+
+/* ── BUZÓN SUGERENCIAS ── */
+let tipoSug='Producto';
+let estrellas=0;
+function selTipo(btn){
+  document.querySelectorAll('.sug-tipo').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  tipoSug=btn.textContent;
+}
+function setStars(n){
+  estrellas=n;
+  document.querySelectorAll('.star').forEach((s,i)=>{
+    s.style.opacity=i<n?'1':'0.3';
+    s.style.color=i<n?'#F5A623':'inherit';
+  });
+}
+function enviarSugerencia(){
+  const nombre=document.getElementById('s-nombre').value||'Anónimo';
+  const mensaje=document.getElementById('s-mensaje').value;
+  if(!mensaje){alert('Por favor escribe tu sugerencia.');return;}
+  const stars='★'.repeat(estrellas)+'☆'.repeat(5-estrellas);
+  const cuerpo=`SUGERENCIA YACUSOL\n\nTipo: ${tipoSug}\nNombre: ${nombre}\nCalificación: ${stars} (${estrellas}/5)\n\nSugerencia:\n${mensaje}\n\n---\nEnviado desde yacusol.pe`;
+  const mailto=`mailto:energeticos.ryc@gmail.com?subject=Sugerencia YACUSOL [${tipoSug}]&body=${encodeURIComponent(cuerpo)}`;
+  window.location.href=mailto;
+  document.getElementById('success-sug').classList.add('show');
+  document.getElementById('s-nombre').value='';
+  document.getElementById('s-mensaje').value='';
+  setStars(0);
 }
 </script>
 </body>
