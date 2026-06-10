@@ -1262,135 +1262,63 @@ select.form-input option{background:var(--azul-oscuro);color:#fff}
 
 <!-- ══ CONTACTO ══ -->
 <section class="contacto-section" id="contacto">
-  <div class="reveal" style="position:relative;z-index:1">
-    <div class="section-tag" style="color:var(--dorado)">Contáctanos</div>
-    <h2 class="section-title" style="color:#fff">ESTAMOS AQUÍ<br><span>PARA AYUDARTE</span></h2>
-    <p class="section-desc">Escríbenos por WhatsApp, correo electrónico, o déjanos una sugerencia. Respondemos en menos de 24 horas.</p>
-  </div>
+  <div class="reveal" style="position:relative;z-index:1;max-width:800px;margin:0 auto;text-align:center">
+    <div class="section-tag" style="color:var(--dorado)">Contáctenos</div>
+    <h2 class="section-title" style="color:#fff">¿LISTO PARA TENER<br><span>AGUA CALIENTE?</span></h2>
+    <p class="section-desc" style="margin-bottom:48px">
+      Escríbanos por WhatsApp — respondemos en minutos. Cuéntenos cuántas personas son en su hogar y le recomendamos el modelo ideal sin costo ni compromiso.
+    </p>
 
-  <!-- Canales rápidos -->
-  <div class="wa-cards reveal" style="position:relative;z-index:1">
-    <div class="wa-card">
-      <div class="wa-num">961 120 481</div>
-      <div class="wa-label">Consultas generales</div>
-    </div>
-    <div class="wa-card">
-      <div class="wa-num">983 926 721</div>
-      <div class="wa-label">Ventas y cotizaciones</div>
-    </div>
-    <div class="wa-card">
-      <div class="wa-num">942 899 919</div>
-      <div class="wa-label">Coordinación técnica</div>
-    </div>
-    <a class="wa-card" href="mailto:energeticos.ryc@gmail.com" style="text-decoration:none;display:block">
-      <div class="wa-num" style="font-size:16px;font-family:'DM Sans',sans-serif;font-weight:600;letter-spacing:0">✉ Correo</div>
-      <div class="wa-label">energeticos.ryc@gmail.com</div>
-    </a>
-  </div>
-
-  <!-- Formularios: Contacto + Sugerencias -->
-  <div class="contacto-grid-nuevo reveal" style="position:relative;z-index:1;max-width:1100px;margin-left:auto;margin-right:auto">
-
-    <!-- FORMULARIO CORREO -->
-    <div>
-      <div class="form-section-title">✉ Envíanos un correo</div>
-      <form id="form-contacto" onsubmit="enviarCorreo(event)">
-        <div class="form-group">
-          <label>Tu nombre</label>
-          <input type="text" class="form-input" id="c-nombre" placeholder="Nombre completo" required>
+    <!-- 3 botones WhatsApp por número -->
+    <div class="wa-cards reveal">
+      <a href="https://wa.me/51961120481?text=Hola%20YACUSOL%20%F0%9F%91%8B%20Quisiera%20una%20cotizaci%C3%B3n%20de%20terma%20solar%20para%20mi%20hogar." target="_blank" class="wa-card" style="text-decoration:none;cursor:pointer">
+        <div class="wa-num">961 120 481</div>
+        <div class="wa-label">Consultas y cotizaciones</div>
+        <div style="margin-top:12px;background:#25D366;color:#fff;font-size:12px;font-weight:600;padding:6px 16px;border-radius:20px;display:inline-block">
+          📲 Escribir ahora
         </div>
-        <div class="form-group">
-          <label>Tu correo o WhatsApp</label>
-          <input type="text" class="form-input" id="c-contacto" placeholder="correo@gmail.com o 9XX XXX XXX" required>
+      </a>
+      <a href="https://wa.me/51983926721?text=Hola%20YACUSOL%20%F0%9F%91%8B%20Quisiera%20una%20cotizaci%C3%B3n%20de%20terma%20solar." target="_blank" class="wa-card" style="text-decoration:none;cursor:pointer">
+        <div class="wa-num">983 926 721</div>
+        <div class="wa-label">Ventas y coordinación</div>
+        <div style="margin-top:12px;background:#25D366;color:#fff;font-size:12px;font-weight:600;padding:6px 16px;border-radius:20px;display:inline-block">
+          📲 Escribir ahora
         </div>
-        <div class="form-group">
-          <label>Modelo de interés</label>
-          <select class="form-input" id="c-modelo">
-            <option value="">Seleccionar modelo...</option>
-            <option>120 Litros — pareja / familia pequeña</option>
-            <option>150 Litros — familia de 3 personas</option>
-            <option>200 Litros — familia de 4-5 personas</option>
-            <option>250 Litros — familia grande 6-8 personas</option>
-            <option>300 Litros — hostal / negocio</option>
-            <option>400 Litros — empresa / clínica</option>
-            <option>No sé aún, necesito asesoría</option>
-          </select>
+      </a>
+      <a href="https://wa.me/51942899919?text=Hola%20YACUSOL%20%F0%9F%91%8B%20Quisiera%20una%20cotizaci%C3%B3n%20de%20terma%20solar." target="_blank" class="wa-card" style="text-decoration:none;cursor:pointer">
+        <div class="wa-num">942 899 919</div>
+        <div class="wa-label">Atención técnica</div>
+        <div style="margin-top:12px;background:#25D366;color:#fff;font-size:12px;font-weight:600;padding:6px 16px;border-radius:20px;display:inline-block">
+          📲 Escribir ahora
         </div>
-        <div class="form-group">
-          <label>Mensaje</label>
-          <textarea class="form-input" id="c-mensaje" placeholder="Cuéntanos qué necesitas..." required></textarea>
-        </div>
-        <button type="submit" class="form-submit">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-          Enviar por correo
-        </button>
-        <div class="form-success" id="success-correo">
-          ✅ ¡Gracias! Tu mensaje fue preparado. Se abrirá tu correo para enviarlo.
-        </div>
-      </form>
+      </a>
     </div>
 
-    <!-- BUZÓN DE SUGERENCIAS -->
-    <div>
-      <div class="form-section-title">💡 Buzón de sugerencias</div>
-      <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:20px;line-height:1.7">Tu opinión mejora nuestro servicio. Puedes escribir de forma anónima si lo prefieres.</p>
-      <div class="form-group">
-        <label>Tipo de sugerencia</label>
-        <div class="sugerencia-tipos" id="sug-tipos">
-          <button type="button" class="sug-tipo active" onclick="selTipo(this)">Producto</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Instalación</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Atención</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Precios</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Web / Redes</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Otro</button>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Tu nombre (opcional)</label>
-        <input type="text" class="form-input" id="s-nombre" placeholder="Anónimo si prefieres">
-      </div>
-      <div class="form-group">
-        <label>Tu sugerencia</label>
-        <textarea class="form-input" id="s-mensaje" placeholder="¿Qué podemos mejorar? ¿Qué te gustó? ¿Qué te faltó?" style="min-height:120px" required></textarea>
-      </div>
-      <div class="form-group">
-        <label>Calificación del servicio</label>
-        <div style="display:flex;gap:8px;margin-top:4px" id="stars-box">
-          <span class="star" onclick="setStars(1)" style="font-size:24px;cursor:pointer;opacity:0.4">★</span>
-          <span class="star" onclick="setStars(2)" style="font-size:24px;cursor:pointer;opacity:0.4">★</span>
-          <span class="star" onclick="setStars(3)" style="font-size:24px;cursor:pointer;opacity:0.4">★</span>
-          <span class="star" onclick="setStars(4)" style="font-size:24px;cursor:pointer;opacity:0.4">★</span>
-          <span class="star" onclick="setStars(5)" style="font-size:24px;cursor:pointer;opacity:0.4">★</span>
-        </div>
-      </div>
-      <button type="button" class="form-submit" onclick="enviarSugerencia()" style="background:rgba(245,166,35,0.85)">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-        Enviar sugerencia
-      </button>
-      <div class="form-success" id="success-sug">
-        ✅ ¡Gracias por tu sugerencia! La tomaremos muy en cuenta para mejorar YACUSOL.
-      </div>
+    <!-- Botón principal grande -->
+    <div style="margin-top:40px" class="reveal">
+      <a href="https://wa.me/51961120481?text=Hola%20YACUSOL%20%F0%9F%91%8B%20Quisiera%20una%20cotizaci%C3%B3n%20de%20terma%20solar%20para%20mi%20hogar.%20%C2%BFMe%20pueden%20ayudar%3F" target="_blank" class="wa-main-btn" style="font-size:17px;padding:18px 40px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Cotizar por WhatsApp ahora
+      </a>
     </div>
-  </div>
 
-  <!-- Botones redes -->
-  <div class="wa-btn-group reveal" style="margin-top:48px;position:relative;z-index:1">
-    <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20quiero%20una%20cotizaci%C3%B3n%20de%20terma%20solar" class="wa-main-btn" target="_blank">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      WhatsApp
-    </a>
-    <a href="mailto:energeticos.ryc@gmail.com" class="wa-main-btn" style="background:var(--naranja)">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-      Correo electrónico
-    </a>
-    <a href="https://www.facebook.com/share/197CpcYFca/" class="wa-main-btn" target="_blank" style="background:#1877F2">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      Facebook
-    </a>
-  </div>
-
-  <div class="direccion-bar reveal" style="position:relative;z-index:1">
-    📍 Jr. Augusto B. Leguía 563, Independencia, Huaraz, Ancash, Perú &nbsp;|&nbsp; ✉ energeticos.ryc@gmail.com
+    <!-- Datos adicionales -->
+    <div class="reveal" style="margin-top:48px;display:flex;flex-wrap:wrap;justify-content:center;gap:24px">
+      <div style="color:rgba(255,255,255,0.6);font-size:13px">
+        📍 Jr. Augusto B. Leguía 563, Independencia, Huaraz
+      </div>
+      <div style="color:rgba(255,255,255,0.6);font-size:13px">
+        ✉ energeticos.ryc@gmail.com
+      </div>
+      <a href="https://www.facebook.com/share/197CpcYFca/" target="_blank"
+         style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none">
+        📘 Facebook YACUSOL
+      </a>
+      <a href="https://www.tiktok.com/@energeticos6" target="_blank"
+         style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none">
+        🎵 TikTok @energeticos6
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1414,23 +1342,6 @@ select.form-input option{background:var(--azul-oscuro);color:#fff}
     </a>
   </div>
 </footer>
-
-<!-- ══ CONTADOR DE VISITAS ══ -->
-<div id="visitas-bar" style="background:#050e1f;border-top:1px solid rgba(232,98,10,0.2);
-     padding:10px 5%;display:flex;align-items:center;justify-content:center;gap:12px">
-  <span style="font-size:11px;color:rgba(255,255,255,0.35);font-family:Arial,sans-serif;
-               letter-spacing:1px">
-    👁 Visitas a esta página:
-  </span>
-  <span id="visit-count" style="font-family:'Bebas Neue',Arial,sans-serif;font-size:18px;
-        color:var(--naranja,#E8620A);letter-spacing:2px">—</span>
-  <span style="font-size:11px;color:rgba(255,255,255,0.35);font-family:Arial,sans-serif">
-    · <a href="https://www.tiktok.com/@energeticos6" target="_blank"
-         style="color:rgba(255,255,255,0.4);text-decoration:none">📱 TikTok</a>
-    · <a href="https://www.facebook.com/share/197CpcYFca/" target="_blank"
-         style="color:rgba(255,255,255,0.4);text-decoration:none">📘 Facebook</a>
-  </span>
-</div>
 
 <!-- ══ MODAL ESPECIFICACIONES TÉCNICAS ══ -->
 <div class="modal-overlay" id="modal-specs" onclick="if(event.target===this)closeModal()">
@@ -1649,124 +1560,15 @@ Documento generado desde yacusol.pe
 }
 
 /* ── FORMULARIO CORREO ── */
-async function enviarCorreo(e){
-  e.preventDefault();
-  const nombre   = document.getElementById('c-nombre').value.trim();
-  const contacto = document.getElementById('c-contacto').value.trim();
-  const modelo   = document.getElementById('c-modelo').value;
-  const mensaje  = document.getElementById('c-mensaje').value.trim();
-  if(!nombre || !mensaje){ alert('Por favor complete su nombre y mensaje.'); return; }
 
-  const btn = e.target.querySelector('button[type="submit"]');
-  btn.disabled = true;
-  btn.textContent = 'Enviando...';
-
-  // ── FORMSPREE: envía directamente a energeticos.ryc@gmail.com ──
-  // INSTRUCCIÓN: reemplazar "YOUR_FORM_ID" con su ID de Formspree
-  // Pasos: 1) ir a formspree.io  2) crear cuenta gratis con energeticos.ryc@gmail.com
-  //        3) New Form → copiar el ID → pegarlo aquí
-  const FORMSPREE_ID = 'YOUR_FORM_ID';
-
-  const successEl = document.getElementById('success-correo');
-
-  if(FORMSPREE_ID !== 'YOUR_FORM_ID'){
-    // Envío real por Formspree
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          nombre, contacto,
-          modelo: modelo || 'No especificado',
-          mensaje,
-          _subject: `🌞 Cotización YACUSOL — ${modelo || 'Modelo no especificado'} — ${nombre}`,
-          _replyto: contacto
-        })
-      });
-      if(res.ok){
-        successEl.innerHTML = `<strong>✅ ¡Mensaje enviado, ${nombre}!</strong><br>
-          Le responderemos a la brevedad al contacto que nos dejó.<br>
-          También puede escribirnos directamente por WhatsApp:
-          <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20soy%20${encodeURIComponent(nombre)},%20acabo%20de%20enviar%20una%20cotizaci%C3%B3n%20por%20la%20web."
-             target="_blank" style="display:inline-block;margin-top:10px;background:#25D366;
-             color:#fff;padding:8px 18px;border-radius:4px;text-decoration:none;font-weight:600">
-            📲 Confirmar por WhatsApp
-          </a>`;
-        successEl.classList.add('show');
-        e.target.reset();
-      } else {
-        throw new Error('Error Formspree');
-      }
-    } catch(err) {
-      // Si Formspree falla, redirigir a WhatsApp
-      const msgWA = `Hola YACUSOL 👋%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo: ${encodeURIComponent(modelo||'No especificado')}%0AMensaje: ${encodeURIComponent(mensaje)}`;
-      window.open(`https://wa.me/51961120481?text=${msgWA}`, '_blank');
-    }
-  } else {
-    // Sin Formspree configurado → WhatsApp directo
-    const msgWA = `Hola YACUSOL 👋%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo: ${encodeURIComponent(modelo||'No especificado')}%0AMensaje: ${encodeURIComponent(mensaje)}`;
-    successEl.innerHTML = `<strong>✅ ¡Gracias ${nombre}!</strong><br>
-      Haga clic para enviar su consulta por WhatsApp:
-      <a href="https://wa.me/51961120481?text=${msgWA}" target="_blank"
-         style="display:inline-block;margin-top:10px;background:#25D366;color:#fff;
-         padding:8px 18px;border-radius:4px;text-decoration:none;font-weight:600">
-        📲 Enviar por WhatsApp
-      </a>`;
-    successEl.classList.add('show');
-    e.target.reset();
-  }
-  btn.disabled = false;
-  btn.textContent = 'Enviar consulta';
-}
 
 /* ── BUZÓN SUGERENCIAS ── */
 let tipoSug='Producto';
 let estrellas=0;
-function selTipo(btn){
-  document.querySelectorAll('.sug-tipo').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  tipoSug=btn.textContent;
-}
-function setStars(n){
-  estrellas=n;
-  document.querySelectorAll('.star').forEach((s,i)=>{
-    s.style.opacity=i<n?'1':'0.3';
-    s.style.color=i<n?'#F5A623':'inherit';
-  });
-}
-function enviarSugerencia(){
-  const nombre=document.getElementById('s-nombre').value||'Anónimo';
-  const mensaje=document.getElementById('s-mensaje').value;
-  if(!mensaje){alert('Por favor escribe tu sugerencia.');return;}
-  const stars='★'.repeat(estrellas)+'☆'.repeat(5-estrellas);
-  const cuerpo=`SUGERENCIA YACUSOL\n\nTipo: ${tipoSug}\nNombre: ${nombre}\nCalificación: ${stars} (${estrellas}/5)\n\nSugerencia:\n${mensaje}\n\n---\nEnviado desde yacusol.pe`;
-  const mailto=`mailto:energeticos.ryc@gmail.com?subject=Sugerencia YACUSOL [${tipoSug}]&body=${encodeURIComponent(cuerpo)}`;
-  window.location.href=mailto;
-  document.getElementById('success-sug').classList.add('show');
-  document.getElementById('s-nombre').value='';
-  document.getElementById('s-mensaje').value='';
-  setStars(0);
-}
-/* ── CONTADOR DE VISITAS ── */
-(function(){
-  try {
-    const el = document.getElementById('visit-count');
-    // Usar GoatCounter (gratuito, sin cookies, GDPR compliant)
-    // Muestra localStorage mientras carga el real
-    const KEY = 'yacusol_v2';
-    let local = parseInt(localStorage.getItem(KEY)||'0') + 1;
-    localStorage.setItem(KEY, local);
-    if(el) el.textContent = local.toLocaleString('es-PE') + ' visitas';
 
-    // API pública de conteo — reemplazar con GoatCounter cuando configure
-    // Por ahora usa localStorage como contador local confiable
-    // INSTRUCCIÓN PARA ACTIVAR CONTADOR REAL:
-    // 1) Ir a https://www.goatcounter.com
-    // 2) Crear cuenta gratis con dominio: energeticos2023
-    // 3) Agregar el script que dan en el <head> del HTML
-    // 4) El contador aparecerá en su panel de GoatCounter
-  } catch(e){}
-})();
+
+
+
 </script>
 </body>
 </html></section>
@@ -1997,57 +1799,10 @@ function enviarSugerencia(){
     <!-- FORMULARIO CORREO -->
     <div>
       <div class="form-section-title">✉ Envíanos un correo</div>
-      <form id="form-contacto" onsubmit="enviarCorreo(event)">
-        <div class="form-group">
-          <label>Tu nombre</label>
-          <input type="text" class="form-input" id="c-nombre" placeholder="Nombre completo" required>
-        </div>
-        <div class="form-group">
-          <label>Tu correo o WhatsApp</label>
-          <input type="text" class="form-input" id="c-contacto" placeholder="correo@gmail.com o 9XX XXX XXX" required>
-        </div>
-        <div class="form-group">
-          <label>Modelo de interés</label>
-          <select class="form-input" id="c-modelo">
-            <option value="">Seleccionar modelo...</option>
-            <option>120 Litros — pareja / familia pequeña</option>
-            <option>150 Litros — familia de 3 personas</option>
-            <option>200 Litros — familia de 4-5 personas</option>
-            <option>250 Litros — familia grande 6-8 personas</option>
-            <option>300 Litros — hostal / negocio</option>
-            <option>400 Litros — empresa / clínica</option>
-            <option>No sé aún, necesito asesoría</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Mensaje</label>
-          <textarea class="form-input" id="c-mensaje" placeholder="Cuéntanos qué necesitas..." required></textarea>
-        </div>
-        <button type="submit" class="form-submit">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-          Enviar por correo
-        </button>
-        <div class="form-success" id="success-correo">
-          ✅ ¡Gracias! Tu mensaje fue preparado. Se abrirá tu correo para enviarlo.
-        </div>
-      </form>
+      
     </div>
 
-    <!-- BUZÓN DE SUGERENCIAS -->
-    <div>
-      <div class="form-section-title">💡 Buzón de sugerencias</div>
-      <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:20px;line-height:1.7">Tu opinión mejora nuestro servicio. Puedes escribir de forma anónima si lo prefieres.</p>
-      <div class="form-group">
-        <label>Tipo de sugerencia</label>
-        <div class="sugerencia-tipos" id="sug-tipos">
-          <button type="button" class="sug-tipo active" onclick="selTipo(this)">Producto</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Instalación</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Atención</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Precios</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Web / Redes</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Otro</button>
-        </div>
-      </div>
+    
       <div class="form-group">
         <label>Tu nombre (opcional)</label>
         <input type="text" class="form-input" id="s-nombre" placeholder="Anónimo si prefieres">
@@ -2335,124 +2090,15 @@ Documento generado desde yacusol.pe
 }
 
 /* ── FORMULARIO CORREO ── */
-async function enviarCorreo(e){
-  e.preventDefault();
-  const nombre   = document.getElementById('c-nombre').value.trim();
-  const contacto = document.getElementById('c-contacto').value.trim();
-  const modelo   = document.getElementById('c-modelo').value;
-  const mensaje  = document.getElementById('c-mensaje').value.trim();
-  if(!nombre || !mensaje){ alert('Por favor complete su nombre y mensaje.'); return; }
 
-  const btn = e.target.querySelector('button[type="submit"]');
-  btn.disabled = true;
-  btn.textContent = 'Enviando...';
-
-  // ── FORMSPREE: envía directamente a energeticos.ryc@gmail.com ──
-  // INSTRUCCIÓN: reemplazar "YOUR_FORM_ID" con su ID de Formspree
-  // Pasos: 1) ir a formspree.io  2) crear cuenta gratis con energeticos.ryc@gmail.com
-  //        3) New Form → copiar el ID → pegarlo aquí
-  const FORMSPREE_ID = 'YOUR_FORM_ID';
-
-  const successEl = document.getElementById('success-correo');
-
-  if(FORMSPREE_ID !== 'YOUR_FORM_ID'){
-    // Envío real por Formspree
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          nombre, contacto,
-          modelo: modelo || 'No especificado',
-          mensaje,
-          _subject: `🌞 Cotización YACUSOL — ${modelo || 'Modelo no especificado'} — ${nombre}`,
-          _replyto: contacto
-        })
-      });
-      if(res.ok){
-        successEl.innerHTML = `<strong>✅ ¡Mensaje enviado, ${nombre}!</strong><br>
-          Le responderemos a la brevedad al contacto que nos dejó.<br>
-          También puede escribirnos directamente por WhatsApp:
-          <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20soy%20${encodeURIComponent(nombre)},%20acabo%20de%20enviar%20una%20cotizaci%C3%B3n%20por%20la%20web."
-             target="_blank" style="display:inline-block;margin-top:10px;background:#25D366;
-             color:#fff;padding:8px 18px;border-radius:4px;text-decoration:none;font-weight:600">
-            📲 Confirmar por WhatsApp
-          </a>`;
-        successEl.classList.add('show');
-        e.target.reset();
-      } else {
-        throw new Error('Error Formspree');
-      }
-    } catch(err) {
-      // Si Formspree falla, redirigir a WhatsApp
-      const msgWA = `Hola YACUSOL 👋%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo: ${encodeURIComponent(modelo||'No especificado')}%0AMensaje: ${encodeURIComponent(mensaje)}`;
-      window.open(`https://wa.me/51961120481?text=${msgWA}`, '_blank');
-    }
-  } else {
-    // Sin Formspree configurado → WhatsApp directo
-    const msgWA = `Hola YACUSOL 👋%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo: ${encodeURIComponent(modelo||'No especificado')}%0AMensaje: ${encodeURIComponent(mensaje)}`;
-    successEl.innerHTML = `<strong>✅ ¡Gracias ${nombre}!</strong><br>
-      Haga clic para enviar su consulta por WhatsApp:
-      <a href="https://wa.me/51961120481?text=${msgWA}" target="_blank"
-         style="display:inline-block;margin-top:10px;background:#25D366;color:#fff;
-         padding:8px 18px;border-radius:4px;text-decoration:none;font-weight:600">
-        📲 Enviar por WhatsApp
-      </a>`;
-    successEl.classList.add('show');
-    e.target.reset();
-  }
-  btn.disabled = false;
-  btn.textContent = 'Enviar consulta';
-}
 
 /* ── BUZÓN SUGERENCIAS ── */
 let tipoSug='Producto';
 let estrellas=0;
-function selTipo(btn){
-  document.querySelectorAll('.sug-tipo').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  tipoSug=btn.textContent;
-}
-function setStars(n){
-  estrellas=n;
-  document.querySelectorAll('.star').forEach((s,i)=>{
-    s.style.opacity=i<n?'1':'0.3';
-    s.style.color=i<n?'#F5A623':'inherit';
-  });
-}
-function enviarSugerencia(){
-  const nombre=document.getElementById('s-nombre').value||'Anónimo';
-  const mensaje=document.getElementById('s-mensaje').value;
-  if(!mensaje){alert('Por favor escribe tu sugerencia.');return;}
-  const stars='★'.repeat(estrellas)+'☆'.repeat(5-estrellas);
-  const cuerpo=`SUGERENCIA YACUSOL\n\nTipo: ${tipoSug}\nNombre: ${nombre}\nCalificación: ${stars} (${estrellas}/5)\n\nSugerencia:\n${mensaje}\n\n---\nEnviado desde yacusol.pe`;
-  const mailto=`mailto:energeticos.ryc@gmail.com?subject=Sugerencia YACUSOL [${tipoSug}]&body=${encodeURIComponent(cuerpo)}`;
-  window.location.href=mailto;
-  document.getElementById('success-sug').classList.add('show');
-  document.getElementById('s-nombre').value='';
-  document.getElementById('s-mensaje').value='';
-  setStars(0);
-}
-/* ── CONTADOR DE VISITAS ── */
-(function(){
-  try {
-    const el = document.getElementById('visit-count');
-    // Usar GoatCounter (gratuito, sin cookies, GDPR compliant)
-    // Muestra localStorage mientras carga el real
-    const KEY = 'yacusol_v2';
-    let local = parseInt(localStorage.getItem(KEY)||'0') + 1;
-    localStorage.setItem(KEY, local);
-    if(el) el.textContent = local.toLocaleString('es-PE') + ' visitas';
 
-    // API pública de conteo — reemplazar con GoatCounter cuando configure
-    // Por ahora usa localStorage como contador local confiable
-    // INSTRUCCIÓN PARA ACTIVAR CONTADOR REAL:
-    // 1) Ir a https://www.goatcounter.com
-    // 2) Crear cuenta gratis con dominio: energeticos2023
-    // 3) Agregar el script que dan en el <head> del HTML
-    // 4) El contador aparecerá en su panel de GoatCounter
-  } catch(e){}
-})();
+
+
+
 </script>
 </body>
 </html>
@@ -3175,57 +2821,10 @@ function enviarSugerencia(){
     <!-- FORMULARIO CORREO -->
     <div>
       <div class="form-section-title">✉ Envíanos un correo</div>
-      <form id="form-contacto" onsubmit="enviarCorreo(event)">
-        <div class="form-group">
-          <label>Tu nombre</label>
-          <input type="text" class="form-input" id="c-nombre" placeholder="Nombre completo" required>
-        </div>
-        <div class="form-group">
-          <label>Tu correo o WhatsApp</label>
-          <input type="text" class="form-input" id="c-contacto" placeholder="correo@gmail.com o 9XX XXX XXX" required>
-        </div>
-        <div class="form-group">
-          <label>Modelo de interés</label>
-          <select class="form-input" id="c-modelo">
-            <option value="">Seleccionar modelo...</option>
-            <option>120 Litros — pareja / familia pequeña</option>
-            <option>150 Litros — familia de 3 personas</option>
-            <option>200 Litros — familia de 4-5 personas</option>
-            <option>250 Litros — familia grande 6-8 personas</option>
-            <option>300 Litros — hostal / negocio</option>
-            <option>400 Litros — empresa / clínica</option>
-            <option>No sé aún, necesito asesoría</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Mensaje</label>
-          <textarea class="form-input" id="c-mensaje" placeholder="Cuéntanos qué necesitas..." required></textarea>
-        </div>
-        <button type="submit" class="form-submit">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-          Enviar por correo
-        </button>
-        <div class="form-success" id="success-correo">
-          ✅ ¡Gracias! Tu mensaje fue preparado. Se abrirá tu correo para enviarlo.
-        </div>
-      </form>
+      
     </div>
 
-    <!-- BUZÓN DE SUGERENCIAS -->
-    <div>
-      <div class="form-section-title">💡 Buzón de sugerencias</div>
-      <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:20px;line-height:1.7">Tu opinión mejora nuestro servicio. Puedes escribir de forma anónima si lo prefieres.</p>
-      <div class="form-group">
-        <label>Tipo de sugerencia</label>
-        <div class="sugerencia-tipos" id="sug-tipos">
-          <button type="button" class="sug-tipo active" onclick="selTipo(this)">Producto</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Instalación</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Atención</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Precios</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Web / Redes</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Otro</button>
-        </div>
-      </div>
+    
       <div class="form-group">
         <label>Tu nombre (opcional)</label>
         <input type="text" class="form-input" id="s-nombre" placeholder="Anónimo si prefieres">
@@ -3513,124 +3112,15 @@ Documento generado desde yacusol.pe
 }
 
 /* ── FORMULARIO CORREO ── */
-async function enviarCorreo(e){
-  e.preventDefault();
-  const nombre   = document.getElementById('c-nombre').value.trim();
-  const contacto = document.getElementById('c-contacto').value.trim();
-  const modelo   = document.getElementById('c-modelo').value;
-  const mensaje  = document.getElementById('c-mensaje').value.trim();
-  if(!nombre || !mensaje){ alert('Por favor complete su nombre y mensaje.'); return; }
 
-  const btn = e.target.querySelector('button[type="submit"]');
-  btn.disabled = true;
-  btn.textContent = 'Enviando...';
-
-  // ── FORMSPREE: envía directamente a energeticos.ryc@gmail.com ──
-  // INSTRUCCIÓN: reemplazar "YOUR_FORM_ID" con su ID de Formspree
-  // Pasos: 1) ir a formspree.io  2) crear cuenta gratis con energeticos.ryc@gmail.com
-  //        3) New Form → copiar el ID → pegarlo aquí
-  const FORMSPREE_ID = 'YOUR_FORM_ID';
-
-  const successEl = document.getElementById('success-correo');
-
-  if(FORMSPREE_ID !== 'YOUR_FORM_ID'){
-    // Envío real por Formspree
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          nombre, contacto,
-          modelo: modelo || 'No especificado',
-          mensaje,
-          _subject: `🌞 Cotización YACUSOL — ${modelo || 'Modelo no especificado'} — ${nombre}`,
-          _replyto: contacto
-        })
-      });
-      if(res.ok){
-        successEl.innerHTML = `<strong>✅ ¡Mensaje enviado, ${nombre}!</strong><br>
-          Le responderemos a la brevedad al contacto que nos dejó.<br>
-          También puede escribirnos directamente por WhatsApp:
-          <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20soy%20${encodeURIComponent(nombre)},%20acabo%20de%20enviar%20una%20cotizaci%C3%B3n%20por%20la%20web."
-             target="_blank" style="display:inline-block;margin-top:10px;background:#25D366;
-             color:#fff;padding:8px 18px;border-radius:4px;text-decoration:none;font-weight:600">
-            📲 Confirmar por WhatsApp
-          </a>`;
-        successEl.classList.add('show');
-        e.target.reset();
-      } else {
-        throw new Error('Error Formspree');
-      }
-    } catch(err) {
-      // Si Formspree falla, redirigir a WhatsApp
-      const msgWA = `Hola YACUSOL 👋%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo: ${encodeURIComponent(modelo||'No especificado')}%0AMensaje: ${encodeURIComponent(mensaje)}`;
-      window.open(`https://wa.me/51961120481?text=${msgWA}`, '_blank');
-    }
-  } else {
-    // Sin Formspree configurado → WhatsApp directo
-    const msgWA = `Hola YACUSOL 👋%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo: ${encodeURIComponent(modelo||'No especificado')}%0AMensaje: ${encodeURIComponent(mensaje)}`;
-    successEl.innerHTML = `<strong>✅ ¡Gracias ${nombre}!</strong><br>
-      Haga clic para enviar su consulta por WhatsApp:
-      <a href="https://wa.me/51961120481?text=${msgWA}" target="_blank"
-         style="display:inline-block;margin-top:10px;background:#25D366;color:#fff;
-         padding:8px 18px;border-radius:4px;text-decoration:none;font-weight:600">
-        📲 Enviar por WhatsApp
-      </a>`;
-    successEl.classList.add('show');
-    e.target.reset();
-  }
-  btn.disabled = false;
-  btn.textContent = 'Enviar consulta';
-}
 
 /* ── BUZÓN SUGERENCIAS ── */
 let tipoSug='Producto';
 let estrellas=0;
-function selTipo(btn){
-  document.querySelectorAll('.sug-tipo').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  tipoSug=btn.textContent;
-}
-function setStars(n){
-  estrellas=n;
-  document.querySelectorAll('.star').forEach((s,i)=>{
-    s.style.opacity=i<n?'1':'0.3';
-    s.style.color=i<n?'#F5A623':'inherit';
-  });
-}
-function enviarSugerencia(){
-  const nombre=document.getElementById('s-nombre').value||'Anónimo';
-  const mensaje=document.getElementById('s-mensaje').value;
-  if(!mensaje){alert('Por favor escribe tu sugerencia.');return;}
-  const stars='★'.repeat(estrellas)+'☆'.repeat(5-estrellas);
-  const cuerpo=`SUGERENCIA YACUSOL\n\nTipo: ${tipoSug}\nNombre: ${nombre}\nCalificación: ${stars} (${estrellas}/5)\n\nSugerencia:\n${mensaje}\n\n---\nEnviado desde yacusol.pe`;
-  const mailto=`mailto:energeticos.ryc@gmail.com?subject=Sugerencia YACUSOL [${tipoSug}]&body=${encodeURIComponent(cuerpo)}`;
-  window.location.href=mailto;
-  document.getElementById('success-sug').classList.add('show');
-  document.getElementById('s-nombre').value='';
-  document.getElementById('s-mensaje').value='';
-  setStars(0);
-}
-/* ── CONTADOR DE VISITAS ── */
-(function(){
-  try {
-    const el = document.getElementById('visit-count');
-    // Usar GoatCounter (gratuito, sin cookies, GDPR compliant)
-    // Muestra localStorage mientras carga el real
-    const KEY = 'yacusol_v2';
-    let local = parseInt(localStorage.getItem(KEY)||'0') + 1;
-    localStorage.setItem(KEY, local);
-    if(el) el.textContent = local.toLocaleString('es-PE') + ' visitas';
 
-    // API pública de conteo — reemplazar con GoatCounter cuando configure
-    // Por ahora usa localStorage como contador local confiable
-    // INSTRUCCIÓN PARA ACTIVAR CONTADOR REAL:
-    // 1) Ir a https://www.goatcounter.com
-    // 2) Crear cuenta gratis con dominio: energeticos2023
-    // 3) Agregar el script que dan en el <head> del HTML
-    // 4) El contador aparecerá en su panel de GoatCounter
-  } catch(e){}
-})();
+
+
+
 </script>
 </body>
 </html></section>
@@ -3861,57 +3351,10 @@ function enviarSugerencia(){
     <!-- FORMULARIO CORREO -->
     <div>
       <div class="form-section-title">✉ Envíanos un correo</div>
-      <form id="form-contacto" onsubmit="enviarCorreo(event)">
-        <div class="form-group">
-          <label>Tu nombre</label>
-          <input type="text" class="form-input" id="c-nombre" placeholder="Nombre completo" required>
-        </div>
-        <div class="form-group">
-          <label>Tu correo o WhatsApp</label>
-          <input type="text" class="form-input" id="c-contacto" placeholder="correo@gmail.com o 9XX XXX XXX" required>
-        </div>
-        <div class="form-group">
-          <label>Modelo de interés</label>
-          <select class="form-input" id="c-modelo">
-            <option value="">Seleccionar modelo...</option>
-            <option>120 Litros — pareja / familia pequeña</option>
-            <option>150 Litros — familia de 3 personas</option>
-            <option>200 Litros — familia de 4-5 personas</option>
-            <option>250 Litros — familia grande 6-8 personas</option>
-            <option>300 Litros — hostal / negocio</option>
-            <option>400 Litros — empresa / clínica</option>
-            <option>No sé aún, necesito asesoría</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Mensaje</label>
-          <textarea class="form-input" id="c-mensaje" placeholder="Cuéntanos qué necesitas..." required></textarea>
-        </div>
-        <button type="submit" class="form-submit">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-          Enviar por correo
-        </button>
-        <div class="form-success" id="success-correo">
-          ✅ ¡Gracias! Tu mensaje fue preparado. Se abrirá tu correo para enviarlo.
-        </div>
-      </form>
+      
     </div>
 
-    <!-- BUZÓN DE SUGERENCIAS -->
-    <div>
-      <div class="form-section-title">💡 Buzón de sugerencias</div>
-      <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:20px;line-height:1.7">Tu opinión mejora nuestro servicio. Puedes escribir de forma anónima si lo prefieres.</p>
-      <div class="form-group">
-        <label>Tipo de sugerencia</label>
-        <div class="sugerencia-tipos" id="sug-tipos">
-          <button type="button" class="sug-tipo active" onclick="selTipo(this)">Producto</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Instalación</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Atención</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Precios</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Web / Redes</button>
-          <button type="button" class="sug-tipo" onclick="selTipo(this)">Otro</button>
-        </div>
-      </div>
+    
       <div class="form-group">
         <label>Tu nombre (opcional)</label>
         <input type="text" class="form-input" id="s-nombre" placeholder="Anónimo si prefieres">
@@ -4199,124 +3642,15 @@ Documento generado desde yacusol.pe
 }
 
 /* ── FORMULARIO CORREO ── */
-async function enviarCorreo(e){
-  e.preventDefault();
-  const nombre   = document.getElementById('c-nombre').value.trim();
-  const contacto = document.getElementById('c-contacto').value.trim();
-  const modelo   = document.getElementById('c-modelo').value;
-  const mensaje  = document.getElementById('c-mensaje').value.trim();
-  if(!nombre || !mensaje){ alert('Por favor complete su nombre y mensaje.'); return; }
 
-  const btn = e.target.querySelector('button[type="submit"]');
-  btn.disabled = true;
-  btn.textContent = 'Enviando...';
-
-  // ── FORMSPREE: envía directamente a energeticos.ryc@gmail.com ──
-  // INSTRUCCIÓN: reemplazar "YOUR_FORM_ID" con su ID de Formspree
-  // Pasos: 1) ir a formspree.io  2) crear cuenta gratis con energeticos.ryc@gmail.com
-  //        3) New Form → copiar el ID → pegarlo aquí
-  const FORMSPREE_ID = 'YOUR_FORM_ID';
-
-  const successEl = document.getElementById('success-correo');
-
-  if(FORMSPREE_ID !== 'YOUR_FORM_ID'){
-    // Envío real por Formspree
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          nombre, contacto,
-          modelo: modelo || 'No especificado',
-          mensaje,
-          _subject: `🌞 Cotización YACUSOL — ${modelo || 'Modelo no especificado'} — ${nombre}`,
-          _replyto: contacto
-        })
-      });
-      if(res.ok){
-        successEl.innerHTML = `<strong>✅ ¡Mensaje enviado, ${nombre}!</strong><br>
-          Le responderemos a la brevedad al contacto que nos dejó.<br>
-          También puede escribirnos directamente por WhatsApp:
-          <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20soy%20${encodeURIComponent(nombre)},%20acabo%20de%20enviar%20una%20cotizaci%C3%B3n%20por%20la%20web."
-             target="_blank" style="display:inline-block;margin-top:10px;background:#25D366;
-             color:#fff;padding:8px 18px;border-radius:4px;text-decoration:none;font-weight:600">
-            📲 Confirmar por WhatsApp
-          </a>`;
-        successEl.classList.add('show');
-        e.target.reset();
-      } else {
-        throw new Error('Error Formspree');
-      }
-    } catch(err) {
-      // Si Formspree falla, redirigir a WhatsApp
-      const msgWA = `Hola YACUSOL 👋%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo: ${encodeURIComponent(modelo||'No especificado')}%0AMensaje: ${encodeURIComponent(mensaje)}`;
-      window.open(`https://wa.me/51961120481?text=${msgWA}`, '_blank');
-    }
-  } else {
-    // Sin Formspree configurado → WhatsApp directo
-    const msgWA = `Hola YACUSOL 👋%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo: ${encodeURIComponent(modelo||'No especificado')}%0AMensaje: ${encodeURIComponent(mensaje)}`;
-    successEl.innerHTML = `<strong>✅ ¡Gracias ${nombre}!</strong><br>
-      Haga clic para enviar su consulta por WhatsApp:
-      <a href="https://wa.me/51961120481?text=${msgWA}" target="_blank"
-         style="display:inline-block;margin-top:10px;background:#25D366;color:#fff;
-         padding:8px 18px;border-radius:4px;text-decoration:none;font-weight:600">
-        📲 Enviar por WhatsApp
-      </a>`;
-    successEl.classList.add('show');
-    e.target.reset();
-  }
-  btn.disabled = false;
-  btn.textContent = 'Enviar consulta';
-}
 
 /* ── BUZÓN SUGERENCIAS ── */
 let tipoSug='Producto';
 let estrellas=0;
-function selTipo(btn){
-  document.querySelectorAll('.sug-tipo').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  tipoSug=btn.textContent;
-}
-function setStars(n){
-  estrellas=n;
-  document.querySelectorAll('.star').forEach((s,i)=>{
-    s.style.opacity=i<n?'1':'0.3';
-    s.style.color=i<n?'#F5A623':'inherit';
-  });
-}
-function enviarSugerencia(){
-  const nombre=document.getElementById('s-nombre').value||'Anónimo';
-  const mensaje=document.getElementById('s-mensaje').value;
-  if(!mensaje){alert('Por favor escribe tu sugerencia.');return;}
-  const stars='★'.repeat(estrellas)+'☆'.repeat(5-estrellas);
-  const cuerpo=`SUGERENCIA YACUSOL\n\nTipo: ${tipoSug}\nNombre: ${nombre}\nCalificación: ${stars} (${estrellas}/5)\n\nSugerencia:\n${mensaje}\n\n---\nEnviado desde yacusol.pe`;
-  const mailto=`mailto:energeticos.ryc@gmail.com?subject=Sugerencia YACUSOL [${tipoSug}]&body=${encodeURIComponent(cuerpo)}`;
-  window.location.href=mailto;
-  document.getElementById('success-sug').classList.add('show');
-  document.getElementById('s-nombre').value='';
-  document.getElementById('s-mensaje').value='';
-  setStars(0);
-}
-/* ── CONTADOR DE VISITAS ── */
-(function(){
-  try {
-    const el = document.getElementById('visit-count');
-    // Usar GoatCounter (gratuito, sin cookies, GDPR compliant)
-    // Muestra localStorage mientras carga el real
-    const KEY = 'yacusol_v2';
-    let local = parseInt(localStorage.getItem(KEY)||'0') + 1;
-    localStorage.setItem(KEY, local);
-    if(el) el.textContent = local.toLocaleString('es-PE') + ' visitas';
 
-    // API pública de conteo — reemplazar con GoatCounter cuando configure
-    // Por ahora usa localStorage como contador local confiable
-    // INSTRUCCIÓN PARA ACTIVAR CONTADOR REAL:
-    // 1) Ir a https://www.goatcounter.com
-    // 2) Crear cuenta gratis con dominio: energeticos2023
-    // 3) Agregar el script que dan en el <head> del HTML
-    // 4) El contador aparecerá en su panel de GoatCounter
-  } catch(e){}
-})();
+
+
+
 </script>
 </body>
 </html>
