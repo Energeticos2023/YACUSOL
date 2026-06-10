@@ -1649,46 +1649,74 @@ Documento generado desde yacusol.pe
 }
 
 /* ── FORMULARIO CORREO ── */
-function enviarCorreo(e){
+async function enviarCorreo(e){
   e.preventDefault();
-  const nombre=document.getElementById('c-nombre').value.trim();
-  const contacto=document.getElementById('c-contacto').value.trim();
-  const modelo=document.getElementById('c-modelo').value;
-  const mensaje=document.getElementById('c-mensaje').value.trim();
-  if(!nombre||!mensaje){alert('Por favor complete nombre y mensaje.');return;}
+  const nombre   = document.getElementById('c-nombre').value.trim();
+  const contacto = document.getElementById('c-contacto').value.trim();
+  const modelo   = document.getElementById('c-modelo').value;
+  const mensaje  = document.getElementById('c-mensaje').value.trim();
+  if(!nombre || !mensaje){ alert('Por favor complete su nombre y mensaje.'); return; }
 
-  // Opción 1: WhatsApp (más confiable en móvil y desktop)
-  const msgWA=`Hola YACUSOL 👋%0A%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo de interés: ${encodeURIComponent(modelo||'No especificado')}%0A%0AMensaje:%0A${encodeURIComponent(mensaje)}`;
-  
-  // Opción 2: Correo (como respaldo)
-  const cuerpo=`Hola YACUSOL,
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
 
-Nombre: ${nombre}
-Contacto: ${contacto}
-Modelo: ${modelo||'No especificado'}
+  // ── FORMSPREE: envía directamente a energeticos.ryc@gmail.com ──
+  // INSTRUCCIÓN: reemplazar "YOUR_FORM_ID" con su ID de Formspree
+  // Pasos: 1) ir a formspree.io  2) crear cuenta gratis con energeticos.ryc@gmail.com
+  //        3) New Form → copiar el ID → pegarlo aquí
+  const FORMSPREE_ID = 'YOUR_FORM_ID';
 
-Mensaje:
-${mensaje}
-
----
-Enviado desde energeticos2023.github.io/YACUSOL`;
-  
   const successEl = document.getElementById('success-correo');
-  successEl.innerHTML = `✅ ¡Gracias ${nombre}! Elige cómo enviarnos tu consulta:<br>
-    <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+
+  if(FORMSPREE_ID !== 'YOUR_FORM_ID'){
+    // Envío real por Formspree
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          nombre, contacto,
+          modelo: modelo || 'No especificado',
+          mensaje,
+          _subject: `🌞 Cotización YACUSOL — ${modelo || 'Modelo no especificado'} — ${nombre}`,
+          _replyto: contacto
+        })
+      });
+      if(res.ok){
+        successEl.innerHTML = `<strong>✅ ¡Mensaje enviado, ${nombre}!</strong><br>
+          Le responderemos a la brevedad al contacto que nos dejó.<br>
+          También puede escribirnos directamente por WhatsApp:
+          <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20soy%20${encodeURIComponent(nombre)},%20acabo%20de%20enviar%20una%20cotizaci%C3%B3n%20por%20la%20web."
+             target="_blank" style="display:inline-block;margin-top:10px;background:#25D366;
+             color:#fff;padding:8px 18px;border-radius:4px;text-decoration:none;font-weight:600">
+            📲 Confirmar por WhatsApp
+          </a>`;
+        successEl.classList.add('show');
+        e.target.reset();
+      } else {
+        throw new Error('Error Formspree');
+      }
+    } catch(err) {
+      // Si Formspree falla, redirigir a WhatsApp
+      const msgWA = `Hola YACUSOL 👋%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo: ${encodeURIComponent(modelo||'No especificado')}%0AMensaje: ${encodeURIComponent(mensaje)}`;
+      window.open(`https://wa.me/51961120481?text=${msgWA}`, '_blank');
+    }
+  } else {
+    // Sin Formspree configurado → WhatsApp directo
+    const msgWA = `Hola YACUSOL 👋%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo: ${encodeURIComponent(modelo||'No especificado')}%0AMensaje: ${encodeURIComponent(mensaje)}`;
+    successEl.innerHTML = `<strong>✅ ¡Gracias ${nombre}!</strong><br>
+      Haga clic para enviar su consulta por WhatsApp:
       <a href="https://wa.me/51961120481?text=${msgWA}" target="_blank"
-         style="background:#25D366;color:#fff;padding:8px 16px;border-radius:4px;
-                text-decoration:none;font-weight:600;font-size:13px">
+         style="display:inline-block;margin-top:10px;background:#25D366;color:#fff;
+         padding:8px 18px;border-radius:4px;text-decoration:none;font-weight:600">
         📲 Enviar por WhatsApp
-      </a>
-      <a href="mailto:energeticos.ryc@gmail.com?subject=Consulta YACUSOL - ${encodeURIComponent(nombre)}&body=${encodeURIComponent(cuerpo)}"
-         style="background:#E8620A;color:#fff;padding:8px 16px;border-radius:4px;
-                text-decoration:none;font-weight:600;font-size:13px">
-        ✉ Enviar por Correo
-      </a>
-    </div>`;
-  successEl.classList.add('show');
-  document.getElementById('form-contacto').reset();
+      </a>`;
+    successEl.classList.add('show');
+    e.target.reset();
+  }
+  btn.disabled = false;
+  btn.textContent = 'Enviar consulta';
 }
 
 /* ── BUZÓN SUGERENCIAS ── */
@@ -1719,22 +1747,24 @@ function enviarSugerencia(){
   document.getElementById('s-mensaje').value='';
   setStars(0);
 }
-/* ── CONTADOR DE VISITAS (localStorage) ── */
+/* ── CONTADOR DE VISITAS ── */
 (function(){
   try {
-    const KEY = 'yacusol_visits';
-    let visits = parseInt(localStorage.getItem(KEY) || '0') + 1;
-    localStorage.setItem(KEY, visits);
-    // Mostrar número formateado
     const el = document.getElementById('visit-count');
-    if(el) el.textContent = visits.toLocaleString('es-PE');
-    
-    // Enviar a un contador externo gratuito (CountAPI)
-    fetch('https://api.countapi.xyz/hit/energeticos2023-yacusol/visits')
-      .then(r=>r.json())
-      .then(data=>{
-        if(el && data.value) el.textContent = Number(data.value).toLocaleString('es-PE');
-      }).catch(()=>{}); // Si falla, se queda con localStorage
+    // Usar GoatCounter (gratuito, sin cookies, GDPR compliant)
+    // Muestra localStorage mientras carga el real
+    const KEY = 'yacusol_v2';
+    let local = parseInt(localStorage.getItem(KEY)||'0') + 1;
+    localStorage.setItem(KEY, local);
+    if(el) el.textContent = local.toLocaleString('es-PE') + ' visitas';
+
+    // API pública de conteo — reemplazar con GoatCounter cuando configure
+    // Por ahora usa localStorage como contador local confiable
+    // INSTRUCCIÓN PARA ACTIVAR CONTADOR REAL:
+    // 1) Ir a https://www.goatcounter.com
+    // 2) Crear cuenta gratis con dominio: energeticos2023
+    // 3) Agregar el script que dan en el <head> del HTML
+    // 4) El contador aparecerá en su panel de GoatCounter
   } catch(e){}
 })();
 </script>
@@ -2305,46 +2335,74 @@ Documento generado desde yacusol.pe
 }
 
 /* ── FORMULARIO CORREO ── */
-function enviarCorreo(e){
+async function enviarCorreo(e){
   e.preventDefault();
-  const nombre=document.getElementById('c-nombre').value.trim();
-  const contacto=document.getElementById('c-contacto').value.trim();
-  const modelo=document.getElementById('c-modelo').value;
-  const mensaje=document.getElementById('c-mensaje').value.trim();
-  if(!nombre||!mensaje){alert('Por favor complete nombre y mensaje.');return;}
+  const nombre   = document.getElementById('c-nombre').value.trim();
+  const contacto = document.getElementById('c-contacto').value.trim();
+  const modelo   = document.getElementById('c-modelo').value;
+  const mensaje  = document.getElementById('c-mensaje').value.trim();
+  if(!nombre || !mensaje){ alert('Por favor complete su nombre y mensaje.'); return; }
 
-  // Opción 1: WhatsApp (más confiable en móvil y desktop)
-  const msgWA=`Hola YACUSOL 👋%0A%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo de interés: ${encodeURIComponent(modelo||'No especificado')}%0A%0AMensaje:%0A${encodeURIComponent(mensaje)}`;
-  
-  // Opción 2: Correo (como respaldo)
-  const cuerpo=`Hola YACUSOL,
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
 
-Nombre: ${nombre}
-Contacto: ${contacto}
-Modelo: ${modelo||'No especificado'}
+  // ── FORMSPREE: envía directamente a energeticos.ryc@gmail.com ──
+  // INSTRUCCIÓN: reemplazar "YOUR_FORM_ID" con su ID de Formspree
+  // Pasos: 1) ir a formspree.io  2) crear cuenta gratis con energeticos.ryc@gmail.com
+  //        3) New Form → copiar el ID → pegarlo aquí
+  const FORMSPREE_ID = 'YOUR_FORM_ID';
 
-Mensaje:
-${mensaje}
-
----
-Enviado desde energeticos2023.github.io/YACUSOL`;
-  
   const successEl = document.getElementById('success-correo');
-  successEl.innerHTML = `✅ ¡Gracias ${nombre}! Elige cómo enviarnos tu consulta:<br>
-    <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+
+  if(FORMSPREE_ID !== 'YOUR_FORM_ID'){
+    // Envío real por Formspree
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          nombre, contacto,
+          modelo: modelo || 'No especificado',
+          mensaje,
+          _subject: `🌞 Cotización YACUSOL — ${modelo || 'Modelo no especificado'} — ${nombre}`,
+          _replyto: contacto
+        })
+      });
+      if(res.ok){
+        successEl.innerHTML = `<strong>✅ ¡Mensaje enviado, ${nombre}!</strong><br>
+          Le responderemos a la brevedad al contacto que nos dejó.<br>
+          También puede escribirnos directamente por WhatsApp:
+          <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20soy%20${encodeURIComponent(nombre)},%20acabo%20de%20enviar%20una%20cotizaci%C3%B3n%20por%20la%20web."
+             target="_blank" style="display:inline-block;margin-top:10px;background:#25D366;
+             color:#fff;padding:8px 18px;border-radius:4px;text-decoration:none;font-weight:600">
+            📲 Confirmar por WhatsApp
+          </a>`;
+        successEl.classList.add('show');
+        e.target.reset();
+      } else {
+        throw new Error('Error Formspree');
+      }
+    } catch(err) {
+      // Si Formspree falla, redirigir a WhatsApp
+      const msgWA = `Hola YACUSOL 👋%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo: ${encodeURIComponent(modelo||'No especificado')}%0AMensaje: ${encodeURIComponent(mensaje)}`;
+      window.open(`https://wa.me/51961120481?text=${msgWA}`, '_blank');
+    }
+  } else {
+    // Sin Formspree configurado → WhatsApp directo
+    const msgWA = `Hola YACUSOL 👋%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo: ${encodeURIComponent(modelo||'No especificado')}%0AMensaje: ${encodeURIComponent(mensaje)}`;
+    successEl.innerHTML = `<strong>✅ ¡Gracias ${nombre}!</strong><br>
+      Haga clic para enviar su consulta por WhatsApp:
       <a href="https://wa.me/51961120481?text=${msgWA}" target="_blank"
-         style="background:#25D366;color:#fff;padding:8px 16px;border-radius:4px;
-                text-decoration:none;font-weight:600;font-size:13px">
+         style="display:inline-block;margin-top:10px;background:#25D366;color:#fff;
+         padding:8px 18px;border-radius:4px;text-decoration:none;font-weight:600">
         📲 Enviar por WhatsApp
-      </a>
-      <a href="mailto:energeticos.ryc@gmail.com?subject=Consulta YACUSOL - ${encodeURIComponent(nombre)}&body=${encodeURIComponent(cuerpo)}"
-         style="background:#E8620A;color:#fff;padding:8px 16px;border-radius:4px;
-                text-decoration:none;font-weight:600;font-size:13px">
-        ✉ Enviar por Correo
-      </a>
-    </div>`;
-  successEl.classList.add('show');
-  document.getElementById('form-contacto').reset();
+      </a>`;
+    successEl.classList.add('show');
+    e.target.reset();
+  }
+  btn.disabled = false;
+  btn.textContent = 'Enviar consulta';
 }
 
 /* ── BUZÓN SUGERENCIAS ── */
@@ -2375,22 +2433,24 @@ function enviarSugerencia(){
   document.getElementById('s-mensaje').value='';
   setStars(0);
 }
-/* ── CONTADOR DE VISITAS (localStorage) ── */
+/* ── CONTADOR DE VISITAS ── */
 (function(){
   try {
-    const KEY = 'yacusol_visits';
-    let visits = parseInt(localStorage.getItem(KEY) || '0') + 1;
-    localStorage.setItem(KEY, visits);
-    // Mostrar número formateado
     const el = document.getElementById('visit-count');
-    if(el) el.textContent = visits.toLocaleString('es-PE');
-    
-    // Enviar a un contador externo gratuito (CountAPI)
-    fetch('https://api.countapi.xyz/hit/energeticos2023-yacusol/visits')
-      .then(r=>r.json())
-      .then(data=>{
-        if(el && data.value) el.textContent = Number(data.value).toLocaleString('es-PE');
-      }).catch(()=>{}); // Si falla, se queda con localStorage
+    // Usar GoatCounter (gratuito, sin cookies, GDPR compliant)
+    // Muestra localStorage mientras carga el real
+    const KEY = 'yacusol_v2';
+    let local = parseInt(localStorage.getItem(KEY)||'0') + 1;
+    localStorage.setItem(KEY, local);
+    if(el) el.textContent = local.toLocaleString('es-PE') + ' visitas';
+
+    // API pública de conteo — reemplazar con GoatCounter cuando configure
+    // Por ahora usa localStorage como contador local confiable
+    // INSTRUCCIÓN PARA ACTIVAR CONTADOR REAL:
+    // 1) Ir a https://www.goatcounter.com
+    // 2) Crear cuenta gratis con dominio: energeticos2023
+    // 3) Agregar el script que dan en el <head> del HTML
+    // 4) El contador aparecerá en su panel de GoatCounter
   } catch(e){}
 })();
 </script>
@@ -3453,46 +3513,74 @@ Documento generado desde yacusol.pe
 }
 
 /* ── FORMULARIO CORREO ── */
-function enviarCorreo(e){
+async function enviarCorreo(e){
   e.preventDefault();
-  const nombre=document.getElementById('c-nombre').value.trim();
-  const contacto=document.getElementById('c-contacto').value.trim();
-  const modelo=document.getElementById('c-modelo').value;
-  const mensaje=document.getElementById('c-mensaje').value.trim();
-  if(!nombre||!mensaje){alert('Por favor complete nombre y mensaje.');return;}
+  const nombre   = document.getElementById('c-nombre').value.trim();
+  const contacto = document.getElementById('c-contacto').value.trim();
+  const modelo   = document.getElementById('c-modelo').value;
+  const mensaje  = document.getElementById('c-mensaje').value.trim();
+  if(!nombre || !mensaje){ alert('Por favor complete su nombre y mensaje.'); return; }
 
-  // Opción 1: WhatsApp (más confiable en móvil y desktop)
-  const msgWA=`Hola YACUSOL 👋%0A%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo de interés: ${encodeURIComponent(modelo||'No especificado')}%0A%0AMensaje:%0A${encodeURIComponent(mensaje)}`;
-  
-  // Opción 2: Correo (como respaldo)
-  const cuerpo=`Hola YACUSOL,
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
 
-Nombre: ${nombre}
-Contacto: ${contacto}
-Modelo: ${modelo||'No especificado'}
+  // ── FORMSPREE: envía directamente a energeticos.ryc@gmail.com ──
+  // INSTRUCCIÓN: reemplazar "YOUR_FORM_ID" con su ID de Formspree
+  // Pasos: 1) ir a formspree.io  2) crear cuenta gratis con energeticos.ryc@gmail.com
+  //        3) New Form → copiar el ID → pegarlo aquí
+  const FORMSPREE_ID = 'YOUR_FORM_ID';
 
-Mensaje:
-${mensaje}
-
----
-Enviado desde energeticos2023.github.io/YACUSOL`;
-  
   const successEl = document.getElementById('success-correo');
-  successEl.innerHTML = `✅ ¡Gracias ${nombre}! Elige cómo enviarnos tu consulta:<br>
-    <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+
+  if(FORMSPREE_ID !== 'YOUR_FORM_ID'){
+    // Envío real por Formspree
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          nombre, contacto,
+          modelo: modelo || 'No especificado',
+          mensaje,
+          _subject: `🌞 Cotización YACUSOL — ${modelo || 'Modelo no especificado'} — ${nombre}`,
+          _replyto: contacto
+        })
+      });
+      if(res.ok){
+        successEl.innerHTML = `<strong>✅ ¡Mensaje enviado, ${nombre}!</strong><br>
+          Le responderemos a la brevedad al contacto que nos dejó.<br>
+          También puede escribirnos directamente por WhatsApp:
+          <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20soy%20${encodeURIComponent(nombre)},%20acabo%20de%20enviar%20una%20cotizaci%C3%B3n%20por%20la%20web."
+             target="_blank" style="display:inline-block;margin-top:10px;background:#25D366;
+             color:#fff;padding:8px 18px;border-radius:4px;text-decoration:none;font-weight:600">
+            📲 Confirmar por WhatsApp
+          </a>`;
+        successEl.classList.add('show');
+        e.target.reset();
+      } else {
+        throw new Error('Error Formspree');
+      }
+    } catch(err) {
+      // Si Formspree falla, redirigir a WhatsApp
+      const msgWA = `Hola YACUSOL 👋%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo: ${encodeURIComponent(modelo||'No especificado')}%0AMensaje: ${encodeURIComponent(mensaje)}`;
+      window.open(`https://wa.me/51961120481?text=${msgWA}`, '_blank');
+    }
+  } else {
+    // Sin Formspree configurado → WhatsApp directo
+    const msgWA = `Hola YACUSOL 👋%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo: ${encodeURIComponent(modelo||'No especificado')}%0AMensaje: ${encodeURIComponent(mensaje)}`;
+    successEl.innerHTML = `<strong>✅ ¡Gracias ${nombre}!</strong><br>
+      Haga clic para enviar su consulta por WhatsApp:
       <a href="https://wa.me/51961120481?text=${msgWA}" target="_blank"
-         style="background:#25D366;color:#fff;padding:8px 16px;border-radius:4px;
-                text-decoration:none;font-weight:600;font-size:13px">
+         style="display:inline-block;margin-top:10px;background:#25D366;color:#fff;
+         padding:8px 18px;border-radius:4px;text-decoration:none;font-weight:600">
         📲 Enviar por WhatsApp
-      </a>
-      <a href="mailto:energeticos.ryc@gmail.com?subject=Consulta YACUSOL - ${encodeURIComponent(nombre)}&body=${encodeURIComponent(cuerpo)}"
-         style="background:#E8620A;color:#fff;padding:8px 16px;border-radius:4px;
-                text-decoration:none;font-weight:600;font-size:13px">
-        ✉ Enviar por Correo
-      </a>
-    </div>`;
-  successEl.classList.add('show');
-  document.getElementById('form-contacto').reset();
+      </a>`;
+    successEl.classList.add('show');
+    e.target.reset();
+  }
+  btn.disabled = false;
+  btn.textContent = 'Enviar consulta';
 }
 
 /* ── BUZÓN SUGERENCIAS ── */
@@ -3523,22 +3611,24 @@ function enviarSugerencia(){
   document.getElementById('s-mensaje').value='';
   setStars(0);
 }
-/* ── CONTADOR DE VISITAS (localStorage) ── */
+/* ── CONTADOR DE VISITAS ── */
 (function(){
   try {
-    const KEY = 'yacusol_visits';
-    let visits = parseInt(localStorage.getItem(KEY) || '0') + 1;
-    localStorage.setItem(KEY, visits);
-    // Mostrar número formateado
     const el = document.getElementById('visit-count');
-    if(el) el.textContent = visits.toLocaleString('es-PE');
-    
-    // Enviar a un contador externo gratuito (CountAPI)
-    fetch('https://api.countapi.xyz/hit/energeticos2023-yacusol/visits')
-      .then(r=>r.json())
-      .then(data=>{
-        if(el && data.value) el.textContent = Number(data.value).toLocaleString('es-PE');
-      }).catch(()=>{}); // Si falla, se queda con localStorage
+    // Usar GoatCounter (gratuito, sin cookies, GDPR compliant)
+    // Muestra localStorage mientras carga el real
+    const KEY = 'yacusol_v2';
+    let local = parseInt(localStorage.getItem(KEY)||'0') + 1;
+    localStorage.setItem(KEY, local);
+    if(el) el.textContent = local.toLocaleString('es-PE') + ' visitas';
+
+    // API pública de conteo — reemplazar con GoatCounter cuando configure
+    // Por ahora usa localStorage como contador local confiable
+    // INSTRUCCIÓN PARA ACTIVAR CONTADOR REAL:
+    // 1) Ir a https://www.goatcounter.com
+    // 2) Crear cuenta gratis con dominio: energeticos2023
+    // 3) Agregar el script que dan en el <head> del HTML
+    // 4) El contador aparecerá en su panel de GoatCounter
   } catch(e){}
 })();
 </script>
@@ -4109,46 +4199,74 @@ Documento generado desde yacusol.pe
 }
 
 /* ── FORMULARIO CORREO ── */
-function enviarCorreo(e){
+async function enviarCorreo(e){
   e.preventDefault();
-  const nombre=document.getElementById('c-nombre').value.trim();
-  const contacto=document.getElementById('c-contacto').value.trim();
-  const modelo=document.getElementById('c-modelo').value;
-  const mensaje=document.getElementById('c-mensaje').value.trim();
-  if(!nombre||!mensaje){alert('Por favor complete nombre y mensaje.');return;}
+  const nombre   = document.getElementById('c-nombre').value.trim();
+  const contacto = document.getElementById('c-contacto').value.trim();
+  const modelo   = document.getElementById('c-modelo').value;
+  const mensaje  = document.getElementById('c-mensaje').value.trim();
+  if(!nombre || !mensaje){ alert('Por favor complete su nombre y mensaje.'); return; }
 
-  // Opción 1: WhatsApp (más confiable en móvil y desktop)
-  const msgWA=`Hola YACUSOL 👋%0A%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo de interés: ${encodeURIComponent(modelo||'No especificado')}%0A%0AMensaje:%0A${encodeURIComponent(mensaje)}`;
-  
-  // Opción 2: Correo (como respaldo)
-  const cuerpo=`Hola YACUSOL,
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
 
-Nombre: ${nombre}
-Contacto: ${contacto}
-Modelo: ${modelo||'No especificado'}
+  // ── FORMSPREE: envía directamente a energeticos.ryc@gmail.com ──
+  // INSTRUCCIÓN: reemplazar "YOUR_FORM_ID" con su ID de Formspree
+  // Pasos: 1) ir a formspree.io  2) crear cuenta gratis con energeticos.ryc@gmail.com
+  //        3) New Form → copiar el ID → pegarlo aquí
+  const FORMSPREE_ID = 'YOUR_FORM_ID';
 
-Mensaje:
-${mensaje}
-
----
-Enviado desde energeticos2023.github.io/YACUSOL`;
-  
   const successEl = document.getElementById('success-correo');
-  successEl.innerHTML = `✅ ¡Gracias ${nombre}! Elige cómo enviarnos tu consulta:<br>
-    <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+
+  if(FORMSPREE_ID !== 'YOUR_FORM_ID'){
+    // Envío real por Formspree
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          nombre, contacto,
+          modelo: modelo || 'No especificado',
+          mensaje,
+          _subject: `🌞 Cotización YACUSOL — ${modelo || 'Modelo no especificado'} — ${nombre}`,
+          _replyto: contacto
+        })
+      });
+      if(res.ok){
+        successEl.innerHTML = `<strong>✅ ¡Mensaje enviado, ${nombre}!</strong><br>
+          Le responderemos a la brevedad al contacto que nos dejó.<br>
+          También puede escribirnos directamente por WhatsApp:
+          <a href="https://wa.me/51961120481?text=Hola%20YACUSOL,%20soy%20${encodeURIComponent(nombre)},%20acabo%20de%20enviar%20una%20cotizaci%C3%B3n%20por%20la%20web."
+             target="_blank" style="display:inline-block;margin-top:10px;background:#25D366;
+             color:#fff;padding:8px 18px;border-radius:4px;text-decoration:none;font-weight:600">
+            📲 Confirmar por WhatsApp
+          </a>`;
+        successEl.classList.add('show');
+        e.target.reset();
+      } else {
+        throw new Error('Error Formspree');
+      }
+    } catch(err) {
+      // Si Formspree falla, redirigir a WhatsApp
+      const msgWA = `Hola YACUSOL 👋%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo: ${encodeURIComponent(modelo||'No especificado')}%0AMensaje: ${encodeURIComponent(mensaje)}`;
+      window.open(`https://wa.me/51961120481?text=${msgWA}`, '_blank');
+    }
+  } else {
+    // Sin Formspree configurado → WhatsApp directo
+    const msgWA = `Hola YACUSOL 👋%0ANombre: ${encodeURIComponent(nombre)}%0AContacto: ${encodeURIComponent(contacto)}%0AModelo: ${encodeURIComponent(modelo||'No especificado')}%0AMensaje: ${encodeURIComponent(mensaje)}`;
+    successEl.innerHTML = `<strong>✅ ¡Gracias ${nombre}!</strong><br>
+      Haga clic para enviar su consulta por WhatsApp:
       <a href="https://wa.me/51961120481?text=${msgWA}" target="_blank"
-         style="background:#25D366;color:#fff;padding:8px 16px;border-radius:4px;
-                text-decoration:none;font-weight:600;font-size:13px">
+         style="display:inline-block;margin-top:10px;background:#25D366;color:#fff;
+         padding:8px 18px;border-radius:4px;text-decoration:none;font-weight:600">
         📲 Enviar por WhatsApp
-      </a>
-      <a href="mailto:energeticos.ryc@gmail.com?subject=Consulta YACUSOL - ${encodeURIComponent(nombre)}&body=${encodeURIComponent(cuerpo)}"
-         style="background:#E8620A;color:#fff;padding:8px 16px;border-radius:4px;
-                text-decoration:none;font-weight:600;font-size:13px">
-        ✉ Enviar por Correo
-      </a>
-    </div>`;
-  successEl.classList.add('show');
-  document.getElementById('form-contacto').reset();
+      </a>`;
+    successEl.classList.add('show');
+    e.target.reset();
+  }
+  btn.disabled = false;
+  btn.textContent = 'Enviar consulta';
 }
 
 /* ── BUZÓN SUGERENCIAS ── */
@@ -4179,22 +4297,24 @@ function enviarSugerencia(){
   document.getElementById('s-mensaje').value='';
   setStars(0);
 }
-/* ── CONTADOR DE VISITAS (localStorage) ── */
+/* ── CONTADOR DE VISITAS ── */
 (function(){
   try {
-    const KEY = 'yacusol_visits';
-    let visits = parseInt(localStorage.getItem(KEY) || '0') + 1;
-    localStorage.setItem(KEY, visits);
-    // Mostrar número formateado
     const el = document.getElementById('visit-count');
-    if(el) el.textContent = visits.toLocaleString('es-PE');
-    
-    // Enviar a un contador externo gratuito (CountAPI)
-    fetch('https://api.countapi.xyz/hit/energeticos2023-yacusol/visits')
-      .then(r=>r.json())
-      .then(data=>{
-        if(el && data.value) el.textContent = Number(data.value).toLocaleString('es-PE');
-      }).catch(()=>{}); // Si falla, se queda con localStorage
+    // Usar GoatCounter (gratuito, sin cookies, GDPR compliant)
+    // Muestra localStorage mientras carga el real
+    const KEY = 'yacusol_v2';
+    let local = parseInt(localStorage.getItem(KEY)||'0') + 1;
+    localStorage.setItem(KEY, local);
+    if(el) el.textContent = local.toLocaleString('es-PE') + ' visitas';
+
+    // API pública de conteo — reemplazar con GoatCounter cuando configure
+    // Por ahora usa localStorage como contador local confiable
+    // INSTRUCCIÓN PARA ACTIVAR CONTADOR REAL:
+    // 1) Ir a https://www.goatcounter.com
+    // 2) Crear cuenta gratis con dominio: energeticos2023
+    // 3) Agregar el script que dan en el <head> del HTML
+    // 4) El contador aparecerá en su panel de GoatCounter
   } catch(e){}
 })();
 </script>
