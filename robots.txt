@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://energeticos2023.github.io/YACUSOL/sitemap.xml
