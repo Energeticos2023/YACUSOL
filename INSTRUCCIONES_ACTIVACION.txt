@@ -1,0 +1,22 @@
+COPA ANIN 2026 – ACTIVACIÓN DE INSCRIPCIONES
+
+MODO ACTUAL: WHATSAPP OFICIAL
+1. La aplicación funciona aunque REGISTRATION_ENDPOINT esté vacío.
+2. Después de validar el formulario, prepara un mensaje completo dirigido al WhatsApp +51 942 899 919.
+3. El participante debe tocar “ENVIAR AL WHATSAPP 942 899 919” y luego presionar Enviar en WhatsApp.
+4. La inscripción se considera recibida cuando el mensaje llega al WhatsApp de la organización.
+5. La pantalla no afirma que el registro central esté confirmado mientras el endpoint esté vacío.
+
+MODO REGISTRO CENTRAL + WHATSAPP (OPCIONAL)
+1. Abra la hoja de Google Sheets destinada a la Copa ANIN.
+2. Abra Extensiones > Apps Script.
+3. Copie google-apps-script/Code.gs y appsscript.json.
+4. Implemente como aplicación web con acceso para cualquier usuario.
+5. Copie la URL terminada en /exec.
+6. Péguela en assets/js/config.js, en REGISTRATION_ENDPOINT.
+7. Publique nuevamente todos los archivos en GitHub Pages.
+
+IMPORTANTE
+- El número configurado es 51942899919.
+- WhatsApp exige que el participante presione Enviar; una página web no puede enviar el mensaje automáticamente.
+- Los archivos JavaScript incluyen un identificador de versión para evitar que el teléfono siga usando una copia antigua en caché.
