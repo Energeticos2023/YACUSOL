@@ -1,0 +1,26 @@
+COPA ANIN – PUBLICACIÓN CORRECTA
+VERSIÓN: 20260716-06
+
+Este paquete contiene únicamente los archivos de Copa ANIN.
+No contiene archivos de Yacusol ni Service Worker de otra aplicación.
+
+PASOS:
+1. Descomprimir este ZIP en la computadora.
+2. Abrir el repositorio:
+   https://github.com/Energeticos2023/Copa_ANIN
+3. En la raíz del repositorio, reemplazar:
+   - index.html
+   - carpeta assets
+   - README.md
+   - INSTRUCCIONES_ACTIVACION.txt
+   - .nojekyll
+4. Confirmar el cambio con Commit changes en la rama main.
+5. Verificar que el repositorio muestre en index.html:
+   COPA_ANIN_VERSION: 20260716-06
+6. Abrir:
+   https://energeticos2023.github.io/Copa_ANIN/?v=20260716-06
+
+IMPORTANTE:
+- No subir el ZIP cerrado: GitHub Pages no lo descomprime.
+- Los archivos deben quedar directamente en la raíz del repositorio.
+- No deben quedar dentro de una carpeta YACUSOL-main ni Copa_ANIN_ACTUALIZADA.

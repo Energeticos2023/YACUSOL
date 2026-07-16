@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- COPA_ANIN_VERSION: 20260716-06 -->
 <html lang="es">
 <head>
   <meta charset="utf-8">
@@ -13,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260716-5">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260716-06">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Ir al contenido</a>
@@ -155,7 +156,21 @@
   <div class="modal" id="success-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-backdrop"></div><div class="modal-card"><button class="modal-close" type="button" aria-label="Cerrar">×</button><div class="success-icon">✓</div><span class="kicker" id="modal-status">ENVÍO POR WHATSAPP</span><h2 id="modal-title">INSCRIPCIÓN<br>LISTA PARA ENVIAR</h2><p id="modal-description">WhatsApp debe abrirse con todos los datos. Presiona Enviar para completar la inscripción.</p><div class="registration-code"><small>CÓDIGO DE INSCRIPCIÓN</small><b id="registration-code">ANIN-0000</b></div><a class="button whatsapp-button" id="whatsapp-confirmation" href="#" target="_blank" rel="noopener">ENVIAR AL WHATSAPP 942 899 919 <span>↗</span></a><button class="button button-dark modal-done" type="button">Cerrar</button></div></div>
 
   <template id="player-template"><div class="player-row"><span class="player-number">01</span><label class="field"><span>Nombre completo *</span><input type="text" data-field="name" placeholder="Nombres y apellidos" required maxlength="80"><small class="error"></small></label><label class="field dni-field"><span>DNI *</span><input type="text" data-field="dni" placeholder="8 dígitos" required inputmode="numeric" maxlength="8"><small class="error"></small></label><label class="field gender-field"><span>Género *</span><select data-field="gender" required><option value="">Elegir</option><option value="Femenino">Femenino</option><option value="Masculino">Masculino</option></select><small class="error"></small></label><button type="button" class="remove-player" aria-label="Eliminar jugador">×</button></div></template>
-  <script src="assets/js/config.js?v=20260716-URGENTE-1"></script>
-  <script src="assets/js/app.js?v=20260716-URGENTE-1"></script>
+
+  <script>
+    // Limpieza preventiva de un Service Worker antiguo registrado únicamente en Copa_ANIN.
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        registrations.forEach((registration) => {
+          if (registration.scope.includes("/Copa_ANIN/")) {
+            registration.unregister();
+          }
+        });
+      }).catch(() => {});
+    }
+  </script>
+
+  <script src="assets/js/config.js?v=20260716-06"></script>
+  <script src="assets/js/app.js?v=20260716-06"></script>
 </body>
 </html>

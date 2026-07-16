@@ -11,5 +11,5 @@ window.ANIN_CONFIG = {
   VENUE_LABEL: "Cancha deportiva Balón Fuego",
   VENUE_NOTE: "Nueva sede oficial: Cancha Balón Fuego.",
   MAPS_URL: "https://maps.app.goo.gl/oDiJbjf8zxkYyega8",
-  APP_VERSION: "20260716-URGENTE-1"
+  APP_VERSION: "20260716-06"
 };
