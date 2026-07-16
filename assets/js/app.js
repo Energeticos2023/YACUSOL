@@ -10,6 +10,11 @@
   const config = window.ANIN_CONFIG || {};
   const endpoint = String(config.REGISTRATION_ENDPOINT || "").trim();
   const whatsappNumber = String(config.WHATSAPP_NUMBER || "51942899919").replace(/\D/g, "");
+  const eventStartIso = String(config.EVENT_START_ISO || "2026-07-17T20:00:00-05:00");
+  const eventDateLabel = String(config.EVENT_DATE_LABEL || "Viernes 17 de julio de 2026");
+  const eventTimeLabel = String(config.EVENT_TIME_LABEL || "8:00 p. m. a 10:00 p. m.");
+  const venueLabel = String(config.VENUE_LABEL || "Cancha deportiva confirmada y reservada");
+  const mapsUrl = String(config.MAPS_URL || "https://maps.app.goo.gl/q65EkeRPXLckyjidA?g_st=iw");
   const MIN_PLAYERS = 6;
   const MAX_PLAYERS = 15;
   const REQUEST_TIMEOUT_MS = 30000;
@@ -18,7 +23,7 @@
 
   function updateCountdown() {
     const node = $("#countdown");
-    const eventDate = new Date("2026-07-17T19:00:00-05:00");
+    const eventDate = new Date(eventStartIso);
     const distance = Math.max(0, eventDate.getTime() - Date.now());
     const days = Math.floor(distance / 86400000);
     const hours = Math.floor((distance % 86400000) / 3600000);
@@ -153,6 +158,12 @@
       requestId: createRequestId(),
       submittedAtClient: new Date().toISOString(),
       event: "Copa ANIN 2026",
+      eventDetails: {
+        date: eventDateLabel,
+        time: eventTimeLabel,
+        venue: venueLabel,
+        mapsUrl
+      },
       source: window.location.href,
       sport: form.elements.sport.value,
       teamName: form.elements.teamName.value.trim(),
@@ -247,6 +258,13 @@
         : "*COPA ANIN 2026 – SOLICITUD DE INSCRIPCIÓN*",
       "",
       `*Código:* ${code}`,
+      "",
+      "*DATOS DEL EVENTO*",
+      `*Fecha:* ${eventDateLabel}`,
+      `*Horario:* ${eventTimeLabel}`,
+      `*Cancha:* ${venueLabel}`,
+      `*Ubicación:* ${mapsUrl}`,
+      "",
       `*Disciplina:* ${payload.sport}`,
       `*Equipo:* ${payload.teamName}`,
       `*Área / institución:* ${payload.organization || "No indicada"}`,

@@ -1,0 +1,15 @@
+ACTUALIZACIÓN COPA ANIN 2026
+
+Fecha del evento: viernes 17 de julio de 2026
+Horario de cancha reservada: 8:00 p. m. a 10:00 p. m.
+Ubicación oficial: https://maps.app.goo.gl/q65EkeRPXLckyjidA?g_st=iw
+WhatsApp de inscripciones: 942 899 919
+
+Cambios integrados:
+- Horario corregido en la portada y cuenta regresiva.
+- Aviso visible de cancha confirmada y reservada.
+- Botón directo para abrir la ubicación en Google Maps.
+- Enlace de ubicación en la sección de inscripción y en el menú.
+- Fecha, horario y mapa incluidos en el mensaje enviado por WhatsApp.
+- Bases oficiales en PDF actualizadas con el nuevo horario y ubicación.
+- Versión de recursos actualizada para reducir problemas de caché.

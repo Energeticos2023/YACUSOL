@@ -83,9 +83,9 @@ story += [
 
 event_data = [
     [P("FECHA", table_header), P("HORA", table_header), P("LOCAL", table_header), P("ORGANIZA", table_header)],
-    [P("Viernes 17 de julio de 2026"), P("7:00 p. m."), P("Cancha sintética frente a Makro"), P("UDE Arequipa")],
+    [P("Viernes 17 de julio de 2026"), P("8:00 p. m. - 10:00 p. m."), P('<link href="https://maps.app.goo.gl/q65EkeRPXLckyjidA?g_st=iw" color="#EC1C2E"><u>Cancha deportiva confirmada - ver mapa</u></link>'), P("UDE Arequipa")],
 ]
-t = Table(event_data, colWidths=[44 * mm, 28 * mm, 67 * mm, 36 * mm])
+t = Table(event_data, colWidths=[42 * mm, 36 * mm, 62 * mm, 35 * mm])
 t.setStyle(TableStyle([
     ("BACKGROUND", (0, 0), (-1, 0), NAVY), ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
     ("BACKGROUND", (0, 1), (-1, 1), PALE), ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),

@@ -22,3 +22,10 @@ window.ANIN_CONFIG = {
 ```
 
 Consulte `INSTRUCCIONES_ACTIVACION.txt` para habilitar Google Apps Script.
+
+## Fecha, horario y ubicación confirmados
+
+- Fecha: viernes 17 de julio de 2026.
+- Horario de cancha reservada: 8:00 p. m. a 10:00 p. m.
+- Ubicación: https://maps.app.goo.gl/q65EkeRPXLckyjidA?g_st=iw
+- La aplicación muestra un botón directo a Google Maps y añade estos datos al mensaje de inscripción por WhatsApp.
