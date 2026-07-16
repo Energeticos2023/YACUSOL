@@ -2,7 +2,9 @@ ACTUALIZACIÓN COPA ANIN 2026
 
 Fecha del evento: viernes 17 de julio de 2026
 Horario de cancha reservada: 8:00 p. m. a 10:00 p. m.
-Ubicación oficial: https://maps.app.goo.gl/q65EkeRPXLckyjidA?g_st=iw
+Cancha: Balón Fuego
+Nueva sede: ya no es frente a Makro.
+Ubicación oficial: https://maps.app.goo.gl/oDiJbjf8zxkYyega8
 WhatsApp de inscripciones: 942 899 919
 
 Cambios integrados:
@@ -13,3 +15,5 @@ Cambios integrados:
 - Fecha, horario y mapa incluidos en el mensaje enviado por WhatsApp.
 - Bases oficiales en PDF actualizadas con el nuevo horario y ubicación.
 - Versión de recursos actualizada para reducir problemas de caché.
+
+Actualización posterior: la sede anterior fue reemplazada por la cancha deportiva Balón Fuego.

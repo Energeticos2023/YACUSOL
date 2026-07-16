@@ -27,5 +27,7 @@ Consulte `INSTRUCCIONES_ACTIVACION.txt` para habilitar Google Apps Script.
 
 - Fecha: viernes 17 de julio de 2026.
 - Horario de cancha reservada: 8:00 p. m. a 10:00 p. m.
-- Ubicación: https://maps.app.goo.gl/q65EkeRPXLckyjidA?g_st=iw
+- Local: cancha deportiva **Balón Fuego**.
+- Nueva sede: ya no es frente a Makro.
+- Ubicación oficial: https://maps.app.goo.gl/oDiJbjf8zxkYyega8
 - La aplicación muestra un botón directo a Google Maps y añade estos datos al mensaje de inscripción por WhatsApp.

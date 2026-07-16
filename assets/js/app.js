@@ -13,8 +13,9 @@
   const eventStartIso = String(config.EVENT_START_ISO || "2026-07-17T20:00:00-05:00");
   const eventDateLabel = String(config.EVENT_DATE_LABEL || "Viernes 17 de julio de 2026");
   const eventTimeLabel = String(config.EVENT_TIME_LABEL || "8:00 p. m. a 10:00 p. m.");
-  const venueLabel = String(config.VENUE_LABEL || "Cancha deportiva confirmada y reservada");
-  const mapsUrl = String(config.MAPS_URL || "https://maps.app.goo.gl/q65EkeRPXLckyjidA?g_st=iw");
+  const venueLabel = String(config.VENUE_LABEL || "Cancha deportiva Balón Fuego");
+  const venueNote = String(config.VENUE_NOTE || "Nueva sede: ya no es frente a Makro.");
+  const mapsUrl = String(config.MAPS_URL || "https://maps.app.goo.gl/oDiJbjf8zxkYyega8");
   const MIN_PLAYERS = 6;
   const MAX_PLAYERS = 15;
   const REQUEST_TIMEOUT_MS = 30000;
@@ -162,7 +163,8 @@
         date: eventDateLabel,
         time: eventTimeLabel,
         venue: venueLabel,
-        mapsUrl
+        mapsUrl,
+        note: venueNote
       },
       source: window.location.href,
       sport: form.elements.sport.value,
@@ -264,6 +266,7 @@
       `*Horario:* ${eventTimeLabel}`,
       `*Cancha:* ${venueLabel}`,
       `*Ubicación:* ${mapsUrl}`,
+      `*Importante:* ${venueNote}`,
       "",
       `*Disciplina:* ${payload.sport}`,
       `*Equipo:* ${payload.teamName}`,

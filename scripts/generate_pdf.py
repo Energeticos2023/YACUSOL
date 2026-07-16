@@ -83,7 +83,7 @@ story += [
 
 event_data = [
     [P("FECHA", table_header), P("HORA", table_header), P("LOCAL", table_header), P("ORGANIZA", table_header)],
-    [P("Viernes 17 de julio de 2026"), P("8:00 p. m. - 10:00 p. m."), P('<link href="https://maps.app.goo.gl/q65EkeRPXLckyjidA?g_st=iw" color="#EC1C2E"><u>Cancha deportiva confirmada - ver mapa</u></link>'), P("UDE Arequipa")],
+    [P("Viernes 17 de julio de 2026"), P("8:00 p. m. - 10:00 p. m."), P('<link href="https://maps.app.goo.gl/oDiJbjf8zxkYyega8" color="#EC1C2E"><u>Cancha Balón Fuego - ver mapa</u></link>'), P("UDE Arequipa")],
 ]
 t = Table(event_data, colWidths=[42 * mm, 36 * mm, 62 * mm, 35 * mm])
 t.setStyle(TableStyle([
@@ -93,7 +93,17 @@ t.setStyle(TableStyle([
     ("INNERGRID", (0, 0), (-1, -1), 0.4, colors.HexColor("#CDD6E2")),
     ("TOPPADDING", (0, 0), (-1, -1), 6), ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
 ]))
-story += [t, Spacer(1, 4 * mm)]
+story += [
+    t,
+    Spacer(1, 2 * mm),
+    Table([[P("NUEVA SEDE: CANCHA BALÓN FUEGO. La actividad ya no se realizará frente a Makro.", callout)]], colWidths=[175 * mm], style=[
+        ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#FFF3F4")),
+        ("BOX", (0, 0), (-1, -1), 0.8, RED),
+        ("TOPPADDING", (0, 0), (-1, -1), 7),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+    ]),
+    Spacer(1, 4 * mm)
+]
 
 sections = [
     ("1. Finalidad", [
