@@ -287,11 +287,17 @@
     ].join("\n");
   }
 
-  function configureWhatsAppButton(payload, code, centralConfirmed) {
+  function getWhatsAppUrl(payload, code, centralConfirmed) {
     const message = buildWhatsAppMessage(payload, code, centralConfirmed);
+    return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  }
+
+  function configureWhatsAppButton(payload, code, centralConfirmed) {
+    const url = getWhatsAppUrl(payload, code, centralConfirmed);
     const button = $("#whatsapp-confirmation");
-    button.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    button.href = url;
     button.hidden = !whatsappNumber;
+    return url;
   }
 
   function openModal(payload, code, centralConfirmed, serverError = "") {
@@ -307,11 +313,11 @@
       title.innerHTML = "¡YA ESTÁN<br>EN EL JUEGO!";
       description.textContent = "La inscripción fue guardada correctamente. Conserva el código y envía la constancia al WhatsApp oficial.";
     } else {
-      status.textContent = "PASO FINAL POR WHATSAPP";
+      status.textContent = "ENVÍO POR WHATSAPP";
       title.innerHTML = "INSCRIPCIÓN<br>LISTA PARA ENVIAR";
       description.textContent = serverError
-        ? "El registro central no respondió. Para no perder los datos, envía ahora la inscripción al WhatsApp oficial. Quedará confirmada cuando la organización reciba el mensaje."
-        : "Toca el botón y presiona Enviar en WhatsApp. La inscripción quedará confirmada cuando la organización reciba el mensaje en el 942 899 919.";
+        ? "El registro central no respondió, pero la inscripción no se perderá. Presiona Enviar en WhatsApp para remitirla al 942 899 919."
+        : "WhatsApp debe abrirse con todos los datos. Presiona Enviar para completar la inscripción al 942 899 919.";
     }
 
     modal.classList.add("open");
@@ -342,7 +348,22 @@
     const fallbackCode = createReferenceCode();
 
     if (!endpoint) {
+      try {
+        localStorage.setItem("anin_last_registration_draft", JSON.stringify({
+          code: fallbackCode,
+          savedAt: new Date().toISOString(),
+          payload
+        }));
+      } catch (storageError) {
+        console.warn("No se pudo guardar la copia temporal.", storageError);
+      }
+
       openModal(payload, fallbackCode, false);
+      const whatsappUrl = getWhatsAppUrl(payload, fallbackCode, false);
+      const opened = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+      if (!opened) {
+        showFormMessage("El navegador bloqueó la apertura automática. Pulsa el botón ENVIAR AL WHATSAPP dentro de la ventana de confirmación.");
+      }
       return;
     }
 

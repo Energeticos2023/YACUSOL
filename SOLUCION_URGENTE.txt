@@ -1,0 +1,22 @@
+COPA ANIN – SOLUCIÓN URGENTE DE INSCRIPCIONES
+
+CAUSA DEL PROBLEMA
+La versión publicada bloqueaba el botón cuando REGISTRATION_ENDPOINT estaba vacío.
+
+SOLUCIÓN APLICADA
+- El formulario ya no depende de Google Apps Script.
+- Al confirmar, se genera un código y se abre WhatsApp con todos los datos.
+- El mensaje se dirige al 942 899 919.
+- Se incluye fecha, horario y Cancha Balón Fuego.
+- Si el navegador bloquea la ventana, queda disponible el botón dentro de la confirmación.
+
+PUBLICACIÓN EN GITHUB
+Reemplazar obligatoriamente estos tres archivos:
+1. index.html
+2. assets/js/config.js
+3. assets/js/app.js
+
+Después abrir:
+https://energeticos2023.github.io/Copa_ANIN/?v=20260716-URGENTE-1#inscripcion
+
+Realizar una prueba y verificar que WhatsApp abra el mensaje dirigido al 942 899 919.
