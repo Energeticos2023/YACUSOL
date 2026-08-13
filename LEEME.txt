@@ -1,0 +1,24 @@
+YACUSOL - PAGINA WEB
+Repositorio: energeticos2023.github.io/YACUSOL
+
+COMO INSTALAR
+1. Suba index.html a la raiz del repositorio, reemplazando el actual.
+2. NO toque la carpeta assets/ : el nuevo index.html usa las mismas rutas.
+3. Listo. GitHub Pages publica el cambio en 1-2 minutos.
+
+OPCIONAL - puede borrar estos archivos, ya no se muestran:
+  assets/precios-lista.png
+  assets/precios-huaraz.png
+  assets/precios-nacional.png
+  assets/banner-paquete-120.png  (hasta 400.png) -> tienen el precio antiguo impreso
+
+COMO CAMBIAR UN PRECIO
+Abra index.html y busque el comentario:  FUENTE UNICA DE PRECIOS
+Edite el numero en "precio" dentro del bloque EQUIPOS.
+Con eso se actualizan a la vez: la tabla, las tarjetas de paquete y el cotizador.
+
+Para aplicar descuento al Paquete Todo en Uno, edite en el mismo bloque:
+  const DESCUENTO_PAQUETE = {};
+Ejemplo:  {120:250, 150:300, 200:350, 300:150, 400:150}
+
+Corporacion R y C Contratistas Generales S.A.C. - ENERGETICOS
