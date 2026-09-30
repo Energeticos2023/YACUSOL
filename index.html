@@ -670,6 +670,18 @@ const io = new IntersectionObserver(entradas => {
   entradas.forEach(en => { if (en.isIntersecting) { en.target.classList.add("on"); io.unobserve(en.target); } });
 }, {threshold:.12});
 document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+/* ---- Asistente "¿Qué deseas saber?": usa la misma FUENTE ÚNICA DE PRECIOS ---- */
+window.ASISTENTE_CONFIG = {
+  whatsapp: WA_VENTAS,
+  equipos: EQUIPOS,
+  accesorios: ACCESORIOS,
+  componentesPaquete: COMPONENTES_PAQUETE,
+  precioPaquete: precioPaquete,
+  instalacionIncluida: INSTALACION_INCLUIDA_HUARAZ,
+  margenInferior: 92  /* queda encima del botón verde de WhatsApp */
+};
 </script>
+<script src="asistente/asistente.js?v=20260930" defer></script>
 </body>
 </html>
