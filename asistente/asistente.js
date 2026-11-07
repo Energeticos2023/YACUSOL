@@ -180,9 +180,9 @@
     var i = acc("instalacion");
     return { html: "🛠️ <b>Instalación</b>" + (i && i.precio ? ": instalación básica en Huaraz <b>" + money(i.precio) + "</b>" : "") + "." +
       (C.instalacionIncluida ? " Si compras el <b>Paquete Todo en Uno</b>, el traslado e instalación básica en Huaraz e Independencia ya están incluidos." : "") +
-      "<ul><li>Se instala en techo plano, soporte a 15°, orientado al sol y sin sombras.</li>" +
+      "<ul><li>El lugar y la inclinación de soporte se verifican con las condiciones reales del techo, sombra y seguridad del montaje.</li>" +
       "<li>Se conecta a tu tanque elevado, a un tanque asistente o con controlador TK de llenado automático.</li>" +
-      "<li>El tubo de venteo siempre queda abierto, 10 a 20 cm por encima del nivel del tanque elevado.</li>" +
+      "<li>El venteo debe permanecer independiente, libre y a la altura definida por el diseño hidráulico seguro; el técnico debe verificar cotas y alimentación.</li>" +
       "<li>Lo instala personal técnico bajo la dirección del Ing. Rafael Zeña (CIP 85540).</li></ul>",
       chips: ["Envíos a provincias", "Paquete Todo en Uno", "Garantía"],
       wa: "Hola YACUSOL, quiero coordinar la instalación de una terma solar." };
@@ -210,14 +210,14 @@
   };
 
   R.funciona = function () {
-    return { html: "☀️ <b>¿Cómo funciona?</b> Los tubos al vacío captan la energía del sol y calientan el agua, que sube al termotanque aislado y se conserva caliente para usarla en la ducha, el lavadero o la cocina. <b>No consume luz ni gas.</b><br>Los días sin sol puedes usar la <b>resistencia eléctrica de respaldo</b> opcional.",
+    return { html: "☀️ <b>¿Cómo funciona?</b> Los tubos al vacío captan energía solar y la transfieren al agua del tanque aislado. <b>El calentamiento solar no necesita electricidad ni gas</b>, pero la resistencia eléctrica opcional sí consume energía. La temperatura disponible varía con la radiación solar, el consumo y el diseño de instalación.",
       chips: ["¿Y los días nublados?", "Características", "Precios"] };
   };
 
   R.nublado = function () {
     var r = acc("resistencia");
     return { html: "🌥️ Con nubes la terma sigue captando radiación, pero calienta menos. Para días de lluvia o poco sol está la <b>resistencia eléctrica de respaldo</b>" +
-      (r && r.precio ? " (" + money(r.precio) + ")" : "") + ", que puede controlarse con el <b>controlador TK</b>. El tanque aislado conserva el agua caliente durante la noche.",
+      (r && r.precio ? " (" + money(r.precio) + ")" : "") + ", que puede controlarse con el <b>controlador TK</b>. El aislamiento ayuda a reducir las pérdidas de calor; la temperatura disponible no está garantizada sin verificar las condiciones de uso.",
       chips: ["Resistencia eléctrica", "Controlador TK", "Paquete Todo en Uno"] };
   };
 
@@ -239,21 +239,21 @@
 
   var DIAG = {
     noSale: ["No sale agua caliente", "Lo más común es una <b>bolsa de aire</b> en la tubería (si oyes gorgoteos o el agua sale y se corta). También puede ser una llave cerrada o una válvula check invertida.",
-      "Purga el punto alto de la tubería de agua caliente y revisa que las llaves estén abiertas. La tubería debe bajar sin “lomos” hacia la ducha."],
+      "No manipules tuberías calientes ni hagas purgas por tu cuenta. Indica si el agua no llega o si llega fría, y solicita evaluación técnica."],
     tibia: ["El agua sale tibia", "Puede ser alto consumo, sombra sobre los tubos, tubos sucios o dañados, o la válvula termostática regulada muy baja.",
-      "Revisa que no haya sombras, limpia los tubos y sube un poco la válvula termostática. En días nublados usa la resistencia de respaldo."],
+      "Confirma si el problema ocurre en todos los puntos de consumo. Evita tocar tubos calientes o ajustar la válvula sin conocer su funcionamiento. Solicita revisión técnica si persiste."],
     rebose: ["Rebalsa agua por el venteo", "El llenado no se detiene: flotador, electroválvula o sensor con falla, o presión de alimentación alta.",
-      "Cierra la alimentación de agua y revisa el control de nivel. <b>Nunca tapes el venteo.</b>"],
+      "Si es seguro hacerlo, detén el suministro de agua y solicita revisión técnica. <b>Nunca tapes el venteo.</b>"],
     inestable: ["Temperatura inestable en la ducha", "Válvula termostática mal regulada, entradas H/C invertidas o caudales desbalanceados.",
-      "Verifica que H vaya a la terma y C al agua fría, y regula la válvula con el agua corriendo."],
-    fuga: ["Fuga o tanque deformado", "Sobrepresión: venteo bloqueado o conexión indebida a la red presurizada.",
+      "Evita utilizar la ducha si hay riesgo de quemaduras; una persona técnica debe verificar las conexiones H (caliente), C (fría) y MIX (mezcla)."],
+    fuga: ["Fuga o tanque deformado", "Puede haber problemas hidráulicos que requieren inspección; no es posible confirmar la causa sin evaluación técnica.",
       "⚠️ <b>Suspende el llenado y el uso</b> y llámanos. Revisaremos el venteo y la conexión."],
     tk: ["El controlador TK no marca", "Sensor desconectado, cableado suelto o falta de alimentación del controlador.",
-      "Desenergiza y revisa el sensor y sus conexiones, o pide revisión técnica."],
+      "No abras ni manipules conexiones eléctricas. Solicita revisión técnica del controlador y sensor."],
     resistencia: ["La resistencia no calienta", "Sin alimentación, protección disparada, salida del TK o resistencia dañada.",
-      "Verifica el interruptor. Si sigue igual, pide revisión técnica: es trabajo eléctrico."],
+      "No manipules conductores ni rearmes repetidamente protecciones disparadas. Solicita a un técnico electricista que revise el circuito."],
     lento: ["Llena muy lento", "Poca presión de alimentación, filtro o llaves restringidas, o electroválvula parcialmente obstruida.",
-      "Revisa el caudal de entrada y limpia filtros."]
+      "Confirma si otras salidas de agua tienen caudal normal. La limpieza de filtros y electroválvulas debe realizarla personal técnico."]
   };
   R.diagnostico = function (k) {
     var d = DIAG[k];
@@ -266,14 +266,14 @@
   R.venteo = function () {
     return { html: "🌬️ <b>El venteo</b> es el tubo que mantiene la terma abierta al aire. Es una pieza de seguridad:<ul>" +
       "<li>Siempre abierto: sin válvulas, tapones ni reducciones.</li>" +
-      "<li>Entre 10 y 20 cm por encima del nivel del tanque elevado.</li>" +
+      "<li>La cota del venteo debe comprobarse respecto del sistema de alimentación y del diseño del fabricante; nunca se improvisa en obra.</li>" +
       "<li>No lo alargues para “ganar presión”: dañaría el tanque.</li>" +
       "<li>Si bota agua todo el tiempo, revisa el nivel del tanque de alimentación.</li></ul>",
       chips: ["Rebalsa por el venteo", "Instalación", "Tengo un problema"] };
   };
 
   R.presion = function () {
-    return { html: "🚿 La YACUSOL es <b>no presurizada</b>: la presión en la ducha la da la altura de tu tanque elevado. No se debe conectar directo a la red de agua ni alargar el venteo para ganar presión. Si necesitas más presión, se resuelve en la red de distribución (por ejemplo con una bomba presurizadora después de la terma). Consúltanos tu caso.",
+    return { html: "🚿 La YACUSOL es <b>no presurizada</b>: la presión disponible depende de las diferencias de altura, pérdidas de carga y condiciones de la instalación. No conectes el tanque directamente a la red presurizada ni alteres el venteo. Un especialista debe evaluar soluciones compatibles si requieres mayor presión.",
       chips: ["Instalación", "Venteo", "Contacto"],
       wa: "Hola YACUSOL, tengo dudas sobre la presión de agua para instalar una terma solar." };
   };
