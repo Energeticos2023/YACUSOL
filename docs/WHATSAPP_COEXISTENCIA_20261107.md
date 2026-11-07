@@ -77,3 +77,11 @@ Estados: NUEVO -> ATENDIDO_BOT -> PRECALIFICADO -> ESPERA_INGENIERO -> CONTACTAD
 
 ## Alternativas si el piloto no cumple
 Wati con Coexistence (https://support.wati.io/en/articles/11822421-how-to-connect-your-whatsapp-number-to-wati-via-whatsapp-coexistence-coex); 360dialog con API y backend propio. La compatibilidad de sincronización varía entre socios. El proyecto Supabase Energeticos_Academia existente está INACTIVO y no debe utilizarse sin aprobación y revisión de presupuesto. No lanzar infraestructura con pago automático.
+
+## BLOQUEO CRÍTICO — 07/11/2026: restricción de publicidad de Meta
+El usuario compartió captura del formulario «Crea un porfolio empresarial» con aviso: «Se ha restringido tu acceso a la publicidad. Ya no tienes permiso para hacer publicidad en los servicios y aplicaciones de Facebook. No puedes poner anuncios en circulación, administrar activos publicitarios, crear cuentas publicitarias ni porfolios empresariales.»
+- **No es un error de nombre del portafolio**. Suspender intentos de creación/cambios de nombre, compras, vinculación/migración de número y configuración Coexistence.
+- Revisar desde sesión legítima Meta Business Support Home/Calidad de la cuenta: https://business.facebook.com/accountquality . Determinar objeto restringido (perfil personal, página, cuenta de anuncios o negocio), motivo y si aparece «Solicitar revisión». Solo usuario autorizado debe completar verificaciones.
+- No crear perfiles alternativos ni portafolios de terceros para eludir la restricción; no solicitar OTP, contraseñas ni documentos sensibles por chat.
+- Revisar correo de Meta sobre la restricción, 2FA y accesos de seguridad si el panel lo exige. No afirmar que la restricción se levantará, ni que impide automáticamente todas las funciones orgánicas/WhatsApp.
+- Una vez resuelta o aclarada la restricción, reanudar verificación de propiedad del portafolio y elegibilidad de Coexistence. Preservar el 942 899 919 y WhatsApp Business del teléfono.
