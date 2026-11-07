@@ -96,7 +96,7 @@
 
   R.saludo = function () {
     return { html: "¡Hola! 👋 Soy el asistente de <b>YACUSOL</b>. Pregúntame lo que quieras: precios, qué capacidad necesitas, instalación, garantía o si tu terma tiene algún problema.",
-      chips: ["Precios", "¿Qué capacidad necesito?", "Paquete Todo en Uno", "Tengo un problema"] };
+      chips: ["Precios", "¿Qué capacidad necesito?", "Hablar con el Ing. Rafael", "Paquete Todo en Uno", "Tengo un problema"] };
   };
 
   R.precios = function () {
@@ -293,12 +293,19 @@
   };
 
   R.gracias = function () {
-    return { html: "¡Con gusto! 😊 Si tienes otra duda, aquí estoy. Y si quieres comprar, toca el botón de WhatsApp.", chips: ["Precios", "Contacto"] };
+    return { html: "¡Con gusto! 😊 Si te fue útil, puedes recomendar YACUSOL a tus familiares y amigos; compartir es totalmente voluntario. <a href='https://wa.me/?text=" + encodeURIComponent("Te recomiendo conocer las termas solares YACUSOL en Huaraz: https://energeticos2023.github.io/YACUSOL/?utm_source=recomendacion&utm_medium=whatsapp&utm_campaign=clientes") + "' target='_blank' rel='noopener'>Compartir catálogo</a>.", chips: ["Precios", "Contacto", "Hablar con el Ing. Rafael"] };
+  };
+
+  R.humano = function (q) {
+    var tema = (q || "Necesito asesoría personalizada.").slice(0, 200);
+    return { html: "Te pondré en contacto con la atención personal del Ing. Rafael. Este asistente web no envía mensajes por ti: pulsa el botón verde, revisa el texto y envíalo desde WhatsApp. En casos de fuga importante, riesgo eléctrico o quemaduras, suspende el uso de manera segura y solicita ayuda técnica.",
+      chips: ["Precios", "Garantía", "Tengo un problema"],
+      wa: "ATENCIÓN HUMANA SOLICITADA - YACUSOL. Motivo: " + tema + ". Solicito que el Ing. Rafael me atienda personalmente." };
   };
 
   R.noEntiendo = function (q) {
     return { html: "No tengo esa respuesta exacta todavía 🤔, pero el Ing. Rafael o el equipo de ventas te responden rápido por WhatsApp. También puedes elegir un tema:",
-      chips: ["Precios", "¿Qué capacidad necesito?", "Paquete Todo en Uno", "Instalación", "Garantía", "Tengo un problema"],
+      chips: ["Precios", "¿Qué capacidad necesito?", "Paquete Todo en Uno", "Instalación", "Hablar con el Ing. Rafael", "Garantía", "Tengo un problema"],
       wa: "Hola YACUSOL, tengo una consulta: " + q };
   };
 
@@ -309,6 +316,7 @@
     var p = personasEn(t);
     var pidePrecio = has(t, ["precio", "cuanto", "cuesta", "costo", "vale", "cotiz", "soles", "tarifa", "valor", "barato", "caro", "oferta", "descuento", "promo"]);
 
+    if (has(t, ["hablar con el ing", "hablar con persona", "atencion humana", "asesor humano", "atender personalmente", "hablar con rafael", "con el ingeniero", "contactar ingeniero", "quiero una persona", "me llame", "que me llamen", "reclamo", "queja", "urgente"])) return R.humano(q);
     if (has(t, ["gracias", "muy amable", "ok gracias", "perfecto"])) return R.gracias();
 
     // Problemas (van primero: "no sale agua caliente" no debe responderse con precios)
@@ -369,7 +377,9 @@
     "llena muy lento": function () { return R.diagnostico("lento"); },
     "que capacidad necesito": function () { return R.capacidad(null); },
     "y los dias nublados": R.nublado, "caracteristicas": R.caracteristicas, "venteo": R.venteo,
-    "envios a provincias": R.envio, "formas de pago": R.pago
+    "envios a provincias": R.envio, "formas de pago": R.pago,
+    "hablar con el ing rafael": R.humano, "hablar con una persona": R.humano,
+    "atencion humana": R.humano
   };
   function resolver(q) {
     var f = ATAJOS[norm(q)];
