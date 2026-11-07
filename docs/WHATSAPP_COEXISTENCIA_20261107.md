@@ -5,7 +5,9 @@ Fecha de preparación: 07/11/2026. ESTADO: NO CONECTADO. Esta guía no cambia el
 - [x] El propietario confirmó que **942 899 919 usa WhatsApp Business App** en el teléfono. No se requiere volver a preguntar este dato.
 - [ ] Confirmar versión de WhatsApp Business **2.24.17 o posterior** y actualización vigente.
 - [x] El propietario confirmó el 07/11/2026 que dispone de **copia de seguridad reciente y completada** de WhatsApp Business del 942 899 919. Esta confirmación es declarativa, no revisión de la copia ni de su capacidad de restauración; no cambió el número.
-- [ ] En Meta Business Suite, confirmar que la cuenta empresarial correcta tiene administrador propio, activos de página YACUSOL y que el número 942 899 919 está agregado en Cuentas de WhatsApp. No asumir que Facebook o Instagram conectados a Metricool prueban este paso.
+- [x] El propietario confirma que el **942 899 919 ya aparece en Cuentas de WhatsApp de Meta Business** (07/11/2026). Verificación declarativa, sin acceso directo al panel.
+- [ ] Verificar nombre exacto del Portfolio empresarial, acceso de **control total** del propietario y si hay socios/proveedores (BSP) asociados a la cuenta. Un número visible no demuestra acceso administrador ni elegibilidad de Coexistence.
+- [ ] No pulsar **Agregar** ni crear una segunda cuenta con el mismo número si ya figura como asociado; iniciar el flujo correcto desde el proveedor seleccionado solo tras confirmar permisos y socios.
 - [ ] Revisar dispositivos vinculados; Coexistence puede desvincular los secundarios. WhatsApp para Windows puede no reflejar mensajes en la API, lo que afecta la pretensión de capturar el 100 % de conversaciones.
 - [ ] Confirmar si el número está asociado ya a otro BSP/API (solo puede haber uno). **No** cambiar de proveedor, registrar el número como WhatsApp personal ni desconectar para sortear errores sin revisión adicional.
 - [ ] Verificar la elegibilidad **durante Embedded Signup de Meta** en el modo específico 'Connect WhatsApp Business App'. No se puede declarar elegible con los datos disponibles. Si aparece error de no elegibilidad, DETENER y consultar; no migrar unilateralmente a API exclusiva.
