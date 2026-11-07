@@ -40,6 +40,7 @@
     "#en-red-panel .en-red-share{background:#f28c1e;color:#fff}",
     "#en-red-panel .en-red-note{font-size:12px;color:#55677e;margin:5px 0}",
     "#en-red-panel .en-red-close{float:right;background:#fff3;border:0;color:#fff;font:700 20px Arial;cursor:pointer;border-radius:7px;width:30px;height:30px}",
+    "#en-red-panel .en-red-quick{display:grid;grid-template-columns:1fr 1fr;gap:7px}#en-red-panel .en-red-choice{background:#eaf1fb;color:#12345a;padding:10px;border:1px solid #c6dbf2;border-radius:10px;text-align:left;font:700 12px/1.3 Arial;cursor:pointer}#en-red-panel .en-red-choice:hover{background:#d6e5f8}#en-red-panel .en-red-answer{padding:11px 12px;border-radius:12px;border:1px solid #c6dbf2;background:#f5f9ff;font-size:13px}#en-red-panel .en-red-answer[hidden]{display:none}#en-red-panel .en-red-answer p{margin:0 0 10px}",
     "@media(max-width:520px){#en-red-launcher{left:10px;bottom:12px;padding:10px 13px;font-size:13px}#en-red-panel{left:10px;bottom:62px;max-height:65vh}}"
   ].join("");
   var st = el("style");
@@ -80,6 +81,36 @@
     u.searchParams.set("utm_content", source);
     addLink("↗ " + item[0], u.toString());
   });
+
+  content.appendChild(el("p", "en-red-title", "¿Cómo podemos ayudarte?"));
+  content.appendChild(el("p", "en-red-note", "Selecciona una consulta y recibirás orientación inmediata. Si necesitas una cotización especial o atención personal, podrás escribir directamente al ingeniero."));
+  var quickOptions = [
+    {label:"☀️ Comprar terma solar", answer:"Para orientarte con YACUSOL necesitamos saber el distrito de instalación, cuántas personas usarán agua caliente y cuántas duchas tienes. Puedes revisar capacidades y precios publicados en el catálogo. La elección definitiva requiere confirmar las condiciones de instalación.", topic:"Quiero cotizar una terma solar. Distrito: [indicar]. Número de personas: [indicar]. Duchas: [indicar]."},
+    {label:"🔧 Mantenimiento de terma", answer:"Podemos evaluar limpieza, revisión de tubos, válvulas, controlador y funcionamiento. Si hay fuga importante, deformación del tanque o riesgo eléctrico, suspende su uso de manera segura y solicita atención especializada. El costo de mantenimiento se cotiza según diagnóstico.", topic:"Solicito mantenimiento de mi terma solar. Marca y capacidad: [indicar]. Problema o servicio solicitado: [indicar]. Distrito: [indicar]."},
+    {label:"⚡ Instalaciones eléctricas", answer:"ENERGÉTICOS brinda servicios técnicos eléctricos. Para cotizar correctamente necesitamos ubicación, alcance del trabajo y características generales de la instalación. Los trabajos y plazos se confirman después de una evaluación técnica.", topic:"Solicito un servicio de instalaciones eléctricas. Distrito: [indicar]. Trabajo requerido: [indicar]."},
+    {label:"📋 Proyecto o visita técnica", answer:"Para evaluar un proyecto de energía solar o eléctrico necesitamos conocer la ubicación y el objetivo. Un especialista revisará el alcance, las condiciones de sitio y la documentación necesaria antes de presentar una propuesta.", topic:"Necesito una visita o evaluación de proyecto. Ubicación: [indicar]. Necesidad: [indicar]."}
+  ];
+  var quickArea = el("div", "en-red-quick");
+  var answerBox = el("div", "en-red-answer");
+  answerBox.setAttribute("aria-live", "polite");
+  answerBox.hidden = true;
+  quickOptions.forEach(function (opt) {
+    var b = el("button", "en-red-choice", opt.label);
+    b.type = "button";
+    b.addEventListener("click", function () {
+      answerBox.hidden = false;
+      answerBox.textContent = "";
+      answerBox.appendChild(el("p", "", opt.answer));
+      var link = el("a", "en-red-human", "🟢 Pedir atención humana por WhatsApp");
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.href = "https://wa.me/51942899919?text=" + encodeURIComponent("ATENCIÓN HUMANA - ENERGÉTICOS/YACUSOL: " + opt.topic);
+      answerBox.appendChild(link);
+    });
+    quickArea.appendChild(b);
+  });
+  content.appendChild(quickArea);
+  content.appendChild(answerBox);
   content.appendChild(el("p", "en-red-title", "Atención personalizada"));
   addLink("💬 Asistente de termas YACUSOL", catalogue + "#asistente");
   var msg = "Hola, Ing. Rafael. Necesito atención humana para una consulta sobre ENERGÉTICOS / YACUSOL. Llegué desde " + source + ".";
