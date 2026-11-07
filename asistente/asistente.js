@@ -95,8 +95,8 @@
   var R = {};
 
   R.saludo = function () {
-    return { html: "¡Hola! 👋 Soy el asistente de <b>YACUSOL</b>. Pregúntame lo que quieras: precios, qué capacidad necesitas, instalación, garantía o si tu terma tiene algún problema.",
-      chips: ["Precios", "¿Qué capacidad necesito?", "Hablar con el Ing. Rafael", "Paquete Todo en Uno", "Tengo un problema"] };
+    return { html: "¡Bienvenido a YACUSOL! ☀️ Soy el <b>asistente virtual comercial y técnico</b> de ENERGÉTICOS. Te ayudo a elegir una terma, conocer condiciones de instalación o encaminar un servicio. Si necesitas atención personal o tienes una falla de seguridad, te indicaré cómo contactar directamente al Ing. Rafael. <p class='ya-nota'>Este chat responde en la web; no es el buzón de WhatsApp.</p>",
+      chips: ["Cotizar mi terma", "Precios", "¿Qué capacidad necesito?", "Tengo un problema", "Hablar con el Ing. Rafael"] };
   };
 
   R.precios = function () {
@@ -128,7 +128,7 @@
     if (p) {
       var cap = capacidadPara(p), e = equipo(cap);
       var r = R.precioModelo(cap);
-      r.html = "👨‍👩‍👧 Para <b>" + p + " persona" + (p > 1 ? "s" : "") + "</b> te recomendamos la <b>YACUSOL " + cap + " L</b>.<br><br>" + r.html +
+      r.html = "👨‍👩‍👧 Para <b>" + p + " persona" + (p > 1 ? "s" : "") + "</b> como orientación inicial, podrías evaluar la <b>YACUSOL " + cap + " L</b>.<br><br>" + r.html +
         "<p class='ya-nota'>Si se duchan varias personas seguidas o las duchas son largas, conviene subir una capacidad.</p>";
       r.wa = "Hola YACUSOL, somos " + p + " personas y me recomendaron la terma de " + cap + " L. Quiero cotizar.";
       return r;
@@ -279,7 +279,7 @@
   };
 
   R.pago = function () {
-    return { html: "💳 Las formas de pago y la disponibilidad se coordinan directamente con ventas. Escríbenos por WhatsApp y te respondemos al momento.",
+    return { html: "💳 Las formas de pago, el stock y los plazos deben confirmarse con ventas. Por seguridad no solicitamos datos de tarjetas ni comprobantes bancarios en este chat. Puedes enviar la consulta por WhatsApp; el equipo responderá según disponibilidad.",
       chips: ["Precios", "Envíos a provincias", "Contacto"],
       wa: "Hola YACUSOL, ¿qué formas de pago aceptan?" };
   };
@@ -297,14 +297,87 @@
   };
 
   R.humano = function (q) {
-    var tema = (q || "Necesito asesoría personalizada.").slice(0, 200);
-    return { html: "Te pondré en contacto con la atención personal del Ing. Rafael. Este asistente web no envía mensajes por ti: pulsa el botón verde, revisa el texto y envíalo desde WhatsApp. En casos de fuga importante, riesgo eléctrico o quemaduras, suspende el uso de manera segura y solicita ayuda técnica.",
-      chips: ["Precios", "Garantía", "Tengo un problema"],
-      wa: "ATENCIÓN HUMANA SOLICITADA - YACUSOL. Motivo: " + tema + ". Solicito que el Ing. Rafael me atienda personalmente." };
+    var tema = String(q || "Solicito atención personal.").slice(0, 200);
+    return { html: "He clasificado tu consulta para <b>atención personal del Ing. Rafael Zeña</b>. Pulsa el botón de WhatsApp y <b>envía</b> el mensaje prellenado para que llegue a su teléfono. <p class='ya-nota'>Importante: este chat web no envía alertas ni mensajes automáticamente. Una vez que envíes el WhatsApp, el equipo podrá atenderte según disponibilidad.</p>",
+      chips: ["Cotizar mi terma", "Tengo un problema", "Precios"],
+      wa: "YACUSOL | SOLICITO ATENCIÓN PERSONAL DEL ING. RAFAEL. Motivo: " + tema + ". Origen: asistente web YACUSOL." };
   };
 
+  R.seguridad = function (q) {
+    return { html: "⚠️ <b>Atención técnica prioritaria.</b> Si observas fuga importante, tanque deformado, humo, olor a quemado, un choque eléctrico o riesgo de quemaduras, <b>deja de usar el equipo</b> y evita tocar cables o conexiones. Solicita ayuda de personal técnico competente; solo corta la alimentación o el suministro si puedes hacerlo sin exponerte. <p class='ya-nota'>Para solicitar atención al Ing. Rafael, abre WhatsApp y envía el mensaje. El asistente no lo avisa por sí solo.</p>",
+      chips: ["Hablar con el Ing. Rafael", "Tengo un problema"],
+      wa: "YACUSOL | PRIORIDAD ALTA - NECESITO REVISIÓN TÉCNICA. Descripción: " + String(q || "falla de seguridad").slice(0,140) + ". Solicito contacto de un técnico / Ing. Rafael. Origen: asistente web." };
+  };
+
+  // Precalificación de una cotización sin recopilar nombre, teléfono ni dirección exacta.
+  // Los datos permanecen solo en esta sesión del navegador y se transfieren únicamente
+  // cuando el visitante decide abrir WhatsApp y pulsa Enviar.
+  var entrevista = null;
+  function iniciarCotizacion() {
+    entrevista = { paso: "distrito", distrito: "", personas: null, duchas: null, suministro: "" };
+    return { html: "Perfecto. Te ayudaré a solicitar una <b>cotización YACUSOL</b> con los datos necesarios para orientarte correctamente. <b>Primero:</b> ¿en qué distrito se instalaría la terma? No escribas tu dirección exacta.",
+      chips: ["Huaraz", "Independencia", "Otro distrito", "Cancelar cotización"] };
+  }
+  function numeroEnTexto(t) {
+    var m = t.match(/\b(\d{1,2})\b/);
+    if(m) return +m[1];
+    var palabras = { uno:1, una:1, dos:2, tres:3, cuatro:4, cinco:5, seis:6, siete:7, ocho:8, nueve:9, diez:10, once:11, doce:12 };
+    return palabras[t] || null;
+  }
+  function seguirCotizacion(q) {
+    var t = norm(q);
+    if (t === "cancelar cotizacion" || t === "cancelar") {
+      entrevista = null;
+      return { html: "La orientación se ha cancelado. No se enviaron datos a ningún servidor.", chips: ["Cotizar mi terma", "Precios", "Contacto"] };
+    }
+    if (entrevista.paso === "distrito") {
+      if (t === "otro distrito" || t.length < 3 || t.length > 65) {
+        return { html: "Indícame solo el <b>distrito y ciudad</b> donde se instalaría, por ejemplo: Carhuaz, Áncash. No necesito tu dirección.", chips: ["Huaraz", "Independencia", "Cancelar cotización"] };
+      }
+      entrevista.distrito = String(q).trim().slice(0,65);
+      entrevista.paso = "personas";
+      return { html: "Gracias. ¿Cuántas personas utilizarían el agua caliente regularmente? Escribe solo el número, por ejemplo, <b>5</b>.", chips: ["3", "4", "5", "6", "Cancelar cotización"] };
+    }
+    if (entrevista.paso === "personas") {
+      var p = numeroEnTexto(t);
+      if (!p || p > 30) return { html: "Necesito un número de personas entre 1 y 30, por favor.", chips: ["3", "4", "5", "6", "Cancelar cotización"] };
+      entrevista.personas = p;
+      entrevista.paso = "duchas";
+      return { html: "¿Cuántas <b>duchas</b> podrían utilizar agua caliente en la vivienda? Escribe el número.", chips: ["1", "2", "3", "Cancelar cotización"] };
+    }
+    if (entrevista.paso === "duchas") {
+      var d = numeroEnTexto(t);
+      if (!d || d > 20) return { html: "Indícame una cantidad de duchas entre 1 y 20.", chips: ["1", "2", "3", "Cancelar cotización"] };
+      entrevista.duchas = d;
+      entrevista.paso = "suministro";
+      return { html: "Una última pregunta técnica: ¿cómo llega el agua fría al lugar de instalación? Los modelos YACUSOL habituales son <b>no presurizados</b> y deben evaluarse según el suministro de agua.",
+        chips: ["Tanque elevado", "Red directa", "No estoy seguro", "Cancelar cotización"] };
+    }
+    if (entrevista.paso === "suministro") {
+      if (!has(t, ["tanque elevado", "red directa", "no estoy seguro", "no se", "cisterna"])) {
+        return { html: "Elige <b>Tanque elevado</b>, <b>Red directa</b> o <b>No estoy seguro</b>. Un técnico confirmará la compatibilidad.", chips: ["Tanque elevado", "Red directa", "No estoy seguro", "Cancelar cotización"] };
+      }
+      entrevista.suministro = String(q).trim().slice(0,30);
+      var e = entrevista;
+      entrevista = null;
+      var msg = "YACUSOL | COTIZACIÓN PRECALIFICADA. Distrito: " + e.distrito +
+        ". Personas: " + e.personas + ". Duchas: " + e.duchas +
+        ". Agua fría: " + e.suministro +
+        ". Solicito que confirmen capacidad recomendada, alcance del montaje, accesorios, precio y disponibilidad. Origen: asistente web.";
+      return { html: "✅ <b>Resumen de tu consulta:</b><br>Distrito: <b>" + esc(e.distrito) +
+        "</b><br>Personas: <b>" + e.personas + "</b><br>Duchas: <b>" + e.duchas +
+        "</b><br>Agua fría: <b>" + esc(e.suministro) +
+        "</b><p class='ya-nota'>La capacidad definitiva depende también de hábitos de consumo, caudal, ubicación y montaje. Si tu agua proviene de una red directa, es imprescindible evaluar la alimentación antes de seleccionar el equipo.</p>" +
+        "<p><b>Envía esta ficha por WhatsApp</b> con el botón verde para que el equipo prepare tu cotización. No se ha enviado automáticamente.</p>",
+        chips: ["Nueva cotización", "Hablar con el Ing. Rafael"],
+        wa: msg };
+    }
+    entrevista = null;
+    return R.saludo();
+  }
+
   R.noEntiendo = function (q) {
-    return { html: "No tengo esa respuesta exacta todavía 🤔, pero el Ing. Rafael o el equipo de ventas te responden rápido por WhatsApp. También puedes elegir un tema:",
+    return { html: "No dispongo de información verificada para responder con precisión. Prefiero no darte un dato equivocado. Puedes enviar tu consulta por WhatsApp o elegir una de estas opciones:",
       chips: ["Precios", "¿Qué capacidad necesito?", "Paquete Todo en Uno", "Instalación", "Hablar con el Ing. Rafael", "Garantía", "Tengo un problema"],
       wa: "Hola YACUSOL, tengo una consulta: " + q };
   };
@@ -382,17 +455,23 @@
     "atencion humana": R.humano
   };
   function resolver(q) {
-    var f = ATAJOS[norm(q)];
+    var t = norm(q);
+    if (has(t, ["electrocucion", "descarga electrica", "choque electrico", "cortocircuito", "olor a quemado", "humo", "incendio", "tanque deformado", "fuga importante", "me queme", "quemadura", "cable pelado"])) { entrevista = null; return R.seguridad(q); }
+    if (has(t, ["hablar con el ing", "hablar con persona", "atencion humana", "hablar con rafael", "me llame", "que me llamen", "reclamo", "queja", "hablar con un asesor", "atencion personal"])) { entrevista = null; return R.humano(q); }
+    if (t === "cotizar mi terma" || t === "quiero cotizar" || t === "nueva cotizacion" || t === "cotizacion guiada") return iniciarCotizacion();
+    if (entrevista) return seguirCotizacion(q);
+    if (has(t, ["hotel", "hospedaje", "hostal", "restaurante", "proyecto grande", "obra nueva", "servicio especial", "descuento especial"])) return R.humano("Consulta comercial o proyecto especial: " + q);
+    var f = ATAJOS[t];
     return f ? f() : responder(q);
   }
 
   /* ---------------- Interfaz ---------------- */
   var css = "" +
-    "#ya-launcher{position:fixed;right:16px;bottom:16px;z-index:2147483000;display:flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:12px 18px 12px 14px;background:#F28C1E;color:#fff;font:700 16px/1.1 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;box-shadow:0 10px 28px rgba(6,28,58,.32);cursor:pointer}" +
+    "#ya-launcher{position:fixed;right:16px;bottom:16px;z-index:2147483000;display:flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:12px 18px 12px 14px;background:#F28C1E;color:#fff;font:700 16px/1.1 Arial,Helvetica,sans-serif;box-shadow:0 10px 28px rgba(6,28,58,.32);cursor:pointer}" +
     "#ya-launcher:hover{background:#D9700A}#ya-launcher .ya-ic{font-size:22px}" +
     "#ya-launcher.ya-pulse{animation:yaPulse 1.6s ease-in-out 3}" +
     "@keyframes yaPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}" +
-    "#ya-panel{position:fixed;right:16px;bottom:16px;z-index:2147483001;width:min(390px,calc(100vw - 32px));height:min(620px,calc(100vh - 32px));display:none;flex-direction:column;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 24px 70px rgba(6,28,58,.38);font:15px/1.45 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:#132238}" +
+    "#ya-panel{position:fixed;right:16px;bottom:16px;z-index:2147483001;width:min(390px,calc(100vw - 32px));height:min(620px,calc(100vh - 32px));display:none;flex-direction:column;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 24px 70px rgba(6,28,58,.38);font:15px/1.45 Arial,Helvetica,sans-serif;color:#132238}" +
     "#ya-panel.ya-open{display:flex}" +
     ".ya-head{display:flex;align-items:center;gap:10px;padding:14px 14px 14px 16px;background:linear-gradient(135deg,#0C2340,#16315B);color:#fff}" +
     ".ya-head .ya-av{width:38px;height:38px;border-radius:50%;background:#F28C1E;display:grid;place-items:center;font-size:20px;flex:none}" +
@@ -414,7 +493,7 @@
     ".ya-chip:hover{background:#FFF1DE}" +
     ".ya-typing{align-self:flex-start;color:#5D7086;font-size:13px;padding:0 4px}" +
     ".ya-form{display:flex;gap:8px;padding:10px;border-top:1px solid #DCE6F2;background:#fff}" +
-    ".ya-form input{flex:1;min-width:0;border:1px solid #C9D6E4;border-radius:12px;padding:11px 12px;font:16px system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:#132238;background:#fff}" +
+    ".ya-form input{flex:1;min-width:0;border:1px solid #C9D6E4;border-radius:12px;padding:11px 12px;font:16px Arial,Helvetica,sans-serif;color:#132238;background:#fff}" +
     ".ya-form input:focus{outline:2px solid #F28C1E;border-color:transparent}" +
     ".ya-form button{border:0;border-radius:12px;padding:0 16px;background:#F28C1E;color:#fff;font-weight:700;font-size:15px;cursor:pointer}" +
     "@media (max-width:520px){#ya-panel{right:0;bottom:0;width:100vw;height:100%;border-radius:0}#ya-launcher .ya-tx{font-size:15px}}" +
@@ -435,7 +514,7 @@
   panel.setAttribute("role", "dialog");
   panel.setAttribute("aria-label", "Asistente YACUSOL");
   panel.innerHTML =
-    "<div class='ya-head'><div class='ya-av' aria-hidden='true'>☀️</div><div><b>Asistente YACUSOL</b><small>Respuestas al instante · 24 horas</small></div>" +
+    "<div class='ya-head'><div class='ya-av' aria-hidden='true'>☀️</div><div><b>Asistente YACUSOL</b><small>Orientación virtual · consulta técnica y comercial</small></div>" +
     "<button class='ya-x' type='button' aria-label='Cerrar'>×</button></div>" +
     "<div class='ya-body' aria-live='polite'></div>" +
     "<form class='ya-form'><input type='text' placeholder='Escribe tu pregunta… ej: precio 200 litros' aria-label='Tu pregunta' maxlength='200' autocomplete='off'><button type='submit'>Enviar</button></form>";
@@ -528,5 +607,5 @@
   window.addEventListener("hashchange", function () { if (location.hash === "#asistente") abrir(); });
 
   // Solo para pruebas.
-  window.__asistenteYacusol = { responder: resolver };
+  window.__asistenteYacusol = { responder: resolver, reiniciarCotizacion: function () { entrevista = null; } };
 })();
