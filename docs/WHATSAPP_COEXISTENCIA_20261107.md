@@ -1,6 +1,26 @@
 # YACUSOL | Incorporación segura de WhatsApp 942 899 919 con Coexistence
 Fecha de preparación: 07/11/2026. ESTADO: NO CONECTADO. Esta guía no cambia el número ni contrata servicios.
 
+## Estado real de elegibilidad (actualizado 07/11/2026)
+- [x] El propietario confirmó que **942 899 919 usa WhatsApp Business App** en el teléfono. No se requiere volver a preguntar este dato.
+- [ ] Confirmar versión de WhatsApp Business **2.24.17 o posterior** y actualización vigente.
+- [ ] Crear y verificar una **copia de seguridad reciente**, identificando cuenta y hora sin exponer capturas de chats ni códigos. Esto NO cambia el número.
+- [ ] En Meta Business Suite, confirmar que la cuenta empresarial correcta tiene administrador propio, activos de página YACUSOL y que el número 942 899 919 está agregado en Cuentas de WhatsApp. No asumir que Facebook o Instagram conectados a Metricool prueban este paso.
+- [ ] Revisar dispositivos vinculados; Coexistence puede desvincular los secundarios. WhatsApp para Windows puede no reflejar mensajes en la API, lo que afecta la pretensión de capturar el 100 % de conversaciones.
+- [ ] Confirmar si el número está asociado ya a otro BSP/API (solo puede haber uno). **No** cambiar de proveedor, registrar el número como WhatsApp personal ni desconectar para sortear errores sin revisión adicional.
+- [ ] Verificar la elegibilidad **durante Embedded Signup de Meta** en el modo específico 'Connect WhatsApp Business App'. No se puede declarar elegible con los datos disponibles. Si aparece error de no elegibilidad, DETENER y consultar; no migrar unilateralmente a API exclusiva.
+- [ ] Antes de consentir, mostrar al propietario el aviso de pérdida de funciones: listas de difusión nuevas desde la app, editar/revocar mensajes 1:1, mensajes temporales, visualización única, ubicación en tiempo real, sincronización de chats pasados al CRM. En respond.io el historial antiguo permanece visible en WhatsApp Business App, pero NO se importa al buzón nuevo.
+- [ ] Aceptar condiciones económicas: al 07/11/2026 respond.io declara **Starter USD 79/mes** y **Growth USD 159/mes** como tarifas de referencia en su página; **Agentes IA y automatizaciones están en Growth**, sujeto a plan y contactos activos. Hay prueba de 7 días sin tarjeta según su sitio. Los cargos de mensajes de WhatsApp Business Platform pueden ser adicionales y se calculan separadamente. Revalidar antes de contratar. No realizar pago ni suscripción automática.
+- [ ] Confirmar si la solución permite atender efectivamente los mensajes llegados desde anuncios Click-to-WhatsApp: el proveedor documenta que algunos primeros mensajes pueden aparecer como tipo no compatible en Coexistence. Debe planearse respaldo de revisión manual del teléfono y una prueba de extremo a extremo.
+- [ ] Activar **solo** después de probar 10 casos, acuse de notificación al ingeniero y paso a atención humana sin doble respuesta.
+
+Documentación vigente consultada:
+- https://respond.io/help/whatsapp/whatsapp-coexistence (actualizada 05/11/2026)
+- https://respond.io/es/pricing
+- https://faq.whatsapp.com/696845041357696/?cms_platform=android&locale=es_LA
+
+**Seguridad:** no pedir compartir PIN, OTP, QR de emparejamiento, contraseñas, tokens ni capturas de conversaciones personales. No autorizar una conexión que pida borrar WhatsApp Business o migrar a API exclusiva.
+
 ## Objetivo
 Mantener el mismo número de atención 942 899 919 y la aplicación WhatsApp Business del teléfono, incorporar respuestas de IA, registrar prospectos y permitir alertas reales al Ing. Rafael Zeña; posteriormente integrar Facebook Messenger e Instagram. La opción preferida de piloto es respond.io con WhatsApp Business App Coexistence, sujeta a elegibilidad y autorización del propietario.
 
