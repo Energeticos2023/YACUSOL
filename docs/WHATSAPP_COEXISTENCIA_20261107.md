@@ -79,6 +79,17 @@ Estados: NUEVO -> ATENDIDO_BOT -> PRECALIFICADO -> ESPERA_INGENIERO -> CONTACTAD
 Wati con Coexistence (https://support.wati.io/en/articles/11822421-how-to-connect-your-whatsapp-number-to-wati-via-whatsapp-coexistence-coex); 360dialog con API y backend propio. La compatibilidad de sincronización varía entre socios. El proyecto Supabase Energeticos_Academia existente está INACTIVO y no debe utilizarse sin aprobación y revisión de presupuesto. No lanzar infraestructura con pago automático.
 
 ## BLOQUEO CRÍTICO — 07/11/2026: restricción de publicidad de Meta
+### Diagnóstico detallado por captura del Centro de soporte Meta
+- Perfil personal afectado: **Zeña José**.
+- Fecha de inicio del estado indicada por Meta: **12/10/2024**.
+- Tipo de bloqueo: **restricción del acceso a productos de Meta con fines publicitarios**, incluyendo no poder usar/administrar cuentas publicitarias, crear o publicar anuncios, ni administrar activos publicitarios o personas para empresas.
+- Activos desactivados listados: cuenta publicitaria personal y audiencias.
+- Registro inferior: **2 anuncios rechazados**; Meta ofrece ejemplos de posibles infracciones pero no individualiza causa real del perfil. No concluir que esos 2 rechazos son la causa.
+- La pantalla no muestra un botón de «Solicitar revisión» en la zona visible. Debe verificarse si existe al desplazar hasta el final o dentro del centro de asistencia. Restricción de 2024: no prometer elegibilidad de apelación ni resolución.
+- Ruta de comprobación vigente: https://business.facebook.com/business-support-home/ ; abrir ficha del perfil restringido, buscar revisión disponible y soporte. No usar «Aumenta tu límite de gasto diario/Empezar»: es otra función.
+- No es un bloqueo comprobado de WhatsApp Business App ni de publicación orgánica mediante Metricool, aunque impide crear portafolio desde ese perfil.
+- Objetivo alternativo mientras tanto: optimizar mensajes automáticos y respuestas rápidas nativas de WhatsApp Business sin APIs ni plataformas externas; NO alegar que las alertas a propietario son automáticas.
+
 El usuario compartió captura del formulario «Crea un porfolio empresarial» con aviso: «Se ha restringido tu acceso a la publicidad. Ya no tienes permiso para hacer publicidad en los servicios y aplicaciones de Facebook. No puedes poner anuncios en circulación, administrar activos publicitarios, crear cuentas publicitarias ni porfolios empresariales.»
 - **No es un error de nombre del portafolio**. Suspender intentos de creación/cambios de nombre, compras, vinculación/migración de número y configuración Coexistence.
 - Revisar desde sesión legítima Meta Business Support Home/Calidad de la cuenta: https://business.facebook.com/accountquality . Determinar objeto restringido (perfil personal, página, cuenta de anuncios o negocio), motivo y si aparece «Solicitar revisión». Solo usuario autorizado debe completar verificaciones.
