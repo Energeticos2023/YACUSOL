@@ -4,7 +4,7 @@ Fecha de preparación: 07/11/2026. ESTADO: NO CONECTADO. Esta guía no cambia el
 ## Estado real de elegibilidad (actualizado 07/11/2026)
 - [x] El propietario confirmó que **942 899 919 usa WhatsApp Business App** en el teléfono. No se requiere volver a preguntar este dato.
 - [ ] Confirmar versión de WhatsApp Business **2.24.17 o posterior** y actualización vigente.
-- [ ] Crear y verificar una **copia de seguridad reciente**, identificando cuenta y hora sin exponer capturas de chats ni códigos. Esto NO cambia el número.
+- [x] El propietario confirmó el 07/11/2026 que dispone de **copia de seguridad reciente y completada** de WhatsApp Business del 942 899 919. Esta confirmación es declarativa, no revisión de la copia ni de su capacidad de restauración; no cambió el número.
 - [ ] En Meta Business Suite, confirmar que la cuenta empresarial correcta tiene administrador propio, activos de página YACUSOL y que el número 942 899 919 está agregado en Cuentas de WhatsApp. No asumir que Facebook o Instagram conectados a Metricool prueban este paso.
 - [ ] Revisar dispositivos vinculados; Coexistence puede desvincular los secundarios. WhatsApp para Windows puede no reflejar mensajes en la API, lo que afecta la pretensión de capturar el 100 % de conversaciones.
 - [ ] Confirmar si el número está asociado ya a otro BSP/API (solo puede haber uno). **No** cambiar de proveedor, registrar el número como WhatsApp personal ni desconectar para sortear errores sin revisión adicional.
