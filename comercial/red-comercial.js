@@ -23,7 +23,8 @@
     ["Termas solares YACUSOL", catalogue],
     ["Catálogo y cotizador", "https://energeticos2023.github.io/Yacusol-app/"],
     ["Servicios ENERGÉTICOS", "https://energeticos2023.github.io/energeticos/"],
-    ["TecGo · Soporte técnico", "https://energeticos2023.github.io/TecGo/"]
+    ["TecGo · Soporte técnico", "https://energeticos2023.github.io/TecGo/"],
+    ["Soluciones fotovoltaicas", "https://energeticos2023.github.io/Calculo-SFV/"]
   ];
   var css = [
     "#en-red-launcher{position:fixed;left:14px;bottom:15px;z-index:2147482500;display:flex;align-items:center;gap:8px;padding:12px 16px;border:2px solid #f8b951;border-radius:999px;background:#0c2340;color:#fff;box-shadow:0 7px 25px #061c3a55;cursor:pointer;font:700 14px/1.2 Arial,sans-serif}",
