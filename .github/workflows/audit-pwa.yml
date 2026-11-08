@@ -1,0 +1,23 @@
+name: Auditoría PWA · caché aislada
+on:
+  pull_request:
+    paths:
+      - 'service-worker.js'
+      - 'tests/audit-sw.mjs'
+      - '.github/workflows/audit-pwa.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'service-worker.js'
+      - 'tests/audit-sw.mjs'
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/audit-sw.mjs
