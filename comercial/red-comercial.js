@@ -105,7 +105,7 @@
       var link = el("a", "en-red-human", "🟢 Pedir atención humana por WhatsApp");
       link.target = "_blank";
       link.rel = "noopener noreferrer";
-      link.href = "https://wa.me/51942899919?text=" + encodeURIComponent("ATENCIÓN HUMANA - ENERGÉTICOS/YACUSOL: " + opt.topic);
+      link.href = "https://wa.me/51983926721?text=" + encodeURIComponent("ATENCIÓN HUMANA - ENERGÉTICOS/YACUSOL: " + opt.topic);
       answerBox.appendChild(link);
     });
     quickArea.appendChild(b);
@@ -115,7 +115,7 @@
   content.appendChild(el("p", "en-red-title", "Atención personalizada"));
   addLink("💬 Asistente de termas YACUSOL", catalogue + "#asistente");
   var msg = "Hola, Ing. Rafael. Necesito atención humana para una consulta sobre ENERGÉTICOS / YACUSOL. Llegué desde " + source + ".";
-  addLink("🟢 Hablar con el Ing. Rafael por WhatsApp", "https://wa.me/51942899919?text=" + encodeURIComponent(msg), "en-red-human");
+  addLink("🟢 Hablar con el Ing. Rafael por WhatsApp", "https://wa.me/51983926721?text=" + encodeURIComponent(msg), "en-red-human");
   content.appendChild(el("p", "en-red-note", "El cliente decide si envía el mensaje. La respuesta personal está sujeta a disponibilidad."));
   content.appendChild(el("p", "en-red-title", "Ayúdanos a llegar a más familias"));
   content.appendChild(el("p", "en-red-note", "Si conoces a alguien que busque agua caliente con energía solar, agradeceremos que compartas nuestro catálogo."));
