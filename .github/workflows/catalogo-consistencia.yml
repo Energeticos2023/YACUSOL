@@ -6,6 +6,10 @@ on:
       - 'app.js'
       - 'cotizar/cotizador.js'
       - 'tests/catalogo-consistencia.mjs'
+      - 'tests/numero-principal-yacusol.mjs'
+      - 'index.html'
+      - 'comercial/red-comercial.js'
+      - 'asistente/asistente.js'
       - '.github/workflows/catalogo-consistencia.yml'
   push:
     branches: [main]
@@ -25,3 +29,4 @@ jobs:
         with:
           node-version: '22'
       - run: node tests/catalogo-consistencia.mjs
+      - run: node tests/numero-principal-yacusol.mjs
