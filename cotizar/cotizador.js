@@ -5,7 +5,7 @@ const CATALOGO_YACUSOL=Object.freeze({120:1700,150:1850,200:2550,250:2800,300:35
 const EXTRAS=Object.freeze({magnesio:{nombre:"Barra de magnesio",precio:80},resistencia:{nombre:"Resistencia eléctrica de respaldo",precio:110},valvula:{nombre:"Válvula termostática",precio:350},tanque5:{nombre:"Tanque asistente 5 L",precio:150},tanque10:{nombre:"Tanque asistente 10 L",precio:250},controlador:{nombre:"Controlador TK",precio:450},instalacion:{nombre:"Instalación básica en Huaraz",precio:200}});
 const INCLUYE_BASE=["Termotanque de baja presión, marca YACUSOL","Tubos al vacío","Estructura de soporte"];
 const EXCLUYE_BASE=["Accesorios de conexión: codos, válvulas, check, pegamento y adaptadores","Tanque asistente","Válvula termostática","Controlador electrónico","Instalación y flete"];
-const WA_PUBLICO="51961120481"; // Línea de cotización publicada actualmente en la web de YACUSOL.
+const WA_PUBLICO="51983926721"; // Línea de cotización publicada actualmente en la web de YACUSOL.
 const $=id=>document.getElementById(id);
 const soles=x=>new Intl.NumberFormat("es-PE",{style:"currency",currency:"PEN",minimumFractionDigits:2}).format(x);
 function entrada(){
