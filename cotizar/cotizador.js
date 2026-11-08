@@ -58,8 +58,10 @@ function whatsapp(){
  if(!Number.isInteger(v.cantidad)||v.cantidad<1||v.cantidad>30){alert("Indica una cantidad entre 1 y 30.");$("cantidad").focus();return;}
  const ciudad=$("distrito").value.trim(),nombre=$("nombre").value.trim(),personas=$("personas").value;
  const tipo=v.navidad?"Promoción Navidad 2026 (sujeta a confirmación)":"Configuración regular";
+ const localReference="WEB-"+crypto.randomUUID();
  const lines=[
  "Hola, ENERGÉTICOS. Solicito cotización de terma solar.",
+ "Referencia local: "+localReference+" (no confirma recepción).",
  nombre?"Nombre: "+nombre:"",
  "Marca: "+v.marca,
  "Capacidad: "+(v.litros==="otro"?"por definir":v.litros+" litros"),
