@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0C2340">
+<meta name="description" content="Cotiza tu terma solar con ENERGÉTICOS. Elige YACUSOL, XOLMAX, LUXXOL, INTIPOWER o TERMOINOX; consulta precios verificados y solicita disponibilidad por WhatsApp.">
+<title>Cotización rápida de termas solares | ENERGÉTICOS</title>
+<link rel="icon" href="../assets/logo-energeticos.jpeg">
+<link rel="stylesheet" href="./estilos.css?v=20261108-2">
+<script src="./cotizador.js?v=20261108-2" defer></script>
+</head>
+<body>
+<header class="top">
+  <div class="shell topline">
+    <a class="wordmark" href="../"><strong>ENERGÉTICOS</strong><span>TERMAS SOLARES · ATENCIÓN MULTIMARCA</span></a>
+    <a class="back" href="../">Volver al catálogo</a>
+  </div>
+</header>
+<main class="shell">
+<section class="intro"><p class="eyebrow">COTIZACIÓN COMERCIAL · SIN REGISTRO</p>
+<h1>Encuentra la terma ideal para tu hogar.</h1>
+<p>Elige la marca y capacidad. Obtén una propuesta orientativa y consúltanos disponibilidad, entrega y montaje directamente por WhatsApp.</p></section>
+<div class="layout">
+<form id="cotizador" class="panel" novalidate>
+ <h2>1. Configura tu terma</h2>
+ <div class="fields">
+  <label class="full">Marca<select id="marca" required><option value="YACUSOL">YACUSOL</option><option value="XOLMAX">XOLMAX</option><option value="LUXXOL">LUXXOL</option><option value="INTIPOWER">INTIPOWER</option><option value="TERMOINOX">TERMOINOX</option></select></label>
+  <label>Capacidad (litros)<select id="capacidad"><option value="120">120 litros</option><option value="150">150 litros</option><option value="200">200 litros</option><option value="250">250 litros</option><option value="300">300 litros</option><option value="400">400 litros</option><option value="500">500 litros</option><option value="otro">Otra capacidad</option></select></label>
+  <label>Unidades<input id="cantidad" type="number" min="1" max="30" value="1" required></label>
+  <label class="full">Tipo de propuesta<select id="paquete"><option value="regular">Solo terma, sin adicionales</option><option value="navidad">Promoción Navidad 2026 (YACUSOL, sujeta a confirmación)</option></select></label>
+ </div>
+ <fieldset id="adicionales" class="extras"><legend>Accesorios o servicios adicionales</legend>
+   <label><input type="checkbox" value="magnesio"> Barra de magnesio · S/ 80</label>
+   <label><input type="checkbox" value="resistencia"> Resistencia eléctrica · S/ 110</label>
+   <label><input type="checkbox" value="valvula"> Válvula termostática · S/ 350</label>
+   <label><input type="checkbox" value="tanque5"> Tanque asistente 5 L · S/ 150</label>
+   <label><input type="checkbox" value="tanque10"> Tanque asistente 10 L · S/ 250</label>
+   <label><input type="checkbox" value="controlador"> Controlador TK · S/ 450</label>
+   <label><input type="checkbox" value="instalacion"> Instalación básica en Huaraz · S/ 200</label>
+ </fieldset>
+ <h2>2. Cuéntanos dónde la necesitas</h2>
+ <div class="fields">
+  <label>Distrito o ciudad <input id="distrito" maxlength="90" placeholder="Ej.: Huaraz" autocomplete="address-level2"></label>
+  <label>Personas que usarán agua caliente<input id="personas" type="number" min="1" max="100" placeholder="Ej.: 4"></label>
+  <label class="full">Nombre (opcional)<input id="nombre" maxlength="90" placeholder="¿Cómo podemos llamarte?"></label>
+ </div>
+ <p class="hint">No solicitamos DNI ni dirección exacta. Esta página no almacena tus datos: al pulsar «Solicitar cotización», se abrirá WhatsApp y podrás decidir si envías el mensaje.</p>
+ <button type="submit" class="primary">Solicitar cotización por WhatsApp</button>
+</form>
+<section class="panel summary" aria-live="polite" aria-atomic="true">
+ <p class="eyebrow">TU PROPUESTA</p>
+ <img id="producto" src="../assets/producto-yacusol.png" alt="Fotografía del equipo solar YACUSOL publicado en el catálogo oficial" loading="lazy">
+ <h2 id="titulo">YACUSOL · 120 litros</h2>
+ <p id="precio" class="price">S/ 1,700.00</p>
+ <p id="estado" class="status">Precio base de referencia. Incluye IGV.</p>
+ <h3>Incluye</h3><ul id="incluye"></ul>
+ <h3>No incluye</h3><ul id="excluye"></ul>
+ <p id="alcance" class="hint"></p>
+ <div class="actions">
+ <button type="button" id="imprimir" class="outline">Imprimir resumen</button>
+ <a href="../#precios" class="subtle">Ver catálogo oficial</a>
+ </div>
+ <p class="disclaimer">La solicitud no constituye una venta ni reserva. Confirmaremos marca, capacidad, características, instalación, disponibilidad y precio final antes de emitir una cotización formal. La promoción navideña puede finalizar o cambiar bajo confirmación comercial.</p>
+</section>
+</div>
+</main>
+<footer><div class="shell">ENERGÉTICOS · Huaraz, Áncash · Atención de termas solares · <a href="https://energeticos2023.github.io/YACUSOL/">Catálogo YACUSOL</a></div></footer>
+</body></html>
