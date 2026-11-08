@@ -1,0 +1,25 @@
+name: Cotizador multimarca · QA
+on:
+  pull_request:
+    paths:
+      - 'cotizar/**'
+      - '.github/workflows/cotizador-multimarca-qa.yml'
+      - 'index.html'
+  push:
+    branches: [main]
+    paths:
+      - 'cotizar/**'
+      - '.github/workflows/cotizador-multimarca-qa.yml'
+      - 'index.html'
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Comprobar cotizador publico
+        run: node cotizar/qa.mjs
