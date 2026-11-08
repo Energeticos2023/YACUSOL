@@ -4,6 +4,8 @@ import assert from "node:assert/strict";
 const dir=new URL("./",import.meta.url);
 const get=name=>fs.readFileSync(new URL(name,dir),"utf8");
 const html=get("index.html"),js=get("cotizador.js"),css=get("estilos.css"),website=get("../index.html");
+assert(js.includes("crypto.randomUUID()"),"Falta referencia UUID de consulta");
+assert(js.includes("no confirma recepción"),"No se distingue referencia local de mensaje recibido");
 new vm.Script(js,{filename:"cotizador.js"});
 for(const b of ["YACUSOL","XOLMAX","LUXXOL","INTIPOWER","TERMOINOX"])assert(html.includes('value="'+b+'"'),"Falta la marca "+b);
 assert(website.includes('href="cotizar/"'),"El sitio oficial no enlaza cotizador");
