@@ -1,0 +1,61 @@
+{
+  "version": "2026-11-08.1",
+  "checked_at": "2026-11-08",
+  "currency": "PEN",
+  "tax_included": true,
+  "source": "https://energeticos2023.github.io/YACUSOL/",
+  "approved_scope": "Precios publicados YACUSOL; no autoriza extrapolación a otras marcas",
+  "brands": {
+    "YACUSOL": {
+      "status": "published",
+      "pressure": "baja",
+      "unit_prices_liters": {
+        "120": 1700,
+        "150": 1850,
+        "200": 2550,
+        "250": 2800,
+        "300": 3550,
+        "400": 4450,
+        "500": 5700
+      }
+    },
+    "XOLMAX": {
+      "status": "pending_supplier_verification",
+      "unit_prices_liters": {}
+    },
+    "LUXXOL": {
+      "status": "pending_supplier_verification",
+      "unit_prices_liters": {}
+    },
+    "INTIPOWER": {
+      "status": "pending_supplier_verification",
+      "unit_prices_liters": {}
+    },
+    "TERMOINOX": {
+      "status": "pending_supplier_verification",
+      "unit_prices_liters": {}
+    }
+  },
+  "extras_yacusol": {
+    "magnesio": 80,
+    "resistencia": 110,
+    "valvula": 350,
+    "tanque5": 150,
+    "tanque10": 250,
+    "controlador": 450,
+    "instalacion_basica_huaraz": 200
+  },
+  "promos": {
+    "navidad_2026": {
+      "scope": "YACUSOL",
+      "terms": [
+        "magnesio",
+        "resistencia"
+      ],
+      "status": "confirmar_vigencia_antes_de_emitir"
+    }
+  },
+  "contact_numbers": {
+    "note": "Los números de venta tienen responsables distintos; no unificarlos sin autorización"
+  }
+}
