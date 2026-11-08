@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 const code=fs.readFileSync(new URL("../service-worker.js",import.meta.url),"utf8");
 const handlers={},deletes=[],saved=[];
 const caches={
- keys: async()=>["energeticos-termas-v3-precios-500l","energeticos-termas-v4-auditoria","tecgo-other","energeticos-solicitud-v999","energeticos-termas-third-party","Yacusol-app-private-cache"],
+ keys: async()=>["energeticos-termas-v3-precios-500l","energeticos-termas-v4-auditoria","tecgo-other","energeticos-solicitud-v999","foreign-termas-third-party","Yacusol-app-private-cache"],
  delete:async(name)=>{deletes.push(name);return true},
  open:async()=>({
   addAll:async()=>{},
