@@ -23,7 +23,7 @@
   var C = window.ASISTENTE_CONFIG;
   if (!C || !C.equipos || document.getElementById("ya-launcher")) return;
 
-  var WA = C.whatsapp || "51942899919";
+  var WA = C.whatsapp || "51983926721";
   var EQ = C.equipos;
   var AC = C.accesorios || [];
   var DESC = C.descuentos || {};
