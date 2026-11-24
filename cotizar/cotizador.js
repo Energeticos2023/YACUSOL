@@ -8,12 +8,18 @@ const EXCLUYE_BASE=["Accesorios de conexión: codos, válvulas, check, pegamento
 const WA_PUBLICO="51983926721"; // Línea de cotización publicada actualmente en la web de YACUSOL.
 const $=id=>document.getElementById(id);
 const soles=x=>new Intl.NumberFormat("es-PE",{style:"currency",currency:"PEN",minimumFractionDigits:2}).format(x);
+function esZonaLocal(zona){
+ const distrito=zona.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim().replace(/\s+/g," ");
+ return /^(?:distrito de )?(?:huaraz|independencia)(?:\s*,\s*ancash)?$/.test(distrito);
+}
 function entrada(){
  const marca=$("marca").value,litros=$("capacidad").value,cantidad=Number($("cantidad").value),
  navidad=$("paquete").value==="navidad"&&marca==="YACUSOL";
  const precioConocido=marca==="YACUSOL"&&Object.prototype.hasOwnProperty.call(CATALOGO_YACUSOL,litros);
  const elegidos=[...document.querySelectorAll('#adicionales input[type="checkbox"]:checked')].map(x=>x.value);
- const extras=precioConocido?elegidos.filter(x=>!(navidad&&["magnesio","resistencia"].includes(x))).map(x=>EXTRAS[x]).filter(Boolean):[];
+ const zonaLocal=esZonaLocal($("distrito").value);
+ const instalacionPorCotizar=precioConocido&&elegidos.includes("instalacion")&&!zonaLocal;
+ const extras=precioConocido?elegidos.filter(x=>!(navidad&&["magnesio","resistencia"].includes(x))&&(x!=="instalacion"||zonaLocal)).map(x=>EXTRAS[x]).filter(Boolean):[];
  const incluye=precioConocido?(navidad?[...INCLUYE_BASE,"Barra de magnesio","Resistencia eléctrica de respaldo"]:[...INCLUYE_BASE]):[];
  for(const e of extras)incluye.push(e.nombre+" (adicional)");
  const excluye=precioConocido?EXCLUYE_BASE.filter(x=>
@@ -22,8 +28,9 @@ function entrada(){
  !(x==="Controlador electrónico"&&extras.some(e=>e.nombre==="Controlador TK"))&&
  !(x==="Instalación y flete"&&extras.some(e=>e.nombre.startsWith("Instalación")))):[];
  if(precioConocido&&extras.some(e=>e.nombre.startsWith("Instalación"))){const idx=excluye.indexOf("Instalación y flete");if(idx>=0)excluye.splice(idx,1);excluye.push("Flete y trabajos fuera del alcance de instalación básica");}
+ if(instalacionPorCotizar)excluye.splice(excluye.indexOf("Instalación y flete"),1,"Instalación solicitada: por cotizar según la zona","Flete: por cotizar");
  const unitario=precioConocido?CATALOGO_YACUSOL[litros]+extras.reduce((sum,e)=>sum+e.precio,0):null;
- return {marca,litros,cantidad,navidad,precioConocido,extras,incluye,excluye,unitario,
+ return {marca,litros,cantidad,navidad,precioConocido,extras,incluye,excluye,unitario,zonaLocal,instalacionPorCotizar,
  total:precioConocido?Math.round(unitario*cantidad*100)/100:null};
 }
 function lista(element,items,placeholder){
@@ -34,6 +41,8 @@ function lista(element,items,placeholder){
 function calcular(){
  const v=entrada();
  const disabled=v.marca!=="YACUSOL";
+ const etiquetaInstalacion=$("etiqueta-instalacion");
+ if(etiquetaInstalacion)etiquetaInstalacion.textContent=v.zonaLocal?"Instalación básica local · S/ 200":"Solicitar instalación · por cotizar según la zona";
  $("paquete").disabled=disabled;
  $("adicionales").disabled=disabled;
  if(disabled) {
@@ -47,7 +56,7 @@ function calcular(){
  }
  $("titulo").textContent=v.marca+" · "+(v.litros==="otro"?"capacidad por definir":v.litros+" litros");
  $("precio").textContent=v.precioConocido&&v.cantidad>=1&&v.cantidad<=30?soles(v.total):"Precio por cotizar";
- $("estado").textContent=v.precioConocido?"Precio de referencia publicado, con IGV. "+(v.navidad?"Promoción navideña sujeta a confirmación.":"Equipamiento básico."):"No contamos con una lista de precios validada para esta marca/capacidad. Se solicita cotización personalizada.";
+ $("estado").textContent=v.precioConocido?"Precio de referencia publicado, con IGV. "+(v.instalacionPorCotizar?"La instalación solicitada no está incluida en el subtotal. ":"")+(v.navidad?"Promoción navideña sujeta a confirmación.":"Equipamiento básico."):"No contamos con una lista de precios validada para esta marca/capacidad. Se solicita cotización personalizada.";
  lista($("incluye"),v.incluye,"Configuración a confirmar según la ficha del fabricante y la oferta comercial.");
  lista($("excluye"),v.excluye,"Exclusiones y servicios a precisar en cotización formal.");
  $("alcance").textContent=v.precioConocido?"Precio base y adicionales provienen de la lista YACUSOL. La promoción no implica instalación gratuita ni disponibilidad inmediata.":"ENERGÉTICOS también comercializa XOLMAX, LUXXOL, INTIPOWER y TERMOINOX. Confirma modelo, presión, capacidad, stock y precio con ventas.";
@@ -71,7 +80,7 @@ function whatsapp(){
  Number(personas)>0?"Usuarios estimados: "+personas:"",
  v.precioConocido?"Incluye: "+v.incluye.join(", "):"",
  v.precioConocido?"No incluye: "+v.excluye.join("; "):"",
- v.precioConocido?"Total referencial publicado (con IGV): "+soles(v.total):"Precio, características y disponibilidad: por confirmar",
+ v.precioConocido?(v.instalacionPorCotizar?"Subtotal referencial sin instalación ni flete (con IGV): ":"Total referencial publicado (con IGV): ")+soles(v.total):"Precio, características y disponibilidad: por confirmar",
  "Por favor confirmar ficha, capacidad, precio final, accesorios, instalación, flete y plazo antes de la compra."
  ].filter(Boolean);
  const query=new URLSearchParams(window.location.search);
@@ -81,7 +90,7 @@ function whatsapp(){
  window.open("https://wa.me/"+WA_PUBLICO+"?text="+encodeURIComponent(lines.join("\n")),"_blank","noopener,noreferrer");
 }
 function init(){
- for(const id of ["marca","capacidad","cantidad","paquete"]){$(id).addEventListener("change",calcular);$(id).addEventListener("input",calcular);}
+ for(const id of ["marca","capacidad","cantidad","paquete","distrito"]){$(id).addEventListener("change",calcular);$(id).addEventListener("input",calcular);}
  $("adicionales").addEventListener("change",e=>{
   if(e.target.value==="tanque5"&&e.target.checked)document.querySelector('#adicionales input[value="tanque10"]').checked=false;
   if(e.target.value==="tanque10"&&e.target.checked)document.querySelector('#adicionales input[value="tanque5"]').checked=false;
